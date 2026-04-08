@@ -22,6 +22,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -34,4 +35,4 @@ USER nextjs
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "PORT=3000 node server.js"]
+CMD ["sh", "-c", "export PORT=3000 && exec node server.js"]
