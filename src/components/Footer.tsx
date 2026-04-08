@@ -16,9 +16,11 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Logo & Tagline */}
           <div>
-            <span className="font-display text-xl font-extrabold tracking-tight text-white">
-              BEPARTNER
-            </span>
+            <svg viewBox="0 0 220 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-auto">
+              <text x="0" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">BEP</text>
+              <g transform="translate(62, 2)"><polygon points="10,0 20,22 0,22" fill="#753D94" /><line x1="5" y1="14" x2="15" y2="14" stroke="white" strokeWidth="2" /></g>
+              <text x="82" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">RTNER</text>
+            </svg>
             <p className="mt-3 text-sm text-gray-400">
               Socios de crecimiento para ecommerce
             </p>

@@ -11,6 +11,25 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
+function BepartnerLogo() {
+  return (
+    <svg viewBox="0 0 220 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-auto sm:h-7">
+      {/* B */}
+      <text x="0" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">
+        BEP
+      </text>
+      {/* A as triangle */}
+      <g transform="translate(62, 2)">
+        <polygon points="10,0 20,22 0,22" fill="#753D94" />
+        <line x1="5" y1="14" x2="15" y2="14" stroke="white" strokeWidth="2" />
+      </g>
+      <text x="82" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">
+        RTNER
+      </text>
+    </svg>
+  )
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -26,14 +45,14 @@ export default function Navbar() {
       <nav
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'border-b border-gray-200/50 bg-surface-warm/80 backdrop-blur-xl'
-            : 'bg-transparent'
+            ? 'bg-[#1a1a2e]/95 shadow-lg backdrop-blur-xl'
+            : 'bg-[#1a1a2e]'
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <a href="#inicio" className="font-display text-xl font-extrabold tracking-tight text-text-heading sm:text-2xl">
-            BEPARTNER
+          <a href="#inicio" className="flex items-center">
+            <BepartnerLogo />
           </a>
 
           {/* Desktop Nav */}
@@ -42,7 +61,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-text-primary transition-colors hover:text-brand-violet"
+                className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
               >
                 {link.label}
               </a>
@@ -51,7 +70,7 @@ export default function Navbar() {
               href="https://www.instagram.com/bepartner.lat/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-secondary transition-colors hover:text-brand-violet"
+              className="text-gray-400 transition-colors hover:text-white"
             >
               <Instagram size={20} />
             </a>
@@ -59,7 +78,7 @@ export default function Navbar() {
               href="https://bepartnerclientes.com.ar"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary !px-5 !py-2 !text-sm"
+              className="rounded-lg border border-brand-violet bg-brand-violet/10 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-brand-violet hover:shadow-lg"
             >
               Acceso clientes
             </a>
@@ -68,7 +87,7 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="text-text-heading md:hidden"
+            className="text-white md:hidden"
             aria-label="Abrir menú"
           >
             <Menu size={28} />
@@ -92,11 +111,11 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 z-50 h-full w-72 bg-white p-6 shadow-xl"
+              className="fixed right-0 top-0 z-50 h-full w-72 bg-[#1a1a2e] p-6 shadow-xl"
             >
               <button
                 onClick={() => setMobileOpen(false)}
-                className="mb-8 ml-auto block text-text-heading"
+                className="mb-8 ml-auto block text-white"
                 aria-label="Cerrar menú"
               >
                 <X size={28} />
@@ -107,17 +126,17 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-lg font-medium text-text-heading transition-colors hover:text-brand-violet"
+                    className="text-lg font-medium text-gray-200 transition-colors hover:text-white"
                   >
                     {link.label}
                   </a>
                 ))}
-                <hr className="border-gray-200" />
+                <hr className="border-white/10" />
                 <a
                   href="https://www.instagram.com/bepartner.lat/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-text-secondary hover:text-brand-violet"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white"
                 >
                   <Instagram size={20} /> Instagram
                 </a>
@@ -125,7 +144,7 @@ export default function Navbar() {
                   href="https://bepartnerclientes.com.ar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary w-full text-center"
+                  className="rounded-lg border border-brand-violet bg-brand-violet px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-brand-violet-hover"
                 >
                   Acceso clientes
                 </a>
