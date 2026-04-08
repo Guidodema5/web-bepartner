@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  bepartner-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_FORM_WEBHOOK_URL=${FORM_WEBHOOK_URL:-}
+      - NEXT_PUBLIC_CALENDLY_URL=${CALENDLY_URL:-https://calendly.com/agencia-bepartner/30min}
+      - NEXT_PUBLIC_LEADMAGNET_URL=${LEADMAGNET_URL:-}
+    restart: unless-stopped
