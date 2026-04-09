@@ -19,7 +19,7 @@ const childVariants = {
 
 export default function ProblemSection() {
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export default function ProblemSection() {
             <motion.div
               key={point}
               variants={childVariants}
-              className="flex items-start gap-3 rounded-lg border border-gray-100 bg-white p-4 shadow-sm"
+              className="flex items-start gap-3 rounded-lg border border-gray-100 bg-surface-warm p-4 shadow-sm"
             >
               <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-50">
                 <X size={14} className="text-status-negative" />

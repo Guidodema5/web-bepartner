@@ -43,7 +43,7 @@ export default function PortalSection() {
   const [activeTab, setActiveTab] = useState('dashboard')
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,16 +91,14 @@ export default function PortalSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-12 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-2xl"
+          className="mb-12 overflow-hidden rounded-xl border border-gray-200 bg-surface-warm shadow-2xl"
         >
-          {/* Browser chrome */}
           <div className="flex items-center gap-2 border-b border-gray-200 bg-gray-50 px-4 py-3">
             <div className="h-3 w-3 rounded-full bg-red-400" />
             <div className="h-3 w-3 rounded-full bg-yellow-400" />
             <div className="h-3 w-3 rounded-full bg-green-400" />
             <span className="ml-2 text-xs text-gray-400">bepartnerclientes.com.ar</span>
           </div>
-          {/* Screenshot area */}
           <div className="relative aspect-[16/10] bg-gray-100">
             {tabs.map((tab) => (
               <div
@@ -111,15 +109,14 @@ export default function PortalSection() {
               >
                 <Image
                   src={tab.image}
-                  alt={`Portal de Clientes - ${tab.label}`}
+                  alt={`Portal de Clientes Bepartner - ${tab.label}`}
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 1152px"
                 />
               </div>
             ))}
-            {/* Fallback if images don't exist yet */}
-            <div className="absolute inset-0 flex items-center justify-center text-sm text-gray-400">
+            <div className="absolute inset-0 flex items-center justify-center">
               <div className="grid w-full max-w-lg grid-cols-2 gap-3 p-8 sm:grid-cols-4">
                 {['Facturación', 'ROAS', 'Conversión', 'Inv. Ads'].map((m) => (
                   <div key={m} className="rounded-lg bg-white p-3 text-center shadow-sm">
