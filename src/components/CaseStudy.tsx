@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -28,14 +28,38 @@ const metrics = [
   { value: 1760, prefix: '+', suffix: '%', label: 'Crecimiento en ventas' },
   { value: 8, prefix: '', suffix: 'x', label: 'ROAS máximo alcanzado' },
   { value: 35.3, prefix: '', suffix: '%', label: 'Tasa de conversión' },
-  { value: 12.9, prefix: '$', suffix: 'M', label: 'Facturación en febrero' },
+  { value: 12.9, prefix: '$', suffix: 'M', label: 'Facturación febrero 2026' },
 ]
 
-const bars = [
-  { month: 'Nov', sales: 4, revenue: '$694K', height: 5 },
-  { month: 'Dic', sales: 15, revenue: '$2.1M', height: 16 },
-  { month: 'Ene', sales: 96, revenue: '$10.1M', height: 78 },
-  { month: 'Feb', sales: 102, revenue: '$12.9M', height: 100 },
+const timeline = [
+  { month: 'Nov 2025', sales: '4 ventas', revenue: '$694K', roas: 'ROAS 2.5x', phase: 'Testeo' },
+  { month: 'Dic 2025', sales: '15 ventas', revenue: '$2.1M', roas: 'ROAS 2.5x', phase: 'Validación' },
+  { month: 'Ene 2026', sales: '96 ventas', revenue: '$10.1M', roas: 'ROAS 8x', phase: 'Escalado' },
+  { month: 'Feb 2026', sales: '102 ventas', revenue: '$12.9M', roas: 'ROAS 7x', phase: 'Consolidación' },
+]
+
+const steps = [
+  'Estrategia de comunicación y ángulos de venta por producto',
+  'Embudo completo Meta Ads: testeo → validación → escalado → consolidación',
+  'Optimización semanal basada en datos reales',
+  'Acceso al Portal de Clientes con métricas en tiempo real',
+]
+
+const secondaryCases = [
+  {
+    tag: 'E-commerce / Accesorios',
+    title: 'Pullbag: +350% facturación y ROAS de 10',
+    metric: '350%',
+    subtitle: '+350% facturación',
+    description: 'Marca de mochilas y accesorios que pasó de vender por redes sociales a escalar con Meta Ads. Alcanzaron un ROAS de 10x en su mejor mes.',
+  },
+  {
+    tag: 'Servicio / Movilidad',
+    title: 'Derentas: +300% en leads calificados',
+    metric: '300%',
+    subtitle: '+300% leads calificados',
+    description: 'Empresa de alquiler de vehículos que triplicó sus leads calificados con una estrategia de embudo completo en Meta Ads.',
+  },
 ]
 
 export default function CaseStudy() {
@@ -44,6 +68,7 @@ export default function CaseStudy() {
   const sectionInView = useInView(sectionRef, { once: true, amount: 0.2 })
   const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 })
   const [expanded, setExpanded] = useState(false)
+  const [expandedSecondary, setExpandedSecondary] = useState<number | null>(null)
 
   useEffect(() => {
     if (sectionInView && typeof window !== 'undefined' && typeof window.fbq === 'function') {
@@ -52,7 +77,7 @@ export default function CaseStudy() {
   }, [sectionInView])
 
   return (
-    <section ref={sectionRef} id="caso-exito" className="bg-brand-violet-dark px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section ref={sectionRef} id="caso-exito" className="bg-gradient-to-br from-surface-dark to-[#0f0f1e] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,70 +86,50 @@ export default function CaseStudy() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-10 text-center"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.15em] text-white/70">
-            Casos de éxito comprobados
+          <span className="text-xs font-medium uppercase tracking-[0.15em] text-brand-violet">
+            Resultados comprobados
           </span>
           <h2 className="mb-3 mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Resultados reales de tiendas reales
           </h2>
         </motion.div>
 
-        {/* Cases Gallery */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* CARD 1 — Real case */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm"
-          >
-            <span className="text-xs font-medium text-white/60">Moda femenina — Argentina</span>
-            <h3 className="mt-2 text-xl font-bold text-white">
-              Ecommerce de carteras artesanales
-            </h3>
-            <div className="mt-3 font-display text-4xl font-bold text-white sm:text-5xl">
-              +1.760%
+        {/* CASO PRINCIPAL — Le Marde */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-6 rounded-xl border border-brand-violet/30 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+        >
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <span className="text-xs font-medium text-brand-violet">E-commerce / Moda femenina</span>
+              <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+                Le Marde: De 4 a 102 ventas/mes en 3 meses
+              </h3>
+              <p className="mt-2 text-white/60">Ecommerce de carteras artesanales — Argentina</p>
             </div>
-            <p className="mt-1 text-sm text-white/70">en ventas</p>
-            <p className="mt-3 text-white/80">
-              De 4 a 102 ventas/mes en 3 meses
-            </p>
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-            >
-              {expanded ? 'Cerrar detalle' : 'Ver caso completo'}
-              <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                <ChevronDown size={16} />
-              </motion.div>
-            </button>
-          </motion.div>
+            <div className="text-center md:text-right">
+              <div className="font-display text-5xl font-bold text-white sm:text-6xl">
+                +1.760%
+              </div>
+              <p className="mt-1 text-sm text-white/60">Crecimiento en ventas</p>
+            </div>
+          </div>
 
-          {/* CARD 2 — Placeholder for future case */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-            className="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-white/30 p-6 text-center"
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
           >
-            <p className="mb-3 text-lg font-semibold text-white/80">
-              ¿Querés ser nuestro próximo caso?
-            </p>
-            <p className="mb-4 text-sm text-white/50">
-              Estamos sumando nuevos ecommerce al sistema
-            </p>
-            <a
-              href="#contacto"
-              className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-            >
-              Aplicar ahora <ArrowRight size={16} />
-            </a>
-          </motion.div>
-        </div>
+            {expanded ? 'Cerrar detalle' : 'Ver caso completo'}
+            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
+              <ChevronDown size={16} />
+            </motion.div>
+          </button>
+        </motion.div>
 
-        {/* Expanded detail panel */}
+        {/* Expanded detail — Le Marde */}
         <AnimatePresence>
           {expanded && (
             <motion.div
@@ -134,7 +139,7 @@ export default function CaseStudy() {
               transition={{ duration: 0.4, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className="mt-6 rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm sm:p-8">
+              <div className="mb-6 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
                 <p className="mb-6 text-white/80">
                   Buen producto, clientas fieles, pero sin sistema de publicidad que convirtiera en ventas escalables.
                 </p>
@@ -156,30 +161,39 @@ export default function CaseStudy() {
                   </div>
                 </div>
 
-                {/* Bar Chart */}
-                <div className="mb-6 rounded-lg bg-white/5 p-6">
-                  <h4 className="mb-4 text-center text-xs font-medium uppercase tracking-wider text-white/50">
-                    Evolución de facturación
+                {/* Timeline */}
+                <div className="mb-8">
+                  <h4 className="mb-4 text-xs font-medium uppercase tracking-wider text-white/50">
+                    Evolución mes a mes
                   </h4>
-                  <div className="flex items-end justify-center gap-4 sm:gap-8" style={{ height: '180px' }}>
-                    {bars.map((bar, i) => (
-                      <motion.div
-                        key={bar.month}
-                        className="flex flex-col items-center gap-2"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: i * 0.15, duration: 0.5 }}
-                      >
-                        <span className="text-xs font-semibold text-white sm:text-sm">{bar.revenue}</span>
-                        <motion.div
-                          className="w-12 rounded-t-md bg-white sm:w-16"
-                          initial={{ height: 0 }}
-                          animate={{ height: `${bar.height * 1.4}px` }}
-                          transition={{ delay: i * 0.15 + 0.3, duration: 0.8, ease: 'easeOut' }}
-                        />
-                        <span className="text-xs font-medium text-white/70">{bar.month}</span>
-                        <span className="text-[10px] text-white/50">{bar.sales} ventas</span>
-                      </motion.div>
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    {timeline.map((t, i) => (
+                      <div key={t.month} className="rounded-lg bg-white/5 p-4">
+                        <div className="mb-1 text-xs font-semibold text-brand-violet">{t.phase}</div>
+                        <div className="text-sm font-bold text-white">{t.month}</div>
+                        <div className="mt-2 space-y-1 text-xs text-white/60">
+                          <div>{t.sales}</div>
+                          <div>{t.revenue}</div>
+                          <div>{t.roas}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* What we did */}
+                <div className="mb-6">
+                  <h4 className="mb-3 text-xs font-medium uppercase tracking-wider text-white/50">
+                    Lo que hicimos
+                  </h4>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {steps.map((step, i) => (
+                      <div key={i} className="flex items-start gap-2 text-sm text-white/70">
+                        <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-violet text-[10px] font-bold text-white">
+                          {i + 1}
+                        </span>
+                        {step}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -196,6 +210,68 @@ export default function CaseStudy() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* CASOS SECUNDARIOS */}
+        <div className="mb-8 grid gap-4 sm:grid-cols-2">
+          {secondaryCases.map((c, i) => (
+            <motion.div
+              key={c.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
+              className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+            >
+              <span className="text-xs font-medium text-white/50">{c.tag}</span>
+              <h3 className="mt-2 text-lg font-bold text-white">{c.title}</h3>
+              <div className="mt-2 font-display text-3xl font-bold text-white">{c.metric}</div>
+              <p className="mt-1 text-sm text-white/60">{c.subtitle}</p>
+
+              <button
+                onClick={() => setExpandedSecondary(expandedSecondary === i ? null : i)}
+                className="mt-3 text-sm font-medium text-brand-violet transition-colors hover:text-white"
+              >
+                {expandedSecondary === i ? 'Cerrar' : 'Ver caso completo'}
+              </button>
+
+              <AnimatePresence>
+                {expandedSecondary === i && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="mt-3 text-sm text-white/70">{c.description}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="rounded-xl border-2 border-dashed border-white/20 p-8 text-center"
+        >
+          <p className="mb-2 text-lg font-semibold text-white">
+            ¿Querés ser nuestro próximo caso?
+          </p>
+          <p className="mb-4 text-sm text-white/50">
+            Estamos sumando nuevos ecommerce al sistema
+          </p>
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
+          >
+            Aplicar ahora <ArrowRight size={16} />
+          </a>
+        </motion.div>
       </div>
     </section>
   )

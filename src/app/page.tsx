@@ -5,9 +5,7 @@ import ForWhomSection from '@/components/ForWhomSection'
 import PortalSection from '@/components/PortalSection'
 import CaseStudy from '@/components/CaseStudy'
 import Methodology from '@/components/Methodology'
-import Comparison from '@/components/Comparison'
 import AboutSection from '@/components/AboutSection'
-import Process from '@/components/Process'
 import FAQ from '@/components/FAQ'
 import CTAForm from '@/components/CTAForm'
 import Footer from '@/components/Footer'
@@ -24,9 +22,7 @@ export default function Home() {
         <PortalSection />
         <CaseStudy />
         <Methodology />
-        <Comparison />
         <AboutSection />
-        <Process />
         <FAQ />
         <CTAForm />
       </main>

@@ -116,7 +116,6 @@ function VimeoPlayer({ videoId, onHalfway }: { videoId: string; onHalfway: () =>
 
     window.addEventListener('message', handleMessage)
 
-    // Request progress tracking from Vimeo
     const iframe = iframeRef.current
     const postMsg = () => {
       iframe.contentWindow?.postMessage('{"method":"addEventListener","value":"playProgress"}', '*')
@@ -144,7 +143,7 @@ function VimeoPlayer({ videoId, onHalfway }: { videoId: string; onHalfway: () =>
 const stats = [
   { value: 100, prefix: '+$', suffix: 'K', label: 'USD en pauta gestionada' },
   { value: 48, prefix: '+', suffix: '', label: 'casos de éxito' },
-  { value: 10, prefix: 'x', suffix: '', label: 'ROAS promedio' },
+  { value: 8, prefix: '', suffix: 'x', label: 'ROAS promedio' },
 ]
 
 export default function Hero() {
@@ -176,11 +175,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className="mb-5 font-display text-4xl font-extrabold leading-tight text-text-heading sm:text-5xl lg:text-6xl"
+          className="mb-4 font-display text-4xl font-extrabold leading-tight text-text-heading sm:text-5xl lg:text-6xl"
         >
           ¿Tenés una tienda online y facturás entre{' '}
           <span className="text-brand-violet">4 a 10 millones</span>?
         </motion.h1>
+
+        {/* Pain line */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
+          className="mx-auto mb-4 max-w-2xl text-lg text-text-secondary italic sm:text-xl"
+        >
+          Invertís en publicidad y no sabés si te rinde o te quema plata.
+        </motion.p>
 
         {/* Subtitle */}
         <motion.p
@@ -200,7 +209,7 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
           className="mx-auto mb-8 max-w-4xl"
         >
-          <div className="relative aspect-video overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-[#2d1b4e] to-surface-dark shadow-2xl">
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-brand-violet-dark to-surface-dark shadow-2xl">
             {youtubeId ? (
               <YouTubePlayer videoId={youtubeId} onHalfway={handleHalfway} />
             ) : vimeoId ? (
@@ -215,7 +224,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* CTA — hidden until 50% of video, or always visible if no video */}
+        {/* CTA */}
         {showCTA && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -234,27 +243,31 @@ export default function Hero() {
         )}
       </div>
 
-      {/* Stats Bar */}
+      {/* Stats Bar — Prominent cards */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
-        className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3"
+        className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-0"
       >
-        {stats.map((stat) => (
+        {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className="card flex flex-col items-center gap-1 text-center"
+            className={`flex flex-col items-center gap-1 px-8 py-4 text-center ${
+              i < stats.length - 1 ? 'sm:border-r sm:border-gray-200' : ''
+            }`}
           >
-            <span className="font-display text-3xl font-bold text-text-heading sm:text-4xl">
-              {stat.prefix === 'x' ? (
-                <>x<CountUp target={stat.value} suffix={stat.suffix} /></>
-              ) : stat.prefix === '+$' ? (
-                <span>+$<CountUp target={stat.value} suffix="K" /></span>
-              ) : (
-                <>+<CountUp target={stat.value} suffix={stat.suffix} /></>
-              )}
-            </span>
+            <div className="rounded-lg bg-brand-violet/10 px-4 py-2">
+              <span className="font-display text-2xl font-bold text-text-heading sm:text-3xl">
+                {stat.prefix === '+$' ? (
+                  <span>+$<CountUp target={stat.value} suffix="K" /></span>
+                ) : stat.prefix === '+' ? (
+                  <>+<CountUp target={stat.value} suffix={stat.suffix} /></>
+                ) : (
+                  <><CountUp target={stat.value} suffix="x" /></>
+                )}
+              </span>
+            </div>
             <span className="text-sm text-text-secondary">{stat.label}</span>
           </div>
         ))}

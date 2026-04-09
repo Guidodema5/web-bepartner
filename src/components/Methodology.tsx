@@ -42,10 +42,6 @@ const phases = [
   },
 ]
 
-const childVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
 
 export default function Methodology() {
   return (
@@ -63,19 +59,16 @@ export default function Methodology() {
           </h2>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {phases.map((phase) => {
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {phases.map((phase, i) => {
             const Icon = phase.icon
             return (
               <motion.div
                 key={phase.num}
-                variants={childVariants}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
                 className="relative rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <span className="absolute right-4 top-4 font-display text-4xl font-bold text-gray-100">
@@ -94,7 +87,7 @@ export default function Methodology() {
               </motion.div>
             )
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

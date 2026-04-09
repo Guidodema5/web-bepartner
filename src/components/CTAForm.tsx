@@ -20,6 +20,13 @@ const CALENDLY_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/agencia-bepartner/30min'
 const LEADMAGNET_URL = process.env.NEXT_PUBLIC_LEADMAGNET_URL || '#'
 
+const miniSteps = [
+  { num: '1', text: 'Completás el formulario' },
+  { num: '2', text: 'Analizamos tu tienda' },
+  { num: '3', text: 'Te damos un diagnóstico gratis' },
+  { num: '4', text: 'Si hay match, arrancamos' },
+]
+
 export default function CTAForm() {
   const [step, setStep] = useState(1)
   const [submitting, setSubmitting] = useState(false)
@@ -95,6 +102,27 @@ export default function CTAForm() {
               )
             )}
           </div>
+
+          {/* Mini-steps */}
+          <div className="mx-auto mt-6 flex max-w-2xl flex-col items-center gap-2 sm:flex-row sm:gap-0">
+            {miniSteps.map((s, i) => (
+              <div key={s.num} className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-violet text-xs font-bold text-white">
+                    {s.num}
+                  </span>
+                  <span className="text-sm text-gray-400">{s.text}</span>
+                </div>
+                {i < miniSteps.length - 1 && (
+                  <ArrowRight size={14} className="mx-2 hidden text-gray-600 sm:block" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 text-base text-white">
+            Completá tus datos y en 48hs te mandamos un diagnóstico gratuito de tu tienda.
+          </p>
         </motion.div>
 
         <motion.div

@@ -12,14 +12,9 @@ const painPoints = [
   'Add to Cart alto pero pocas compras',
 ]
 
-const childVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
-
 export default function ProblemSection() {
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,17 +36,14 @@ export default function ProblemSection() {
           Tu tienda vende, pero no escala
         </motion.h2>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-          className="mb-8 grid gap-4 sm:grid-cols-2"
-        >
-          {painPoints.map((point) => (
+        <div className="grid gap-4 sm:grid-cols-2">
+          {painPoints.map((point, i) => (
             <motion.div
               key={point}
-              variants={childVariants}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
               className="flex items-start gap-3 rounded-lg border border-gray-100 bg-surface-warm p-4 shadow-sm"
             >
               <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-50">
@@ -60,20 +52,7 @@ export default function ProblemSection() {
               <p className="text-text-primary">{point}</p>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="rounded-xl border-2 border-brand-violet/20 bg-brand-violet-light p-6 text-center"
-        >
-          <p className="text-lg text-text-heading">
-            Si te pasa al menos 2 de estas,{' '}
-            <span className="font-bold text-brand-violet">tenemos que hablar.</span>
-          </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

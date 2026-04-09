@@ -11,7 +11,7 @@ const miniStats = [
 
 export default function AboutSection() {
   return (
-    <section id="nosotros" className="bg-surface-warm px-4 py-16 lg:py-20 sm:px-6 lg:px-8">
+    <section id="nosotros" className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,20 +31,29 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm"
+          className="rounded-2xl border border-gray-100 bg-surface-warm p-8 shadow-sm"
         >
           <div className="mb-6 flex flex-col items-center gap-5 sm:flex-row">
-            {/* Founder avatar placeholder */}
-            <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-brand-violet-light border-2 border-brand-violet/20">
+            {/* Reemplazar con foto real del fundador */}
+            <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full border-2 border-brand-violet/20 bg-brand-violet-light">
               <span className="font-display text-2xl font-bold text-brand-violet">GD</span>
             </div>
-            <p className="text-center text-text-primary sm:text-left">
-              Bepartner nació de ver cómo las agencias le venden anuncios a sus
-              clientes sin importarles si crecen o no. Construimos un sistema
-              propio — con portal, herramientas y metodología — porque creemos que
-              si el cliente no crece, nosotros no deberíamos cobrar.
-            </p>
+            <div>
+              <h3 className="mb-1 text-center text-lg font-bold text-text-heading sm:text-left">
+                Guido De María — Fundador
+              </h3>
+              <p className="text-center text-text-secondary sm:text-left">
+                Creé Bepartner porque me cansé de ver agencias que cobran por hacer anuncios sin importarles si el cliente crece. Acá nos jugamos por tus resultados.
+              </p>
+            </div>
           </div>
+
+          <p className="mb-6 text-text-primary">
+            Bepartner nació de ver cómo las agencias le venden anuncios a sus
+            clientes sin importarles si crecen o no. Construimos un sistema
+            propio — con portal, herramientas y metodología — porque creemos que
+            si el cliente no crece, nosotros no deberíamos cobrar.
+          </p>
 
           {/* Mini stats */}
           <div className="grid gap-4 border-t border-gray-100 pt-6 sm:grid-cols-3">
