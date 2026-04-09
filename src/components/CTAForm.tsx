@@ -71,7 +71,7 @@ export default function CTAForm() {
     'w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light'
 
   return (
-    <section id="contacto" className="bg-gradient-to-br from-[#2d1b4e] to-surface-dark px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section id="contacto" className="bg-gradient-to-br from-brand-violet-dark to-surface-dark px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

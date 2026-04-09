@@ -8,6 +8,7 @@ module.exports = {
           violet: '#753D94',
           'violet-hover': '#5e3177',
           'violet-light': 'rgba(117,61,148,0.1)',
+          'violet-dark': '#291b47',
         },
         surface: {
           warm: '#f8f7f5',

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Instagram, Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -14,13 +15,14 @@ const navLinks = [
 
 function BepartnerLogo() {
   return (
-    <div className="flex items-baseline font-display text-xl font-extrabold tracking-[0.15em] text-white sm:text-2xl">
-      <span>BEP</span>
-      <svg viewBox="0 0 20 24" className="mx-[-1px] h-[18px] w-[14px] self-center sm:h-[20px] sm:w-[16px]" aria-hidden="true">
-        <polygon points="10,0 20,24 0,24" fill="#753D94" />
-      </svg>
-      <span>RTNER</span>
-    </div>
+    <Image
+      src="/logo-white.png"
+      alt="Bepartner"
+      width={180}
+      height={40}
+      className="h-8 w-auto sm:h-9"
+      priority
+    />
   )
 }
 
