@@ -30,26 +30,21 @@ const steps = [
   },
 ]
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
 }
 
 export default function Process() {
   return (
-    <section className="px-4 py-24 sm:px-6 lg:px-8">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-3xl">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
-          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 text-center"
         >
           <span className="section-label">¿Cómo empezamos?</span>
           <h2 className="section-title mt-3">5 pasos para empezar a escalar</h2>
@@ -58,21 +53,19 @@ export default function Process() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
           className="relative"
         >
-          {/* Vertical line */}
           <div className="absolute bottom-0 left-8 top-0 w-px bg-gray-200 sm:left-10" />
 
           <div className="flex flex-col gap-8">
             {steps.map((step) => (
               <motion.div
                 key={step.num}
-                variants={fadeUp}
+                variants={childVariants}
                 className="relative flex items-start gap-5 sm:gap-6"
               >
-                {/* Number circle */}
                 <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border-2 border-brand-violet bg-white sm:h-20 sm:w-20">
                   <span className="font-display text-xl font-bold text-brand-violet sm:text-2xl">
                     {step.num}

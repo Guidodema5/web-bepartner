@@ -12,21 +12,16 @@ const rows = [
   'Generador de anuncios ilimitados',
 ]
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
-
 export default function Comparison() {
   return (
-    <section className="bg-gradient-to-br from-[#1e1235] to-[#2d1b4e] px-4 py-24 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-br from-[#1e1235] to-[#2d1b4e] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
-          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 text-center"
         >
           <h2 className="font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             ¿Por qué Bepartner y no otra agencia?
@@ -34,10 +29,10 @@ export default function Comparison() {
         </motion.div>
 
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"
         >
           {/* Header */}
@@ -49,7 +44,7 @@ export default function Comparison() {
             <div className="p-4 text-center text-sm font-semibold text-gray-300">
               Freelancer
             </div>
-            <div className="bg-brand-violet/20 p-4 text-center text-sm font-bold text-brand-violet">
+            <div className="bg-brand-violet p-4 text-center text-sm font-bold text-white">
               Bepartner
             </div>
           </div>
@@ -83,11 +78,11 @@ export default function Comparison() {
         </motion.div>
 
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
-          className="mt-10 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mt-8 text-center"
         >
           <a href="#contacto" className="btn-primary">
             Quiero trabajar con Bepartner

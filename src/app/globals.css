@@ -37,3 +37,18 @@
     @apply inline-flex items-center justify-center rounded-lg border border-brand-violet bg-transparent px-8 py-3 font-semibold text-brand-violet transition-all duration-200 hover:bg-brand-violet-light;
   }
 }
+
+/* Fallback: if animations don't load, content is still visible */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.no-js * {
+  opacity: 1 !important;
+  transform: none !important;
+}

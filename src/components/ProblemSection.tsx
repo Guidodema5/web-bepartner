@@ -12,36 +12,31 @@ const painPoints = [
   'Add to Cart alto pero pocas compras',
 ]
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
 }
 
 export default function ProblemSection() {
   return (
-    <section className="px-4 py-24 sm:px-6 lg:px-8">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-5xl">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-4"
         >
           <span className="section-label">¿Te identificás?</span>
         </motion.div>
 
         <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
-          className="section-title mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="section-title mb-10"
         >
           Tu tienda vende, pero no escala
         </motion.h2>
@@ -49,14 +44,14 @@ export default function ProblemSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
-          className="mb-10 grid gap-4 sm:grid-cols-2"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+          className="mb-8 grid gap-4 sm:grid-cols-2"
         >
           {painPoints.map((point) => (
             <motion.div
               key={point}
-              variants={fadeUp}
+              variants={childVariants}
               className="flex items-start gap-3 rounded-lg border border-gray-100 bg-white p-4 shadow-sm"
             >
               <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-50">
@@ -68,14 +63,15 @@ export default function ProblemSection() {
         </motion.div>
 
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="rounded-xl border-2 border-brand-violet/20 bg-brand-violet-light p-6 text-center"
         >
-          <p className="text-lg font-semibold text-text-heading">
-            Si te pasa al menos 2 de estas, tenemos que hablar.
+          <p className="text-lg text-text-heading">
+            Si te pasa al menos 2 de estas,{' '}
+            <span className="font-bold text-brand-violet">tenemos que hablar.</span>
           </p>
         </motion.div>
       </div>

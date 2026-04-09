@@ -42,28 +42,23 @@ const phases = [
   },
 ]
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
 }
 
 export default function Methodology() {
   return (
-    <section id="metodologia" className="bg-gradient-to-br from-[#2d1b4e] to-surface-dark px-4 py-24 sm:px-6 lg:px-8">
+    <section id="metodologia" className="bg-gradient-to-br from-[#2d1b4e] to-surface-dark px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeUp}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <span className="text-xs font-medium uppercase tracking-[0.15em] text-brand-violet">Nuestro sistema</span>
-          <h2 className="mb-12 mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-10 mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Metodología BEP — Paso a paso, sin improvisar
           </h2>
         </motion.div>
@@ -71,8 +66,8 @@ export default function Methodology() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={stagger}
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {phases.map((phase) => {
@@ -80,7 +75,7 @@ export default function Methodology() {
             return (
               <motion.div
                 key={phase.num}
-                variants={fadeUp}
+                variants={childVariants}
                 className="relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
               >
                 <span className="absolute right-4 top-4 font-display text-4xl font-bold text-white/5">

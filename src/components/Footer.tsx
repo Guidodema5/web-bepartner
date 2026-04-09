@@ -1,32 +1,28 @@
 'use client'
 
 import { Instagram, Mail, ExternalLink } from 'lucide-react'
+import { BepartnerLogo } from './Navbar'
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Metodología', href: '#metodologia' },
+  { label: 'Nosotros', href: '#nosotros' },
   { label: 'Casos de Éxito', href: '#caso-exito' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-dark px-4 py-16 sm:px-6 lg:px-8">
+    <footer className="bg-surface-dark px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Logo & Tagline */}
           <div>
-            <svg viewBox="0 0 220 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-auto">
-              <text x="0" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">BEP</text>
-              <g transform="translate(62, 2)"><polygon points="10,0 20,22 0,22" fill="#753D94" /><line x1="5" y1="14" x2="15" y2="14" stroke="white" strokeWidth="2" /></g>
-              <text x="82" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">RTNER</text>
-            </svg>
+            <BepartnerLogo />
             <p className="mt-3 text-sm text-gray-400">
               Socios de crecimiento para ecommerce
             </p>
           </div>
 
-          {/* Nav Links */}
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
               Navegación
@@ -45,7 +41,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
               Contacto
@@ -74,7 +69,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Portal */}
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
               Clientes
@@ -90,7 +84,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-center">
+        <div className="mt-10 border-t border-white/10 pt-6 text-center">
           <p className="text-sm text-gray-500">&copy; 2026 Bepartner Latam</p>
         </div>
       </div>

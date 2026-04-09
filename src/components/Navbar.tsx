@@ -7,28 +7,24 @@ import { Instagram, Menu, X } from 'lucide-react'
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Metodología', href: '#metodologia' },
+  { label: 'Nosotros', href: '#nosotros' },
   { label: 'Casos de Éxito', href: '#caso-exito' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
 function BepartnerLogo() {
   return (
-    <svg viewBox="0 0 220 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-auto sm:h-7">
-      {/* B */}
-      <text x="0" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">
-        BEP
-      </text>
-      {/* A as triangle */}
-      <g transform="translate(62, 2)">
-        <polygon points="10,0 20,22 0,22" fill="#753D94" />
-        <line x1="5" y1="14" x2="15" y2="14" stroke="white" strokeWidth="2" />
-      </g>
-      <text x="82" y="22" fontFamily="var(--font-display), 'Plus Jakarta Sans', sans-serif" fontSize="24" fontWeight="800" letterSpacing="2" fill="white">
-        RTNER
-      </text>
-    </svg>
+    <div className="flex items-baseline font-display text-xl font-extrabold tracking-[0.15em] text-white sm:text-2xl">
+      <span>BEP</span>
+      <svg viewBox="0 0 20 24" className="mx-[-1px] h-[18px] w-[14px] self-center sm:h-[20px] sm:w-[16px]" aria-hidden="true">
+        <polygon points="10,0 20,24 0,24" fill="#753D94" />
+      </svg>
+      <span>RTNER</span>
+    </div>
   )
 }
+
+export { BepartnerLogo }
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -50,12 +46,10 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          {/* Logo */}
           <a href="#inicio" className="flex items-center">
             <BepartnerLogo />
           </a>
 
-          {/* Desktop Nav */}
           <div className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <a
@@ -84,7 +78,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
             className="text-white md:hidden"
@@ -95,7 +88,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>

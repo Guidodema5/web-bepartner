@@ -40,7 +40,6 @@ export default function CTAForm() {
   const onSubmit = async (data: FormData) => {
     setSubmitting(true)
 
-    // Send data to webhook (all leads, qualified or not)
     if (WEBHOOK_URL) {
       try {
         await fetch(WEBHOOK_URL, {
@@ -57,7 +56,6 @@ export default function CTAForm() {
       }
     }
 
-    // Facebook Pixel Lead event
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
       window.fbq('track', 'Lead', { content_name: 'Formulario CTA' })
     }
@@ -69,23 +67,25 @@ export default function CTAForm() {
   }
 
   const values = getValues()
+  const inputClass =
+    'w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light'
 
   return (
-    <section id="contacto" className="bg-gradient-to-br from-[#2d1b4e] to-surface-dark px-4 py-24 sm:px-6 lg:px-8">
+    <section id="contacto" className="bg-gradient-to-br from-[#2d1b4e] to-surface-dark px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-10 text-center"
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-8 text-center"
         >
           <h2 className="mb-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             ¿Listo para escalar tu ecommerce?
           </h2>
           <p className="text-lg text-gray-300">Agendá una auditoría gratuita</p>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-4">
             {['Análisis sin compromiso', 'Plan personalizado', 'Resultados predecibles'].map(
               (item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-gray-300">
@@ -98,10 +98,10 @@ export default function CTAForm() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           className="mx-auto max-w-lg rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
         >
           {/* Progress dots */}
@@ -117,7 +117,7 @@ export default function CTAForm() {
           </div>
 
           <AnimatePresence mode="wait">
-            {/* STEP 1: Contact Info */}
+            {/* STEP 1 */}
             {step === 1 && (
               <motion.div
                 key="step1"
@@ -138,7 +138,7 @@ export default function CTAForm() {
                     <input
                       {...register('nombre', { required: 'Tu nombre es obligatorio' })}
                       placeholder="Nombre"
-                      className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light"
+                      className={inputClass}
                     />
                     {errors.nombre && (
                       <span className="mt-1 text-xs text-status-negative">{errors.nombre.message}</span>
@@ -152,7 +152,7 @@ export default function CTAForm() {
                       })}
                       placeholder="Email"
                       type="email"
-                      className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light"
+                      className={inputClass}
                     />
                     {errors.email && (
                       <span className="mt-1 text-xs text-status-negative">{errors.email.message}</span>
@@ -163,7 +163,7 @@ export default function CTAForm() {
                       {...register('telefono', { required: 'Tu teléfono es obligatorio' })}
                       placeholder="Teléfono (con código de área)"
                       type="tel"
-                      className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light"
+                      className={inputClass}
                     />
                     {errors.telefono && (
                       <span className="mt-1 text-xs text-status-negative">{errors.telefono.message}</span>
@@ -177,7 +177,7 @@ export default function CTAForm() {
               </motion.div>
             )}
 
-            {/* STEP 2: Qualifying */}
+            {/* STEP 2 */}
             {step === 2 && (
               <motion.div
                 key="step2"
@@ -199,7 +199,7 @@ export default function CTAForm() {
                       {...register('url_tienda', { required: 'La URL de tu tienda es obligatoria' })}
                       placeholder="URL de tu tienda online"
                       type="url"
-                      className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light"
+                      className={inputClass}
                     />
                     {errors.url_tienda && (
                       <span className="mt-1 text-xs text-status-negative">{errors.url_tienda.message}</span>
@@ -209,11 +209,9 @@ export default function CTAForm() {
                   <select
                     {...register('facturacion', { required: true })}
                     defaultValue=""
-                    className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light"
+                    className={inputClass}
                   >
-                    <option value="" disabled>
-                      Facturación mensual aproximada
-                    </option>
+                    <option value="" disabled>Facturación mensual aproximada</option>
                     <option value="no_vendo">Todavía no vendo online</option>
                     <option value="menos_1m">Menos de $1M ARS/mes</option>
                     <option value="1m_5m">$1M - $5M ARS/mes</option>
@@ -221,27 +219,15 @@ export default function CTAForm() {
                     <option value="mas_10m">Más de $10M ARS/mes</option>
                   </select>
 
-                  <select
-                    {...register('invierte_ads')}
-                    defaultValue=""
-                    className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light"
-                  >
-                    <option value="" disabled>
-                      ¿Invertís en publicidad actualmente?
-                    </option>
+                  <select {...register('invierte_ads')} defaultValue="" className={inputClass}>
+                    <option value="" disabled>¿Invertís en publicidad actualmente?</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
                     <option value="no_seguro">No estoy seguro</option>
                   </select>
 
-                  <select
-                    {...register('desafio')}
-                    defaultValue=""
-                    className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light"
-                  >
-                    <option value="" disabled>
-                      ¿Cuál es tu mayor desafío hoy?
-                    </option>
+                  <select {...register('desafio')} defaultValue="" className={inputClass}>
+                    <option value="" disabled>¿Cuál es tu mayor desafío hoy?</option>
                     <option value="trafico_no_convierte">Tengo tráfico pero no convierte</option>
                     <option value="no_se_anuncios">No sé qué anuncios me funcionan</option>
                     <option value="quiero_escalar">Quiero escalar pero no sé cómo</option>
@@ -261,9 +247,7 @@ export default function CTAForm() {
                       {submitting ? (
                         <Loader2 size={18} className="animate-spin" />
                       ) : (
-                        <>
-                          Ver disponibilidad <ArrowRight size={18} />
-                        </>
+                        <>Ver disponibilidad <ArrowRight size={18} /></>
                       )}
                     </button>
                   </div>
@@ -271,7 +255,7 @@ export default function CTAForm() {
               </motion.div>
             )}
 
-            {/* STEP 3A: Qualified — Calendly */}
+            {/* STEP 3A: Qualified */}
             {step === 3 && qualified === true && (
               <motion.div
                 key="step3a"
@@ -290,7 +274,6 @@ export default function CTAForm() {
                   Reservá 30 minutos y te mostramos exactamente cómo escalar tu tienda.
                 </p>
 
-                {/* Calendly Embed */}
                 <div className="overflow-hidden rounded-lg border border-gray-200">
                   <iframe
                     src={`${CALENDLY_URL}?name=${encodeURIComponent(values.nombre || '')}&email=${encodeURIComponent(values.email || '')}`}
@@ -307,7 +290,7 @@ export default function CTAForm() {
               </motion.div>
             )}
 
-            {/* STEP 3B: Not Qualified — Lead Magnet */}
+            {/* STEP 3B: Not Qualified */}
             {step === 3 && qualified === false && (
               <motion.div
                 key="step3b"
@@ -323,18 +306,15 @@ export default function CTAForm() {
                   Tenemos un programa de 6 semanas donde te acompañamos a estructurar las bases de tu negocio
                   online para que puedas vender de forma consistente. Es el primer paso ideal antes de escalar.
                 </p>
-                <a
-                  href={LEADMAGNET_URL}
-                  className="btn-primary inline-flex"
-                >
-                  Conocer el programa
+                <a href={LEADMAGNET_URL} className="btn-primary inline-flex gap-2">
+                  Conocer el programa <ArrowRight size={18} />
                 </a>
               </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
 
-        <p className="mt-6 text-center text-sm text-gray-400">
+        <p className="mt-5 text-center text-sm text-gray-400">
           Cupos limitados — Solo trabajamos con ecommerce que ya venden
         </p>
       </div>
