@@ -1,3 +1,6 @@
+'use client'
+
+import { VideoProvider } from '@/context/VideoContext'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import ProblemSection from '@/components/ProblemSection'
@@ -6,14 +9,14 @@ import PortalSection from '@/components/PortalSection'
 import CaseStudy from '@/components/CaseStudy'
 import Methodology from '@/components/Methodology'
 import AboutSection from '@/components/AboutSection'
-import FAQ from '@/components/FAQ'
 import CTAForm from '@/components/CTAForm'
+import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
 export default function Home() {
   return (
-    <>
+    <VideoProvider>
       <Navbar />
       <main>
         <Hero />
@@ -23,11 +26,11 @@ export default function Home() {
         <CaseStudy />
         <Methodology />
         <AboutSection />
-        <FAQ />
         <CTAForm />
+        <FAQ />
       </main>
       <Footer />
       <WhatsAppButton />
-    </>
+    </VideoProvider>
   )
 }

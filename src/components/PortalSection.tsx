@@ -39,10 +39,13 @@ export default function PortalSection() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <span className="section-label">Lo que ninguna agencia te da</span>
-              <h2 className="section-title mb-8 mt-3">
-                Tu negocio, tus números, en tiempo real
+              <span className="section-label">Lo que ninguna otra agencia y consultor tiene</span>
+              <h2 className="section-title mb-3 mt-3">
+                Un portal exclusivo para clientes
               </h2>
+              <p className="mb-8 text-text-secondary">
+                Tu negocio, tus números, en tiempo real. Todo en un solo lugar.
+              </p>
             </motion.div>
 
             <div className="flex flex-col gap-6">
@@ -78,8 +81,13 @@ export default function PortalSection() {
               transition={{ duration: 0.5, ease: 'easeOut' }}
               className="mt-8"
             >
-              <a href="#contacto" className="btn-secondary">
-                Ver demo del portal
+              <a
+                href="https://bepartnerclientes.com.ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-brand-violet bg-brand-violet/10 px-6 py-3 text-sm font-semibold text-brand-violet transition-all hover:bg-brand-violet hover:text-white"
+              >
+                Acceso clientes
               </a>
             </motion.div>
           </div>

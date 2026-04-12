@@ -33,7 +33,7 @@ export default function ProblemSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="section-title mb-10"
         >
-          Tu tienda vende, pero no escala
+          Si sentís que...
         </motion.h2>
 
         <div className="grid gap-4 sm:grid-cols-2">

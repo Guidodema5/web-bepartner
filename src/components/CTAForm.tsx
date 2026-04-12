@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ArrowRight, ArrowLeft, Loader2 } from 'lucide-react'
+import { Check, ArrowRight, ArrowLeft, Loader2, Lock } from 'lucide-react'
+import { useVideoUnlock } from '@/context/VideoContext'
 
 type FormData = {
   nombre: string
@@ -28,6 +29,7 @@ const miniSteps = [
 ]
 
 export default function CTAForm() {
+  const { unlocked } = useVideoUnlock()
   const [step, setStep] = useState(1)
   const [submitting, setSubmitting] = useState(false)
   const [qualified, setQualified] = useState<boolean | null>(null)
@@ -130,8 +132,20 @@ export default function CTAForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className="mx-auto max-w-lg rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
+          className="relative mx-auto max-w-lg rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
         >
+          {/* Lock overlay */}
+          {!unlocked && (
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl bg-white/90 backdrop-blur-sm">
+              <Lock size={32} className="mb-3 text-gray-400" />
+              <p className="text-lg font-semibold text-text-heading">Formulario bloqueado</p>
+              <p className="mt-1 text-sm text-text-secondary">Mirá el video del inicio para desbloquear</p>
+              <a href="#inicio" className="mt-4 text-sm font-medium text-brand-violet hover:underline">
+                Ir al video
+              </a>
+            </div>
+          )}
+
           {/* Progress dots */}
           <div className="mb-6 flex items-center justify-center gap-2">
             {[1, 2, 3].map((s) => (

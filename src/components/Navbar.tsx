@@ -13,14 +13,14 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-function BepartnerLogo() {
+function BepartnerLogo({ size = 'default' }: { size?: 'default' | 'large' }) {
   return (
     <Image
       src="/logo-white.png"
       alt="Bepartner"
-      width={180}
-      height={40}
-      className="h-8 w-auto sm:h-9"
+      width={220}
+      height={50}
+      className={size === 'large' ? 'h-12 w-auto sm:h-14' : 'h-10 w-auto sm:h-12'}
       priority
     />
   )

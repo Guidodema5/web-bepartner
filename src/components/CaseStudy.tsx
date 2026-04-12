@@ -251,27 +251,6 @@ export default function CaseStudy() {
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="rounded-xl border-2 border-dashed border-white/20 p-8 text-center"
-        >
-          <p className="mb-2 text-lg font-semibold text-white">
-            ¿Querés ser nuestro próximo caso?
-          </p>
-          <p className="mb-4 text-sm text-white/50">
-            Estamos sumando nuevos ecommerce al sistema
-          </p>
-          <a
-            href="#contacto"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-          >
-            Aplicar ahora <ArrowRight size={16} />
-          </a>
-        </motion.div>
       </div>
     </section>
   )
