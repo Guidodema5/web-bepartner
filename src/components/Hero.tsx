@@ -37,7 +37,7 @@ function YouTubePlayer({ videoId, onQuarter }: { videoId: string; onQuarter: () 
     try {
       const current = playerRef.current.getCurrentTime()
       const duration = playerRef.current.getDuration()
-      if (duration > 0 && current / duration >= 0.25) {
+      if (current >= 180) { // 3 minutos
         calledRef.current = true
         onQuarter()
         if (intervalRef.current) clearInterval(intervalRef.current)
