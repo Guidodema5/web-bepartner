@@ -8,7 +8,7 @@ const painPoints = [
   'No sabés qué anuncios funcionan y cuáles pierden plata',
   'Tenés tráfico pero no convertís lo suficiente',
   'No tenés visibilidad en tiempo real de tus números',
-  'Probaste con otros antes y no viste resultados',
+  'Probaste agencias antes y no viste resultados',
   'Add to Cart alto pero pocas compras',
 ]
 

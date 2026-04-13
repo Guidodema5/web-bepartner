@@ -6,9 +6,9 @@ import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
-    question: 'Ya probé con otros y no me funcionó',
+    question: 'Ya probé agencias y no me funcionó',
     answer:
-      'Te daban acceso a tus métricas en tiempo real? Sabían exactamente qué anuncio te generaba cada venta? Nosotros no vendemos anuncios. Instalamos un sistema y vos ves los números en tiempo real. Sin resultados, no cobramos comisión.',
+      'Esa agencia te daba acceso a tus métricas en tiempo real? Sabía exactamente qué anuncio te generaba cada venta? Nosotros no vendemos anuncios. Instalamos un sistema y vos ves los números en tiempo real. Sin resultados, no cobramos comisión.',
   },
   {
     question: 'No sé si la inversión vale la pena',

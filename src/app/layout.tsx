@@ -118,7 +118,7 @@ const jsonLdFAQ = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: '¿Ya probé con otros y no me funcionó, por qué Bepartner sería diferente?',
+      name: '¿Ya probé agencias y no me funcionó, por qué Bepartner sería diferente?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Nosotros no vendemos anuncios. Instalamos un sistema completo y te damos acceso a un portal exclusivo donde ves tus métricas en tiempo real. Sin resultados, no cobramos comisión.',
