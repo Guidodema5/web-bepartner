@@ -17,7 +17,7 @@ const benefits = [
   {
     icon: Sparkles,
     title: 'Ideas de anuncios que venden, en minutos',
-    description: 'Generador con metodología propia que crea conceptos creativos para tus productos. Sin depender de la agencia para cada pieza.',
+    description: 'Generador con metodología propia que crea conceptos creativos para tus productos. Sin depender de terceros para cada pieza.',
   },
   {
     icon: Calculator,
@@ -39,7 +39,7 @@ export default function PortalSection() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <span className="section-label">Lo que ninguna otra agencia y consultor tiene</span>
+              <span className="section-label">Lo que ningún otro consultor o equipo te da</span>
               <h2 className="section-title mb-3 mt-3">
                 Un portal exclusivo para clientes
               </h2>

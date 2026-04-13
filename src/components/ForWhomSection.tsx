@@ -17,7 +17,7 @@ const noItems = [
   'Todavía no vendés online ni tenés producto validado',
   'Buscás resultados mágicos sin proceso',
   'No estás dispuesto a invertir en publicidad digital',
-  'Querés una agencia que solo "suba posteos"',
+  'Querés a alguien que solo "suba posteos"',
 ]
 
 export default function ForWhomSection() {

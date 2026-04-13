@@ -105,7 +105,7 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-6 inline-block rounded-full bg-brand-violet px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white"
         >
-          Agencia especializada en ecommerce
+          Especialistas en tiendas online
         </motion.div>
 
         {/* Headline */}

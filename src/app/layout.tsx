@@ -13,26 +13,26 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL('https://bepartner.lat'),
   title: {
-    default: 'Bepartner | Agencia de Publicidad Digital para Ecommerce',
+    default: 'Bepartner | Especialistas en Escalar Tiendas Online',
     template: '%s | Bepartner',
   },
   description:
     'Ayudamos a tiendas online que facturan entre 4 y 10 millones a escalar a 20-50 millones en 90 días. Sistema probado de Meta Ads + Portal exclusivo de métricas en tiempo real. Caso real: +1.760% en ventas.',
   keywords: [
-    'agencia ecommerce argentina',
-    'agencia publicidad digital ecommerce',
+    'especialistas ecommerce argentina',
+    'publicidad digital ecommerce',
     'meta ads ecommerce',
     'escalar tienda online',
-    'agencia marketing digital tiendanube',
-    'agencia shopify argentina',
+    'marketing digital tiendanube',
+    'escalar shopify argentina',
     'publicidad facebook ecommerce',
     'aumentar ventas tienda online',
     'ROAS ecommerce',
-    'agencia de publicidad para tiendas online',
+    'publicidad para tiendas online',
     'marketing digital ecommerce argentina',
     'escalar ecommerce',
     'mejorar conversión tienda online',
-    'agencia meta ads argentina',
+    'meta ads argentina ecommerce',
     'consultoria ecommerce',
   ],
   authors: [{ name: 'Bepartner', url: 'https://bepartner.lat' }],
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: 'Bepartner',
     title: 'Bepartner | Escalá tu ecommerce a $50M en 90 días',
     description:
-      'Agencia de publicidad digital especializada en ecommerce. Sistema probado + Portal exclusivo + Resultados reales. De 4 a 102 ventas/mes en 3 meses.',
+      'Especialistas en escalar tiendas online. Sistema probado + Portal exclusivo + Resultados reales. De 4 a 102 ventas/mes en 3 meses.',
     images: [
       {
         url: '/og-image.jpg',
@@ -89,7 +89,7 @@ const jsonLdBusiness = {
   '@type': 'ProfessionalService',
   name: 'Bepartner',
   description:
-    'Agencia de publicidad digital especializada en ecommerce. Ayudamos a tiendas online a escalar su facturación con Meta Ads y un portal exclusivo de métricas.',
+    'Especialistas en escalar tiendas online. Ayudamos a ecommerce a multiplicar su facturación con Meta Ads y un portal exclusivo de métricas.',
   url: 'https://bepartner.lat',
   logo: 'https://bepartner.lat/logo-bepartner.png',
   image: 'https://bepartner.lat/og-image.jpg',
@@ -118,7 +118,7 @@ const jsonLdFAQ = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: '¿Ya probé agencias y no me funcionó, por qué Bepartner sería diferente?',
+      name: '¿Ya probé con otros y no me funcionó, por qué Bepartner sería diferente?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Nosotros no vendemos anuncios. Instalamos un sistema completo y te damos acceso a un portal exclusivo donde ves tus métricas en tiempo real. Sin resultados, no cobramos comisión.',
@@ -137,7 +137,7 @@ const jsonLdFAQ = {
       name: '¿Qué es el Portal de Clientes de Bepartner?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Es una plataforma exclusiva con dashboard de métricas en tiempo real, generador de anuncios ilimitados, análisis semanal de campañas y calculadora de ROAS por producto. Ninguna otra agencia lo tiene.',
+        text: 'Es una plataforma exclusiva con dashboard de métricas en tiempo real, generador de anuncios ilimitados, análisis semanal de campañas y calculadora de ROAS por producto. Nadie más en el mercado lo tiene.',
       },
     },
     {

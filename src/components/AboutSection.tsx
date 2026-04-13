@@ -22,7 +22,7 @@ export default function AboutSection() {
         >
           <span className="section-label">Quién está detrás</span>
           <h2 className="section-title mb-8 mt-3">
-            No somos una agencia más. Somos tu equipo de crecimiento.
+            No somos un proveedor más. Somos tu equipo de crecimiento.
           </h2>
         </motion.div>
 
@@ -43,14 +43,14 @@ export default function AboutSection() {
                 Guido De María — Fundador
               </h3>
               <p className="text-center text-text-secondary sm:text-left">
-                Creé Bepartner porque me cansé de ver agencias que cobran por hacer anuncios sin importarles si el cliente crece. Acá nos jugamos por tus resultados.
+                Creé Bepartner porque me cansé de ver cómo cobran por hacer anuncios sin importarles si el cliente crece. Acá nos jugamos por tus resultados.
               </p>
             </div>
           </div>
 
           <p className="mb-6 text-text-primary">
-            Bepartner nació de ver cómo las agencias le venden anuncios a sus
-            clientes sin importarles si crecen o no. Construimos un sistema
+            Bepartner nació de ver cómo le venden anuncios a los dueños de tiendas
+            sin importarles si crecen o no. Construimos un sistema
             propio — con portal, herramientas y metodología — porque creemos que
             si el cliente no crece, nosotros no deberíamos cobrar.
           </p>

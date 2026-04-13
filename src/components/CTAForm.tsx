@@ -273,7 +273,7 @@ export default function CTAForm() {
                     <option value="trafico_no_convierte">Tengo tráfico pero no convierte</option>
                     <option value="no_se_anuncios">No sé qué anuncios me funcionan</option>
                     <option value="quiero_escalar">Quiero escalar pero no sé cómo</option>
-                    <option value="agencias_no_funciono">Probé agencias y no me funcionó</option>
+                    <option value="agencias_no_funciono">Probé con otros y no me funcionó</option>
                     <option value="otro">Otro</option>
                   </select>
 
