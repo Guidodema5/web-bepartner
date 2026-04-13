@@ -15,14 +15,15 @@ const navLinks = [
 
 function BepartnerLogo() {
   return (
-    <Image
-      src="/logo-white.png"
-      alt="Bepartner"
-      width={260}
-      height={60}
-      className="h-14 w-auto sm:h-16"
-      priority
-    />
+    <div className="relative h-10 w-[180px] overflow-hidden sm:h-12 sm:w-[220px]">
+      <Image
+        src="/logo-white.png"
+        alt="Bepartner"
+        fill
+        className="scale-[2.2] object-contain"
+        priority
+      />
+    </div>
   )
 }
 
