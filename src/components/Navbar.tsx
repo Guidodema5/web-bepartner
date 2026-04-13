@@ -13,14 +13,14 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-function BepartnerLogo({ size = 'default' }: { size?: 'default' | 'large' }) {
+function BepartnerLogo() {
   return (
     <Image
       src="/logo-white.png"
       alt="Bepartner"
-      width={220}
-      height={50}
-      className={size === 'large' ? 'h-12 w-auto sm:h-14' : 'h-10 w-auto sm:h-12'}
+      width={260}
+      height={60}
+      className="h-14 w-auto sm:h-16"
       priority
     />
   )
@@ -47,7 +47,7 @@ export default function Navbar() {
             : 'bg-[#1a1a2e]'
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
           <a href="#inicio" className="flex items-center">
             <BepartnerLogo />
           </a>
