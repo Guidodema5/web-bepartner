@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { motion, useInView, animate } from 'framer-motion'
 import { ArrowRight, Lock } from 'lucide-react'
 import Script from 'next/script'
+import Link from 'next/link'
 import { useVideoUnlock } from '@/context/VideoContext'
 
 const YOUTUBE_VIDEO_ID = 'cPdVI5AvztA'
@@ -174,6 +175,13 @@ export default function Hero() {
                 Mirá el video para desbloquear
               </>
             )}
+          </span>
+
+          <span className="mt-2 text-sm text-text-secondary">
+            ¿Todavía no vendés online de forma constante?{' '}
+            <Link href="/programa" className="font-medium text-brand-violet underline">
+              Ver programa de 6 semanas
+            </Link>
           </span>
         </motion.div>
       </div>

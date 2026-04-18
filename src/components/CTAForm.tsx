@@ -342,14 +342,15 @@ export default function CTAForm() {
                 className="text-center"
               >
                 <h3 className="mb-3 text-xl font-semibold text-text-heading">
-                  Todavía no estás en el punto ideal para nuestro servicio principal, pero tenemos algo para vos
+                  Todavía no estás en el punto ideal para nuestro servicio principal, pero creamos algo especialmente para vos
                 </h3>
                 <p className="mb-6 text-text-secondary">
-                  Tenemos un programa de 6 semanas donde te acompañamos a estructurar las bases de tu negocio
-                  online para que puedas vender de forma consistente. Es el primer paso ideal antes de escalar.
+                  En 6 semanas construís la base para que después podamos trabajar juntos.
+                  Estructurás tu ecommerce desde cero, publicás tu tienda, conseguís tus primeras
+                  ventas online y dejás listo el sistema para escalar.
                 </p>
-                <a href={LEADMAGNET_URL} className="btn-primary inline-flex gap-2">
-                  Conocer el programa <ArrowRight size={18} />
+                <a href="/programa" className="btn-primary inline-flex gap-2">
+                  Ver programa para empezar desde cero <ArrowRight size={18} />
                 </a>
               </motion.div>
             )}
