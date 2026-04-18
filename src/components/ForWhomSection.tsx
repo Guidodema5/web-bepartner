@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { CheckCircle2, XCircle, ArrowRight } from 'lucide-react'
 
-const LEADMAGNET_URL = process.env.NEXT_PUBLIC_LEADMAGNET_URL || '#'
+const LEADMAGNET_URL = '/programa'
 
 const yesItems = [
   'Ya tenés una tienda online con ventas (Tiendanube, Shopify, WooCommerce)',
