@@ -1,37 +1,48 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BarChart3, Sparkles, TrendingUp, Calculator, DollarSign, Target, ShoppingCart, ArrowUpRight } from 'lucide-react'
+import {
+  Cpu,
+  BarChart3,
+  Sparkles,
+  TrendingUp,
+  Calculator,
+  DollarSign,
+  Target,
+  ShoppingCart,
+  ArrowUpRight,
+  Zap,
+} from 'lucide-react'
 
-const benefits = [
+const secondaryBenefits = [
   {
     icon: BarChart3,
-    title: 'Sabé cuánto vendés y cuánto te cuesta cada venta',
-    description: 'Dashboard con tu facturación, ROAS, conversión e inversión actualizado mes a mes. Sin esperar reportes de fin de mes.',
+    title: 'Dashboard de métricas en tiempo real',
+    description: 'Facturación, ROAS, conversión e inversión actualizado mes a mes. Sin esperar reportes.',
   },
   {
     icon: TrendingUp,
-    title: 'Cada semana sabés exactamente qué ajustar',
-    description: 'Análisis semanal de tus campañas con diagnóstico y próximos pasos claros. Nunca más adivinar qué está pasando.',
+    title: 'Análisis semanal de campañas',
+    description: 'Cada semana sabés exactamente qué ajustar. Con diagnóstico y próximos pasos claros.',
   },
   {
     icon: Sparkles,
-    title: 'Ideas de anuncios que venden, en minutos',
-    description: 'Generador con metodología propia que crea conceptos creativos para tus productos. Sin depender de terceros para cada pieza.',
+    title: 'Generador de ideas de anuncios',
+    description: 'Crea conceptos creativos para tus productos en minutos. Sin depender de terceros para cada pieza.',
   },
   {
     icon: Calculator,
-    title: 'Sabé cuánto podés gastar sin perder margen',
-    description: 'Calculadora de ROAS por producto. Ponés tus costos y te dice tu punto de equilibrio exacto.',
+    title: 'Calculadora de ROAS por producto',
+    description: 'Ponés tus costos y te dice tu punto de equilibrio exacto. Sabé cuánto podés gastar sin perder margen.',
   },
 ]
 
 export default function PortalSection() {
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* Left column — Benefits */}
+          {/* Left column */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -39,34 +50,76 @@ export default function PortalSection() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <span className="section-label">Lo que ningún otro consultor o equipo te da</span>
-              <h2 className="section-title mb-3 mt-3">
-                Un portal exclusivo para clientes
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-violet-light px-3 py-1.5">
+                <Cpu size={14} className="text-brand-violet" />
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-violet">
+                  Software propio con algoritmo
+                </span>
+              </div>
+              <h2 className="section-title mb-4 mt-2">
+                Un algoritmo que optimiza tus campañas mientras dormís
               </h2>
-              <p className="mb-8 text-text-secondary">
-                Tu negocio, tus números, en tiempo real. Todo en un solo lugar.
+              <p className="mb-6 text-lg text-text-secondary">
+                El corazón del Portal de Clientes es un algoritmo propio que analiza
+                cada venta de tu tienda, la cruza con los datos de tus campañas de
+                Meta Ads, y te dice exactamente qué anuncio está rindiendo y cuál
+                está quemando plata — en tiempo real.
+              </p>
+              <p className="mb-8 text-text-primary">
+                No es un dashboard más. Es el sistema que convierte tus números
+                en decisiones concretas: qué creatividad escalar, qué audiencia
+                pausar, qué producto tiene margen para aumentar la inversión.
               </p>
             </motion.div>
 
-            <div className="flex flex-col gap-6">
-              {benefits.map((benefit, i) => {
+            {/* Core algorithm benefit */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+              className="mb-6 rounded-xl border-2 border-brand-violet/20 bg-brand-violet-light p-5"
+            >
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet">
+                  <Zap size={20} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="mb-1 font-semibold text-text-heading">
+                    Decisiones basadas en datos, no en intuición
+                  </h3>
+                  <p className="text-sm text-text-secondary">
+                    El algoritmo cruza ventas × inversión × creatividad × audiencia
+                    y te dice qué mover. Eso es lo que transforma tu inversión
+                    en publicidad en ventas reales y predecibles.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Secondary benefits — compact list */}
+            <div className="mb-8 space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                Además incluye
+              </p>
+              {secondaryBenefits.map((benefit, i) => {
                 const Icon = benefit.icon
                 return (
                   <motion.div
                     key={benefit.title}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
-                    transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
-                    className="flex gap-4"
+                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 + i * 0.05 }}
+                    className="flex gap-3"
                   >
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet-light">
-                      <Icon size={20} className="text-brand-violet" />
+                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet-light">
+                      <Icon size={16} className="text-brand-violet" />
                     </div>
                     <div>
-                      <h3 className="mb-1 text-base font-semibold text-text-heading">
+                      <h4 className="text-sm font-semibold text-text-heading">
                         {benefit.title}
-                      </h3>
+                      </h4>
                       <p className="text-sm text-text-secondary">{benefit.description}</p>
                     </div>
                   </motion.div>
@@ -79,7 +132,6 @@ export default function PortalSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="mt-8"
             >
               <a
                 href="https://bepartnerclientes.com.ar"
@@ -92,7 +144,7 @@ export default function PortalSection() {
             </motion.div>
           </div>
 
-          {/* Right column — Portal mockup */}
+          {/* Right column — Mockup */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,8 +161,23 @@ export default function PortalSection() {
               <span className="ml-2 text-xs text-gray-500">bepartnerclientes.com.ar</span>
             </div>
 
-            {/* Dashboard content */}
             <div className="p-4 sm:p-5">
+              {/* Algorithm recommendation card */}
+              <div className="mb-4 rounded-lg border border-brand-violet/30 bg-brand-violet/10 p-4">
+                <div className="flex items-center gap-2">
+                  <Zap size={14} className="text-brand-violet" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet">
+                    Recomendación del algoritmo
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-white">
+                  Escalar <span className="font-bold">creatividad #3</span> — ROAS 9.4x, CPA óptimo.
+                </p>
+                <p className="mt-1 text-xs text-white/60">
+                  Pausar audiencia "Lookalike 2% LTV" — CPA 140% por encima del objetivo.
+                </p>
+              </div>
+
               {/* Metric cards */}
               <div className="mb-4 grid grid-cols-2 gap-2.5">
                 {[

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, ChevronDown, TrendingUp } from 'lucide-react'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -47,10 +47,24 @@ const steps = [
 
 const secondaryCases = [
   {
+    tag: 'E-commerce / Moda',
+    title: 'Tienda de sweaters: $50M en 70 días',
+    metric: '$50M',
+    subtitle: 'En 70 días — arrancó facturando $460K',
+    description: 'Marca de sweaters que pasó de vender $460.000 por mes a facturar 50 millones en apenas 70 días. Una estrategia de escalado agresivo con ángulos de comunicación segmentados por temporada.',
+  },
+  {
+    tag: 'E-commerce / Productos ecológicos',
+    title: 'Ecoproductos: $30M en 60 días con ROAS 10x',
+    metric: '+350%',
+    subtitle: '$30M en 60 días · ROAS 10x promedio',
+    description: 'Tienda online de productos ecológicos que multiplicó su facturación por 3.5x en 60 días manteniendo un ROAS promedio de 10x. El sistema probó que nicho no es limitante cuando la estrategia está bien diseñada.',
+  },
+  {
     tag: 'E-commerce / Accesorios',
     title: 'Pullbag: +350% facturación y ROAS de 10',
     metric: '350%',
-    subtitle: '+350% facturación',
+    subtitle: '+350% facturación · ROAS 10x',
     description: 'Marca de mochilas y accesorios que pasó de vender por redes sociales a escalar con Meta Ads. Alcanzaron un ROAS de 10x en su mejor mes.',
   },
   {
@@ -65,8 +79,10 @@ const secondaryCases = [
 export default function CaseStudy() {
   const sectionRef = useRef<HTMLElement>(null)
   const metricsRef = useRef<HTMLDivElement>(null)
+  const bandRef = useRef<HTMLDivElement>(null)
   const sectionInView = useInView(sectionRef, { once: true, amount: 0.2 })
   const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 })
+  const bandInView = useInView(bandRef, { once: true, amount: 0.3 })
   const [expanded, setExpanded] = useState(false)
   const [expandedSecondary, setExpandedSecondary] = useState<number | null>(null)
 
@@ -92,6 +108,45 @@ export default function CaseStudy() {
           <h2 className="mb-3 mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Resultados reales de tiendas reales
           </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-lg text-white/60">
+            No son casos de hace 5 años ni clientes que no conocemos.
+            Son ecommerce que escalaron con nosotros — con números documentados mes a mes.
+          </p>
+        </motion.div>
+
+        {/* BANDA DE MÉTRICAS AGREGADAS */}
+        <motion.div
+          ref={bandRef}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:grid-cols-4"
+        >
+          <div className="text-center">
+            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+              <CountUp target={100} prefix="+$" suffix="K" inView={bandInView} />
+            </div>
+            <div className="mt-1 text-xs text-white/60">USD en pauta gestionada</div>
+          </div>
+          <div className="text-center">
+            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+              <CountUp target={48} prefix="+" suffix="" inView={bandInView} />
+            </div>
+            <div className="mt-1 text-xs text-white/60">Ecommerce escalados</div>
+          </div>
+          <div className="text-center">
+            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+              <CountUp target={8} prefix="" suffix="x" inView={bandInView} />
+            </div>
+            <div className="mt-1 text-xs text-white/60">ROAS promedio</div>
+          </div>
+          <div className="text-center">
+            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+              <CountUp target={92} prefix="" suffix="M" inView={bandInView} />
+            </div>
+            <div className="mt-1 text-xs text-white/60">ARS facturados para clientes</div>
+          </div>
         </motion.div>
 
         {/* CASO PRINCIPAL — Le Marde */}
@@ -102,10 +157,15 @@ export default function CaseStudy() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-6 rounded-xl border border-brand-violet/30 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
         >
+          <div className="mb-4 flex items-center gap-2">
+            <span className="rounded-full bg-brand-violet px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+              Caso destacado
+            </span>
+            <span className="text-xs font-medium text-brand-violet">E-commerce / Moda femenina</span>
+          </div>
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <span className="text-xs font-medium text-brand-violet">E-commerce / Moda femenina</span>
-              <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+              <h3 className="text-2xl font-bold text-white sm:text-3xl">
                 Le Marde: De 4 a 102 ventas/mes en 3 meses
               </h3>
               <p className="mt-2 text-white/60">Ecommerce de carteras artesanales — Argentina</p>
@@ -167,7 +227,7 @@ export default function CaseStudy() {
                     Evolución mes a mes
                   </h4>
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    {timeline.map((t, i) => (
+                    {timeline.map((t) => (
                       <div key={t.month} className="rounded-lg bg-white/5 p-4">
                         <div className="mb-1 text-xs font-semibold text-brand-violet">{t.phase}</div>
                         <div className="text-sm font-bold text-white">{t.month}</div>
@@ -211,7 +271,7 @@ export default function CaseStudy() {
           )}
         </AnimatePresence>
 
-        {/* CASOS SECUNDARIOS */}
+        {/* CASOS SECUNDARIOS — Grid 2x2 */}
         <div className="mb-8 grid gap-4 sm:grid-cols-2">
           {secondaryCases.map((c, i) => (
             <motion.div
@@ -219,19 +279,22 @@ export default function CaseStudy() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
-              className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+              transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.08 }}
+              className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-brand-violet/30 hover:bg-white/10"
             >
-              <span className="text-xs font-medium text-white/50">{c.tag}</span>
-              <h3 className="mt-2 text-lg font-bold text-white">{c.title}</h3>
-              <div className="mt-2 font-display text-3xl font-bold text-white">{c.metric}</div>
+              <div className="mb-3 flex items-center gap-2">
+                <TrendingUp size={14} className="text-brand-violet" />
+                <span className="text-xs font-medium text-white/50">{c.tag}</span>
+              </div>
+              <h3 className="text-lg font-bold text-white">{c.title}</h3>
+              <div className="mt-3 font-display text-4xl font-bold text-white">{c.metric}</div>
               <p className="mt-1 text-sm text-white/60">{c.subtitle}</p>
 
               <button
                 onClick={() => setExpandedSecondary(expandedSecondary === i ? null : i)}
-                className="mt-3 text-sm font-medium text-brand-violet transition-colors hover:text-white"
+                className="mt-4 text-sm font-medium text-brand-violet transition-colors hover:text-white"
               >
-                {expandedSecondary === i ? 'Cerrar' : 'Ver caso completo'}
+                {expandedSecondary === i ? 'Cerrar' : 'Ver caso completo →'}
               </button>
 
               <AnimatePresence>
@@ -250,7 +313,6 @@ export default function CaseStudy() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   )

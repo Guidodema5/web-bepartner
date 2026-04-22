@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { BarChart3, Users, TrendingUp } from 'lucide-react'
 
 const miniStats = [
@@ -11,7 +12,7 @@ const miniStats = [
 
 export default function AboutSection() {
   return (
-    <section id="nosotros" className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section id="nosotros" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,13 +35,19 @@ export default function AboutSection() {
           className="rounded-2xl border border-gray-100 bg-surface-warm p-8 shadow-sm"
         >
           <div className="mb-6 flex flex-col items-center gap-5 sm:flex-row">
-            {/* Reemplazar con foto real del fundador */}
-            <div className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full border-2 border-brand-violet/20 bg-brand-violet-light">
-              <span className="font-display text-2xl font-bold text-brand-violet">GD</span>
+            {/* LinkedIn profile photo — replace with actual file at /public/demaria.jpg */}
+            <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full border-4 border-brand-violet/20 bg-brand-violet-light sm:h-32 sm:w-32">
+              <Image
+                src="/demaria.jpg"
+                alt="Demaria — Fundador de Bepartner"
+                fill
+                className="object-cover"
+                sizes="128px"
+              />
             </div>
             <div>
-              <h3 className="mb-1 text-center text-lg font-bold text-text-heading sm:text-left">
-                Guido De María — Fundador
+              <h3 className="mb-1 text-center text-xl font-bold text-text-heading sm:text-left">
+                Demaria — Fundador
               </h3>
               <p className="text-center text-text-secondary sm:text-left">
                 Creé Bepartner porque me cansé de ver cómo cobran por hacer anuncios sin importarles si el cliente crece. Acá nos jugamos por tus resultados.
