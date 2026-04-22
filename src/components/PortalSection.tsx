@@ -78,7 +78,7 @@ export default function PortalSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-              className="mb-6 rounded-xl border-2 border-brand-violet/20 bg-brand-violet-light p-5"
+              className="mb-6 rounded-xl border-2 border-brand-violet/30 bg-white p-5 shadow-md"
             >
               <div className="flex items-start gap-3">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet">

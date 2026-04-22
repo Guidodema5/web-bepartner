@@ -32,7 +32,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className="rounded-2xl border border-gray-100 bg-surface-warm p-8 shadow-sm"
+          className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg"
         >
           <div className="mb-6 flex flex-col items-center gap-5 sm:flex-row">
             {/* LinkedIn profile photo — replace with actual file at /public/demaria.jpg */}

@@ -99,7 +99,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="rounded-xl border border-gray-100 bg-white px-6 shadow-sm"
+          className="rounded-xl border border-gray-200 bg-white px-6 shadow-lg"
         >
           {faqs.map((faq, i) => (
             <AccordionItem

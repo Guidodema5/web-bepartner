@@ -102,7 +102,7 @@ export default function CaseStudy() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-10 text-center"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.15em] text-brand-violet">
+          <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#c8a2e8]">
             Resultados comprobados
           </span>
           <h2 className="mb-3 mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
@@ -121,31 +121,31 @@ export default function CaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:grid-cols-4"
+          className="mb-10 grid grid-cols-2 gap-3 rounded-2xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm sm:grid-cols-4"
         >
           <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
               <CountUp target={100} prefix="+$" suffix="K" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/60">USD en pauta gestionada</div>
+            <div className="mt-1 text-xs text-white/70">USD en pauta gestionada</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
               <CountUp target={48} prefix="+" suffix="" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/60">Ecommerce escalados</div>
+            <div className="mt-1 text-xs text-white/70">Ecommerce escalados</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
               <CountUp target={8} prefix="" suffix="x" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/60">ROAS promedio</div>
+            <div className="mt-1 text-xs text-white/70">ROAS promedio</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
+            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
               <CountUp target={92} prefix="" suffix="M" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/60">ARS facturados para clientes</div>
+            <div className="mt-1 text-xs text-white/70">ARS facturados para clientes</div>
           </div>
         </motion.div>
 
@@ -155,13 +155,13 @@ export default function CaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 rounded-xl border border-brand-violet/30 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+          className="mb-6 rounded-2xl border-2 border-[#c8a2e8]/40 bg-white/10 p-6 shadow-xl backdrop-blur-sm sm:p-8"
         >
           <div className="mb-4 flex items-center gap-2">
             <span className="rounded-full bg-brand-violet px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
               Caso destacado
             </span>
-            <span className="text-xs font-medium text-brand-violet">E-commerce / Moda femenina</span>
+            <span className="text-xs font-medium text-[#c8a2e8]">E-commerce / Moda femenina</span>
           </div>
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
@@ -171,10 +171,10 @@ export default function CaseStudy() {
               <p className="mt-2 text-white/60">Ecommerce de carteras artesanales — Argentina</p>
             </div>
             <div className="text-center md:text-right">
-              <div className="font-display text-5xl font-bold text-white sm:text-6xl">
+              <div className="font-display text-6xl font-extrabold text-[#c8a2e8] sm:text-7xl">
                 +1.760%
               </div>
-              <p className="mt-1 text-sm text-white/60">Crecimiento en ventas</p>
+              <p className="mt-1 text-sm text-white/70">Crecimiento en ventas</p>
             </div>
           </div>
 
@@ -212,10 +212,10 @@ export default function CaseStudy() {
                         key={m.label}
                         className="rounded-lg bg-white/10 p-4 text-center backdrop-blur-sm"
                       >
-                        <div className="mb-1 font-display text-2xl font-bold text-white sm:text-3xl">
+                        <div className="mb-1 font-display text-3xl font-extrabold text-[#c8a2e8] sm:text-4xl">
                           <CountUp target={m.value} prefix={m.prefix} suffix={m.suffix} inView={metricsInView} />
                         </div>
-                        <div className="text-xs text-white/60">{m.label}</div>
+                        <div className="text-xs text-white/70">{m.label}</div>
                       </div>
                     ))}
                   </div>
@@ -229,7 +229,7 @@ export default function CaseStudy() {
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {timeline.map((t) => (
                       <div key={t.month} className="rounded-lg bg-white/5 p-4">
-                        <div className="mb-1 text-xs font-semibold text-brand-violet">{t.phase}</div>
+                        <div className="mb-1 text-xs font-semibold text-[#c8a2e8]">{t.phase}</div>
                         <div className="text-sm font-bold text-white">{t.month}</div>
                         <div className="mt-2 space-y-1 text-xs text-white/60">
                           <div>{t.sales}</div>
@@ -280,19 +280,19 @@ export default function CaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.08 }}
-              className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-brand-violet/30 hover:bg-white/10"
+              className="rounded-xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-[#c8a2e8]/40 hover:bg-white/15"
             >
               <div className="mb-3 flex items-center gap-2">
-                <TrendingUp size={14} className="text-brand-violet" />
+                <TrendingUp size={14} className="text-[#c8a2e8]" />
                 <span className="text-xs font-medium text-white/50">{c.tag}</span>
               </div>
               <h3 className="text-lg font-bold text-white">{c.title}</h3>
-              <div className="mt-3 font-display text-4xl font-bold text-white">{c.metric}</div>
-              <p className="mt-1 text-sm text-white/60">{c.subtitle}</p>
+              <div className="mt-3 font-display text-5xl font-extrabold text-[#c8a2e8]">{c.metric}</div>
+              <p className="mt-1 text-sm text-white/70">{c.subtitle}</p>
 
               <button
                 onClick={() => setExpandedSecondary(expandedSecondary === i ? null : i)}
-                className="mt-4 text-sm font-medium text-brand-violet transition-colors hover:text-white"
+                className="mt-4 text-sm font-medium text-[#c8a2e8] transition-colors hover:text-white"
               >
                 {expandedSecondary === i ? 'Cerrar' : 'Ver caso completo →'}
               </button>

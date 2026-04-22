@@ -44,7 +44,7 @@ export default function ForWhomSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm"
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-md"
           >
             <h3 className="mb-5 text-lg font-semibold text-text-heading">
               Esto ES para vos si:
@@ -65,7 +65,7 @@ export default function ForWhomSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-            className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm"
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-md"
           >
             <h3 className="mb-5 text-lg font-semibold text-text-heading">
               Esto NO es para vos si:
