@@ -14,12 +14,12 @@ const navLinks = [
 
 function BepartnerLogo() {
   return (
-    <div className="relative h-10 w-[180px] overflow-hidden sm:h-12 sm:w-[220px]">
+    <div className="relative h-14 w-[240px] overflow-hidden sm:h-16 sm:w-[280px]">
       <Image
         src="/logo-white.png"
         alt="Bepartner"
         fill
-        className="scale-[2.2] object-contain"
+        className="scale-[2.4] object-contain object-left"
         priority
       />
     </div>
@@ -47,7 +47,7 @@ export default function Navbar() {
             : 'bg-[#1a1a2e]'
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between px-4 py-2 sm:px-6 lg:px-10">
           <a href="#inicio" className="flex items-center">
             <BepartnerLogo />
           </a>
