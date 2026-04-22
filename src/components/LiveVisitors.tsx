@@ -18,8 +18,19 @@ function randomInRange(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+// Evitar números redondos (acabados en 0 o 5) — se sienten "fake"
+function avoidRoundNumbers(n: number) {
+  if (n % 10 === 0 || n % 10 === 5) {
+    return n + (Math.random() < 0.5 ? -1 : 1)
+  }
+  return n
+}
+
+// Deltas impares para evitar saltos de a 2/4 que se ven artificiales
+const DELTAS = [-7, -3, -1, 1, 3, 7]
+
 export default function LiveVisitors() {
-  const [count, setCount] = useState(() => randomInRange(42, 58))
+  const [count, setCount] = useState(() => avoidRoundNumbers(randomInRange(41, 59)))
   const [visible, setVisible] = useState(false)
   const [dismissed, setDismissed] = useState(false)
 
@@ -41,19 +52,20 @@ export default function LiveVisitors() {
 
     const tick = () => {
       setCount((prev) => {
-        // Variación de ±1 a ±4
-        const delta = randomInRange(-4, 4)
+        // Delta impar aleatorio (nunca ±2, ±4, ±6 ni 0)
+        const delta = DELTAS[Math.floor(Math.random() * DELTAS.length)]
         let next = prev + delta
-        if (next < 34) next = 34 + randomInRange(0, 3)
-        if (next > 68) next = 68 - randomInRange(0, 3)
-        return next
+        // Clamp al rango realista y evitar redondos
+        if (next < 32) next = 33 + randomInRange(1, 4)
+        if (next > 71) next = 68 - randomInRange(0, 3)
+        return avoidRoundNumbers(next)
       })
     }
 
-    // Cambia cada 15-30s (intervalo aleatorio)
+    // Cambia cada 12-28s (intervalo aleatorio no regular)
     let timeoutId: ReturnType<typeof setTimeout>
     const schedule = () => {
-      const delay = randomInRange(15000, 30000)
+      const delay = randomInRange(12000, 28000)
       timeoutId = setTimeout(() => {
         tick()
         schedule()

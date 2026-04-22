@@ -88,6 +88,7 @@ function YouTubePlayer({ videoId, onQuarter }: { videoId: string; onQuarter: () 
 const stats = [
   { value: 100, prefix: '+$', suffix: 'K', label: 'USD en pauta gestionada' },
   { value: 48, prefix: '+', suffix: '', label: 'casos de éxito' },
+  { value: 6, prefix: '+', suffix: ' años', label: 'de experiencia' },
   { value: 8, prefix: '', suffix: 'x', label: 'ROAS promedio' },
 ]
 

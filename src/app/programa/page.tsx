@@ -14,6 +14,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import CaseStudy from '@/components/CaseStudy'
 
 const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
 const WA_MESSAGE = encodeURIComponent('Hola, quiero anotarme al programa de Bepartner')
@@ -28,14 +29,14 @@ const WA_LINK = WHATSAPP_NUMBER
 function ProgramaNavbar() {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#1a1a2e]/95 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between px-4 py-2 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center">
-          <div className="relative h-10 w-[180px] overflow-hidden sm:h-12 sm:w-[220px]">
+          <div className="relative h-14 w-[200px] overflow-hidden sm:h-16 sm:w-[240px]">
             <Image
               src="/logo-white.png"
               alt="Bepartner"
               fill
-              className="scale-[2.2] object-contain"
+              className="scale-[2.4] object-contain"
               priority
             />
           </div>
@@ -87,8 +88,8 @@ function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           className="mb-5 font-display text-4xl font-extrabold leading-tight text-text-heading sm:text-5xl lg:text-6xl"
         >
-          Tus ventas online dejan de ser{' '}
-          <span className="text-brand-violet">un golpe de suerte</span>.
+          Construí tu propia tienda online en{' '}
+          <span className="text-brand-violet">6 semanas</span> y empezá a vender de forma constante
         </motion.h1>
 
         <motion.p
@@ -97,9 +98,8 @@ function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
           className="mx-auto mb-8 max-w-2xl text-lg text-text-secondary sm:text-xl"
         >
-          Para negocios que venden por Instagram o tienen un local físico pero no
-          tienen ventas online constantes y predecibles. En 6 semanas construís
-          el sistema que cambia eso.
+          Descubrí los pilares que tenés que tener para armar y escalar tu propia
+          tienda online desde 0.
         </motion.p>
 
         <motion.div
@@ -108,115 +108,45 @@ function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
           className="mb-6 flex flex-col items-center gap-3"
         >
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary gap-2 text-lg">
-            QUIERO VENTAS CONSTANTES <ArrowRight size={20} />
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary gap-2 text-lg"
+          >
+            QUIERO INGRESAR <ArrowRight size={20} />
           </a>
           <span className="flex items-center gap-2 text-sm text-text-secondary">
             <span className="relative inline-flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
             </span>
-            Próxima cohorte arranca el lunes. Cupos limitados.
+            Solo tenemos 3 cupos disponibles
           </span>
         </motion.div>
 
-        {/* Stats */}
+        {/* Stats — sin precio, con autoridad */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
-          className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4"
+          className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3"
         >
           {[
             { value: '6 semanas', label: 'Para construir el sistema' },
             { value: '+1.760%', label: 'Crecimiento caso real' },
-            { value: 'Constante', label: 'No más ventas aleatorias' },
-            { value: 'USD 97', label: 'Pago único con garantía' },
+            { value: '+6 años', label: 'de experiencia' },
           ].map((s) => (
             <div
               key={s.label}
-              className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm"
+              className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <div className="font-display text-xl font-bold text-text-heading sm:text-2xl">
+              <div className="font-display text-2xl font-extrabold text-brand-violet sm:text-3xl">
                 {s.value}
               </div>
               <div className="mt-1 text-xs text-text-secondary">{s.label}</div>
             </div>
           ))}
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-// ============================================================================
-// IDENTIFICACIÓN (dolor)
-// ============================================================================
-
-const painPoints = [
-  'Posteás, vendés. No posteás, no vendés. No podés depender de eso para siempre.',
-  'Este mes vendiste bien. El mes que viene, no sabés. La inconsistencia te come la cabeza.',
-  'Alguien te busca en Google o en Instagram, no te encuentra, y compra en otra tienda que sí aparece.',
-  'Tenés seguidores, tenés producto, tenés clientes — pero no tenés sistema. Y lo notás.',
-  'Querés poner publicidad pero no tenés ni pixel instalado ni tienda para mandar el tráfico.',
-  'Cada mes que pasa sin estructura es un mes más difícil de escalar. Lo sabés pero no encontrás por dónde empezar.',
-]
-
-function Identificacion() {
-  return (
-    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-4"
-        >
-          <span className="section-label">¿Te suena conocido?</span>
-        </motion.div>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="section-title mb-10"
-        >
-          Si vendés por Instagram o tenés un local, esto probablemente te pasa.
-        </motion.h2>
-
-        <div className="mb-8 grid gap-4 sm:grid-cols-2">
-          {painPoints.map((point, i) => (
-            <motion.div
-              key={point}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex items-start gap-3 rounded-lg border border-gray-100 bg-surface-warm p-4 shadow-sm"
-            >
-              <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-50">
-                <X size={14} className="text-status-negative" />
-              </div>
-              <p className="text-text-primary">{point}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-xl border-2 border-brand-violet/30 bg-brand-violet-light p-6 text-center"
-        >
-          <p className="text-lg text-text-heading">
-            Si te identificaste con al menos 2 de estos, el programa existe para vos.
-          </p>
-          <p className="mt-2 text-text-secondary">
-            No hay nada complicado que aprender. Hay un sistema que implementar, semana a semana.
-          </p>
         </motion.div>
       </div>
     </section>
@@ -245,7 +175,7 @@ const afterItems = [
 
 function Transformacion() {
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -266,7 +196,7 @@ function Transformacion() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-xl border border-gray-100 border-t-4 border-t-red-400 bg-white p-6 shadow-sm sm:p-8"
+            className="rounded-xl border border-gray-200 border-t-4 border-t-red-400 bg-white p-6 shadow-lg sm:p-8"
           >
             <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-red-500">HOY</h3>
             <div className="flex flex-col gap-3">
@@ -284,7 +214,7 @@ function Transformacion() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-xl border border-gray-100 border-t-4 border-t-emerald-500 bg-white p-6 shadow-sm sm:p-8"
+            className="rounded-xl border border-gray-200 border-t-4 border-t-emerald-500 bg-white p-6 shadow-lg sm:p-8"
           >
             <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-emerald-600">
               En 6 semanas
@@ -325,7 +255,7 @@ const noItems = [
 
 function ParaQuien() {
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -344,7 +274,7 @@ function ParaQuien() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-xl border border-gray-100 border-t-4 border-t-emerald-500 bg-surface-warm p-6 shadow-sm"
+            className="rounded-xl border border-gray-200 border-t-4 border-t-emerald-500 bg-white p-6 shadow-lg"
           >
             <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-emerald-600">
               Sí entra
@@ -364,7 +294,7 @@ function ParaQuien() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-xl border border-gray-100 border-t-4 border-t-red-400 bg-surface-warm p-6 shadow-sm"
+            className="rounded-xl border border-gray-200 border-t-4 border-t-red-400 bg-white p-6 shadow-lg"
           >
             <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-red-500">
               No entra
@@ -465,7 +395,7 @@ const weeks = [
 
 function Recorrido() {
   return (
-    <section className="border-y border-gray-100 bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -489,13 +419,15 @@ function Recorrido() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex flex-col rounded-xl border border-gray-100 bg-surface-warm p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              className="flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <span className="section-label">Semana {week.num}</span>
               <h3 className="mt-2 font-display text-xl font-bold text-text-heading">
                 {week.title}
               </h3>
-              <p className="mt-2 text-sm font-semibold text-brand-violet">&ldquo;{week.tagline}&rdquo;</p>
+              <p className="mt-2 text-sm font-semibold text-brand-violet">
+                &ldquo;{week.tagline}&rdquo;
+              </p>
 
               <ul className="mt-4 flex flex-col gap-2">
                 {week.bullets.map((b) => (
@@ -520,79 +452,6 @@ function Recorrido() {
 }
 
 // ============================================================================
-// CASO DE ÉXITO
-// ============================================================================
-
-function CasoExito() {
-  return (
-    <section className="bg-gradient-to-br from-brand-violet-dark to-surface-dark px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 text-center"
-        >
-          <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#a78bfa]">
-            Esto es lo que pasa con un sistema
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-            De 4 ventas a 102 por mes en 3 meses.
-          </h2>
-          <p className="mt-4 text-lg text-white/70">
-            Un ecommerce de carteras que arrancó sin sistema y lo construyó con Bepartner.
-            Sin magia, con estructura.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4"
-        >
-          {[
-            { value: '+1.760%', label: 'Crecimiento en ventas' },
-            { value: '8x', label: 'ROAS máximo alcanzado' },
-            { value: '35.3%', label: 'Tasa de conversión' },
-            { value: '$12.9M', label: 'Facturación en febrero 2026' },
-          ].map((m) => (
-            <div
-              key={m.label}
-              className="rounded-lg border border-white/10 bg-white/10 p-4 text-center backdrop-blur-sm"
-            >
-              <div className="font-display text-2xl font-bold text-white sm:text-3xl">
-                {m.value}
-              </div>
-              <div className="mt-1 text-xs text-white/60">{m.label}</div>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.blockquote
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-xl border-l-4 border-brand-violet bg-white/5 p-6 italic text-white/80 sm:p-8"
-        >
-          <p className="text-lg leading-relaxed">
-            &ldquo;Noviembre arrancamos con 4 ventas y $694k. En enero llegamos a 96 ventas,
-            $10.1M ARS y ROAS de 8x. En febrero, 102 ventas y $12.9M. No era magia — era
-            sistema.&rdquo;
-          </p>
-          <footer className="mt-4 text-sm not-italic text-white/50">
-            — Le Marde Carteras · Caso de éxito Bepartner · Nov 2025 – Feb 2026
-          </footer>
-        </motion.blockquote>
-      </div>
-    </section>
-  )
-}
-
-// ============================================================================
 // PRECIO
 // ============================================================================
 
@@ -607,7 +466,7 @@ const priceIncludes = [
 
 function Precio() {
   return (
-    <section className="border-y border-gray-100 bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -633,12 +492,12 @@ function Precio() {
           className="relative mx-auto max-w-md"
         >
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-            <span className="rounded-full bg-brand-violet px-5 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-lg">
-              Garantía incluida
+            <span className="rounded-full bg-red-500 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-lg">
+              🔥 Precio promocional
             </span>
           </div>
 
-          <div className="rounded-3xl border-2 border-brand-violet bg-surface-warm p-8 pt-10 shadow-xl">
+          <div className="rounded-3xl border-2 border-brand-violet bg-white p-8 pt-10 shadow-2xl">
             <h3 className="text-center font-display text-2xl font-bold text-text-heading">
               Estructurá tu Ecommerce
             </h3>
@@ -647,14 +506,26 @@ function Precio() {
             </p>
 
             <div className="my-6 text-center">
-              <div className="flex items-start justify-center gap-1">
-                <span className="mt-2 text-xl font-semibold text-text-heading">USD</span>
-                <span className="font-display text-6xl font-extrabold text-text-heading">97</span>
+              {/* Precio original tachado */}
+              <div className="mb-1 text-lg text-text-secondary">
+                <span className="text-sm">Antes:</span>{' '}
+                <span className="line-through decoration-red-400 decoration-2">USD 297</span>
               </div>
-              <p className="mt-1 text-sm text-text-secondary">pago único</p>
+
+              {/* Precio promocional */}
+              <div className="flex items-start justify-center gap-1">
+                <span className="mt-2 text-xl font-semibold text-brand-violet">USD</span>
+                <span className="font-display text-7xl font-extrabold text-brand-violet">48</span>
+              </div>
+              <p className="mt-1 text-sm font-semibold text-text-heading">pago único</p>
               <p className="mt-1 text-xs text-text-secondary">
                 Acceso inmediato · Sin cuotas · Sin renovación
               </p>
+
+              {/* Badge ahorro */}
+              <div className="mt-3 inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                Ahorrás USD 249 (84% OFF)
+              </div>
             </div>
 
             <ul className="mb-6 flex flex-col gap-3">
@@ -674,14 +545,14 @@ function Precio() {
               rel="noopener noreferrer"
               className="btn-primary w-full gap-2"
             >
-              QUIERO VENTAS CONSTANTES — USD 97 <ArrowRight size={18} />
+              QUIERO INGRESAR — USD 48 <ArrowRight size={18} />
             </a>
 
             <div className="mt-4 flex items-start gap-3 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
               <Shield size={18} className="mt-0.5 flex-shrink-0 text-emerald-600" />
               <p className="text-sm text-text-primary">
                 Si completás el programa y no conseguís ventas online constantes, te devolvemos
-                los $97. Sin preguntas.
+                los USD 48. Sin preguntas.
               </p>
             </div>
           </div>
@@ -703,7 +574,7 @@ function Garantia() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mx-auto max-w-lg text-center"
+        className="mx-auto max-w-lg rounded-2xl border border-gray-200 bg-white p-10 text-center shadow-lg"
       >
         <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-brand-violet-light">
           <Shield size={40} className="text-brand-violet" />
@@ -713,7 +584,7 @@ function Garantia() {
 
         <p className="text-lg leading-relaxed text-text-secondary">
           Si seguís el programa completo — implementás los entregables de cada semana — y no
-          conseguís ventas online constantes en las 6 semanas, te devolvemos los $97. Sin
+          conseguís ventas online constantes en las 6 semanas, te devolvemos los USD 48. Sin
           preguntas, sin formularios raros, sin vueltas. Confiamos en el sistema porque lo
           probamos. El único riesgo real es no arrancar.
         </p>
@@ -753,11 +624,11 @@ const faqs = [
   },
 ]
 
-function FAQ() {
+function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -770,7 +641,7 @@ function FAQ() {
           <h2 className="section-title mt-3">Lo que seguramente te estás preguntando</h2>
         </motion.div>
 
-        <div className="rounded-xl border border-gray-100 bg-surface-warm px-6 shadow-sm">
+        <div className="rounded-xl border border-gray-200 bg-white px-6 shadow-lg">
           {faqs.map((faq, i) => (
             <div key={i} className="border-b border-gray-100 last:border-b-0">
               <button
@@ -815,23 +686,32 @@ function FAQ() {
 
 function CTAFinal() {
   return (
-    <section className="bg-gradient-to-br from-brand-violet-dark to-surface-dark px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-brand-violet-dark to-surface-dark px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+      {/* Grid pattern visible sobre dark */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mx-auto max-w-3xl text-center"
+        className="relative mx-auto max-w-3xl text-center"
       >
-        <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#a78bfa]">
+        <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#c8a2e8]">
           ¿Arrancamos?
         </span>
         <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-          Tus ventas online dejan de ser un golpe de suerte.
+          Construí tu propia tienda online en 6 semanas.
         </h2>
-        <p className="mt-4 text-lg text-white/60">
-          El sistema que necesitás para vender online de forma constante existe. Son 6 semanas
-          para construirlo.
+        <p className="mt-4 text-lg text-white/70">
+          El sistema que necesitás para vender online de forma constante existe.
+          Son 6 semanas para construirlo.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-4">
@@ -841,15 +721,19 @@ function CTAFinal() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-violet px-10 py-4 text-lg font-semibold text-white transition-all hover:scale-[1.02] hover:bg-brand-violet-hover hover:shadow-xl"
           >
-            QUIERO VENTAS CONSTANTES — USD 97 <ArrowRight size={20} />
+            QUIERO INGRESAR — USD 48 <ArrowRight size={20} />
           </a>
-          <span className="flex items-center gap-2 text-sm text-white/50">
-            <span className="relative inline-flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            Próxima cohorte: lunes que viene. Garantía incluida.
-          </span>
+
+          {/* Banner cupos destacado */}
+          <div className="mt-2 flex items-center justify-center gap-3 rounded-xl border-2 border-red-500/40 bg-red-500/10 px-5 py-3 backdrop-blur-sm">
+            <div className="relative flex h-3 w-3 flex-shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500" />
+            </div>
+            <p className="text-sm font-semibold text-white">
+              Solo <span className="text-red-300">3 cupos disponibles</span> · Garantía incluida
+            </p>
+          </div>
         </div>
       </motion.div>
     </section>
@@ -907,14 +791,13 @@ export default function ProgramaPage() {
       <ProgramaNavbar />
       <main>
         <Hero />
-        <Identificacion />
-        <Transformacion />
         <ParaQuien />
+        <Transformacion />
         <Recorrido />
-        <CasoExito />
+        <CaseStudy />
         <Precio />
         <Garantia />
-        <FAQ />
+        <FAQSection />
         <CTAFinal />
       </main>
       <ProgramaFooter />
