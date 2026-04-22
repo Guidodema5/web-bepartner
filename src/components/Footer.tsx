@@ -6,6 +6,7 @@ import { BepartnerLogo } from './Navbar'
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Casos de Éxito', href: '#caso-exito' },
+  { label: 'Metodología', href: '#metodologia' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ]

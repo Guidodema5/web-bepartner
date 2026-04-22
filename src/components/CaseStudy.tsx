@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronDown, TrendingUp } from 'lucide-react'
+import { ArrowRight, ChevronDown, TrendingUp, Quote } from 'lucide-react'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -26,23 +26,16 @@ function CountUp({ target, prefix = '', suffix = '', inView }: { target: number;
 
 const metrics = [
   { value: 1760, prefix: '+', suffix: '%', label: 'Crecimiento en ventas' },
-  { value: 8, prefix: '', suffix: 'x', label: 'ROAS máximo alcanzado' },
+  { value: 8, prefix: '', suffix: 'x', label: 'ROAS máximo' },
   { value: 35.3, prefix: '', suffix: '%', label: 'Tasa de conversión' },
-  { value: 12.9, prefix: '$', suffix: 'M', label: 'Facturación febrero 2026' },
+  { value: 12.9, prefix: '$', suffix: 'M ARS', label: 'Facturación en febrero 2026' },
 ]
 
-const timeline = [
-  { month: 'Nov 2025', sales: '4 ventas', revenue: '$694K', roas: 'ROAS 2.5x', phase: 'Testeo' },
-  { month: 'Dic 2025', sales: '15 ventas', revenue: '$2.1M', roas: 'ROAS 2.5x', phase: 'Validación' },
-  { month: 'Ene 2026', sales: '96 ventas', revenue: '$10.1M', roas: 'ROAS 8x', phase: 'Escalado' },
-  { month: 'Feb 2026', sales: '102 ventas', revenue: '$12.9M', roas: 'ROAS 7x', phase: 'Consolidación' },
-]
-
-const steps = [
-  'Estrategia de comunicación y ángulos de venta por producto',
-  'Embudo completo Meta Ads: testeo → validación → escalado → consolidación',
-  'Optimización semanal basada en datos reales',
-  'Acceso al Portal de Clientes con métricas en tiempo real',
+const timelineNodes = [
+  { month: 'Nov', size: 'sm', sales: '4 ventas', revenue: '$694K ARS', highlighted: false },
+  { month: 'Dic', size: 'md', sales: '15 ventas', revenue: '$2.1M ARS', highlighted: false },
+  { month: 'Ene', size: 'lg', sales: '96 ventas', revenue: '$10.1M ARS', highlighted: true },
+  { month: 'Feb', size: 'xl', sales: '102 ventas', revenue: '$12.9M ARS', highlighted: true, isFinal: true },
 ]
 
 const secondaryCases = [
@@ -76,14 +69,18 @@ const secondaryCases = [
   },
 ]
 
+const sizeMap = {
+  sm: 'h-12 w-12 text-xs',
+  md: 'h-16 w-16 text-sm',
+  lg: 'h-20 w-20 text-base',
+  xl: 'h-24 w-24 text-lg',
+} as const
+
 export default function CaseStudy() {
   const sectionRef = useRef<HTMLElement>(null)
   const metricsRef = useRef<HTMLDivElement>(null)
-  const bandRef = useRef<HTMLDivElement>(null)
   const sectionInView = useInView(sectionRef, { once: true, amount: 0.2 })
   const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 })
-  const bandInView = useInView(bandRef, { once: true, amount: 0.3 })
-  const [expanded, setExpanded] = useState(false)
   const [expandedSecondary, setExpandedSecondary] = useState<number | null>(null)
 
   useEffect(() => {
@@ -93,186 +90,190 @@ export default function CaseStudy() {
   }, [sectionInView])
 
   return (
-    <section ref={sectionRef} id="caso-exito" className="bg-gradient-to-br from-surface-dark to-[#0f0f1e] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <div className="mx-auto max-w-6xl">
+    <section
+      ref={sectionRef}
+      id="caso-exito"
+      className="relative overflow-hidden bg-gradient-to-br from-[#2d1b4e] to-[#1a1a2e] px-4 py-20 sm:px-6 lg:px-8 lg:py-28"
+    >
+      {/* Grid pattern — visible on dark */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 text-center"
+          className="mb-12 text-center"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.15em] text-brand-violet">
-            Resultados comprobados
+          <span className="inline-block rounded-full border border-brand-violet/40 bg-brand-violet/20 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#c8a2e8]">
+            Caso de éxito documentado
           </span>
-          <h2 className="mb-3 mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-            Resultados reales de tiendas reales
+          <h2 className="mb-3 mt-4 font-display text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
+            De 4 ventas a 102 por mes.
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-lg text-white/60">
-            No son casos de hace 5 años ni clientes que no conocemos.
-            Son ecommerce que escalaron con nosotros — con números documentados mes a mes.
+          <p className="mx-auto max-w-2xl text-lg text-white/70 sm:text-xl">
+            3 meses. 1 sistema. Ecommerce de carteras artesanales — Le Marde.
           </p>
         </motion.div>
 
-        {/* BANDA DE MÉTRICAS AGREGADAS */}
-        <motion.div
-          ref={bandRef}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:grid-cols-4"
-        >
-          <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
-              <CountUp target={100} prefix="+$" suffix="K" inView={bandInView} />
-            </div>
-            <div className="mt-1 text-xs text-white/60">USD en pauta gestionada</div>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
-              <CountUp target={48} prefix="+" suffix="" inView={bandInView} />
-            </div>
-            <div className="mt-1 text-xs text-white/60">Ecommerce escalados</div>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
-              <CountUp target={8} prefix="" suffix="x" inView={bandInView} />
-            </div>
-            <div className="mt-1 text-xs text-white/60">ROAS promedio</div>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-2xl font-bold text-white sm:text-3xl">
-              <CountUp target={92} prefix="" suffix="M" inView={bandInView} />
-            </div>
-            <div className="mt-1 text-xs text-white/60">ARS facturados para clientes</div>
-          </div>
-        </motion.div>
-
-        {/* CASO PRINCIPAL — Le Marde */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 rounded-xl border border-brand-violet/30 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
-        >
-          <div className="mb-4 flex items-center gap-2">
-            <span className="rounded-full bg-brand-violet px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-              Caso destacado
-            </span>
-            <span className="text-xs font-medium text-brand-violet">E-commerce / Moda femenina</span>
-          </div>
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 className="text-2xl font-bold text-white sm:text-3xl">
-                Le Marde: De 4 a 102 ventas/mes en 3 meses
-              </h3>
-              <p className="mt-2 text-white/60">Ecommerce de carteras artesanales — Argentina</p>
-            </div>
-            <div className="text-center md:text-right">
-              <div className="font-display text-5xl font-bold text-white sm:text-6xl">
-                +1.760%
-              </div>
-              <p className="mt-1 text-sm text-white/60">Crecimiento en ventas</p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-          >
-            {expanded ? 'Cerrar detalle' : 'Ver caso completo'}
-            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown size={16} />
-            </motion.div>
-          </button>
-        </motion.div>
-
-        {/* Expanded detail — Le Marde */}
-        <AnimatePresence>
-          {expanded && (
+        {/* HUGE METRICS — heart of the section */}
+        <div ref={metricsRef} className="mb-14 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+          {metrics.map((m, i) => (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className="overflow-hidden"
+              key={m.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.1 }}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all hover:border-brand-violet/40 hover:bg-white/10 sm:p-8"
             >
-              <div className="mb-6 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
-                <p className="mb-6 text-white/80">
-                  Buen producto, clientas fieles, pero sin sistema de publicidad que convirtiera en ventas escalables.
-                </p>
-
-                {/* Metrics */}
-                <div ref={metricsRef}>
-                  <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-                    {metrics.map((m) => (
-                      <div
-                        key={m.label}
-                        className="rounded-lg bg-white/10 p-4 text-center backdrop-blur-sm"
-                      >
-                        <div className="mb-1 font-display text-2xl font-bold text-white sm:text-3xl">
-                          <CountUp target={m.value} prefix={m.prefix} suffix={m.suffix} inView={metricsInView} />
-                        </div>
-                        <div className="text-xs text-white/60">{m.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Timeline */}
-                <div className="mb-8">
-                  <h4 className="mb-4 text-xs font-medium uppercase tracking-wider text-white/50">
-                    Evolución mes a mes
-                  </h4>
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    {timeline.map((t) => (
-                      <div key={t.month} className="rounded-lg bg-white/5 p-4">
-                        <div className="mb-1 text-xs font-semibold text-brand-violet">{t.phase}</div>
-                        <div className="text-sm font-bold text-white">{t.month}</div>
-                        <div className="mt-2 space-y-1 text-xs text-white/60">
-                          <div>{t.sales}</div>
-                          <div>{t.revenue}</div>
-                          <div>{t.roas}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* What we did */}
-                <div className="mb-6">
-                  <h4 className="mb-3 text-xs font-medium uppercase tracking-wider text-white/50">
-                    Lo que hicimos
-                  </h4>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {steps.map((step, i) => (
-                      <div key={i} className="flex items-start gap-2 text-sm text-white/70">
-                        <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-violet text-[10px] font-bold text-white">
-                          {i + 1}
-                        </span>
-                        {step}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <a
-                    href="#contacto"
-                    className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-                  >
-                    Quiero resultados como estos <ArrowRight size={18} />
-                  </a>
-                </div>
+              <div className="font-display text-4xl font-extrabold leading-none text-[#c8a2e8] sm:text-5xl lg:text-[56px]">
+                <CountUp target={m.value} prefix={m.prefix} suffix={m.suffix} inView={metricsInView} />
+              </div>
+              <div className="mt-3 text-xs uppercase tracking-wider text-white/60 sm:text-sm">
+                {m.label}
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
+          ))}
+        </div>
 
-        {/* CASOS SECUNDARIOS — Grid 2x2 */}
-        <div className="mb-8 grid gap-4 sm:grid-cols-2">
+        {/* TIMELINE — growing nodes */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mb-14 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+        >
+          <h3 className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.15em] text-white/50">
+            Evolución mes a mes
+          </h3>
+
+          {/* Desktop: horizontal */}
+          <div className="hidden md:block">
+            <div className="relative flex items-center justify-between">
+              {/* Connector line */}
+              <div className="absolute left-[8%] right-[8%] top-1/2 h-0.5 -translate-y-1/2 bg-gradient-to-r from-white/20 via-brand-violet/40 to-brand-violet" />
+
+              {timelineNodes.map((node, i) => (
+                <motion.div
+                  key={node.month}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                  className="relative z-10 flex flex-col items-center"
+                >
+                  <div className="mb-3 text-xs font-medium text-white/50">{node.month}</div>
+                  <div
+                    className={`flex items-center justify-center rounded-full font-display font-bold shadow-lg ${sizeMap[node.size as keyof typeof sizeMap]} ${
+                      node.highlighted
+                        ? node.isFinal
+                          ? 'bg-brand-violet text-white ring-4 ring-brand-violet/30'
+                          : 'bg-[#c8a2e8] text-[#2d1b4e]'
+                        : 'bg-white/10 text-white'
+                    }`}
+                  >
+                    {node.month}
+                  </div>
+                  <div className="mt-3 text-center">
+                    <div className="text-sm font-semibold text-white">{node.sales}</div>
+                    <div className="text-xs text-white/50">{node.revenue}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: vertical */}
+          <div className="flex flex-col gap-4 md:hidden">
+            {timelineNodes.map((node, i) => (
+              <motion.div
+                key={node.month}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="flex items-center gap-4"
+              >
+                <div
+                  className={`flex flex-shrink-0 items-center justify-center rounded-full font-display font-bold ${sizeMap[node.size as keyof typeof sizeMap]} ${
+                    node.highlighted
+                      ? node.isFinal
+                        ? 'bg-brand-violet text-white ring-4 ring-brand-violet/30'
+                        : 'bg-[#c8a2e8] text-[#2d1b4e]'
+                      : 'bg-white/10 text-white'
+                  }`}
+                >
+                  {node.month}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-white">{node.sales}</div>
+                  <div className="text-xs text-white/50">{node.revenue}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* QUOTE — client context */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mb-10 rounded-xl border-l-4 border-brand-violet bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+        >
+          <Quote size={28} className="mb-3 text-brand-violet" />
+          <p className="text-lg leading-relaxed text-white/90 sm:text-xl">
+            &ldquo;Buen producto, showroom activo, clientas fieles. Pero las ventas online eran
+            impredecibles. En 3 meses pasamos a tener un sistema que vende todos los días.&rdquo;
+          </p>
+          <p className="mt-4 text-sm text-white/50">
+            — Le Marde, ecommerce de carteras artesanales, Argentina
+          </p>
+        </motion.div>
+
+        {/* Section CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-16 text-center"
+        >
+          <a
+            href="#contacto"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-violet px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-brand-violet-hover hover:shadow-xl"
+          >
+            Quiero resultados como estos <ArrowRight size={18} />
+          </a>
+        </motion.div>
+
+        {/* Secondary cases */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 text-center"
+        >
+          <h3 className="font-display text-2xl font-bold text-white sm:text-3xl">
+            Y no es el único
+          </h3>
+          <p className="mt-2 text-white/60">Otros ecommerce que escalaron con el sistema</p>
+        </motion.div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
           {secondaryCases.map((c, i) => (
             <motion.div
               key={c.title}
@@ -287,7 +288,7 @@ export default function CaseStudy() {
                 <span className="text-xs font-medium text-white/50">{c.tag}</span>
               </div>
               <h3 className="text-lg font-bold text-white">{c.title}</h3>
-              <div className="mt-3 font-display text-4xl font-bold text-white">{c.metric}</div>
+              <div className="mt-3 font-display text-4xl font-bold text-[#c8a2e8]">{c.metric}</div>
               <p className="mt-1 text-sm text-white/60">{c.subtitle}</p>
 
               <button
