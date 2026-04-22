@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronDown, TrendingUp, ChevronLeft, ChevronRight, Plus } from 'lucide-react'
+import { ArrowRight, ChevronDown, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -381,15 +381,22 @@ export default function CaseStudy() {
           className="mt-10 flex flex-col items-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-8 text-center backdrop-blur-sm sm:flex-row sm:justify-between sm:text-left"
         >
           <div className="flex items-center gap-4">
-            {/* Stacked avatars feel */}
-            <div className="flex -space-x-2">
-              {[0, 1, 2, 3].map((i) => (
-                <div
+            {/* Stacked avatars */}
+            <div className="flex -space-x-3">
+              {[
+                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop',
+                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop',
+                'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop',
+                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop',
+              ].map((src, i) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
                   key={i}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1a1a2e] bg-gradient-to-br from-brand-violet to-[#c8a2e8] text-xs font-bold text-white"
-                >
-                  <Plus size={14} />
-                </div>
+                  src={src}
+                  alt={`Cliente ${i + 1}`}
+                  className="h-12 w-12 rounded-full border-[3px] border-[#1a1a2e] object-cover shadow-md"
+                  loading="lazy"
+                />
               ))}
             </div>
             <div>

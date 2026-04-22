@@ -39,7 +39,7 @@ const secondaryBenefits = [
 
 export default function PortalSection() {
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section id="portal" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Left column */}
