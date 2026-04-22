@@ -31,12 +31,12 @@ function ProgramaNavbar() {
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#1a1a2e]/95 backdrop-blur-xl">
       <div className="flex items-center justify-between px-4 py-2 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center">
-          <div className="relative h-14 w-[200px] overflow-hidden sm:h-16 sm:w-[240px]">
+          <div className="relative h-10 w-[150px] overflow-hidden sm:h-14 sm:w-[220px]">
             <Image
               src="/logo-white.png"
               alt="Bepartner"
               fill
-              className="scale-[2.4] object-contain"
+              className="scale-[2.2] object-contain"
               priority
             />
           </div>
