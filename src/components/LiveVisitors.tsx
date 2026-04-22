@@ -26,25 +26,20 @@ function avoidRoundNumbers(n: number) {
   return n
 }
 
-// Elige un delta realista con distribución sesgada:
-// - Mayoría de cambios chicos (±1 a ±3)
-// - A veces medianos (±4 a ±7)
-// - Ocasionalmente grandes (±8 a ±13) — simula olas de tráfico
-// - Tendencia leve a subir (internet tiende a crecer durante el día)
+// Cambios suaves y naturales: ±1, ±2 o ±3
+// Distribución: ±1 es el más común, ±3 el menos común
+// Leve tendencia a subir (52%) — fluctuación orgánica
 function pickDelta(): number {
   const r = Math.random()
-  const sign = Math.random() < 0.55 ? 1 : -1 // 55% chance de subir
+  const sign = Math.random() < 0.52 ? 1 : -1
 
   let magnitude: number
   if (r < 0.55) {
-    // Cambio chico
-    magnitude = randomInRange(1, 3)
+    magnitude = 1 // 55% de las veces
   } else if (r < 0.85) {
-    // Cambio mediano
-    magnitude = randomInRange(4, 7)
+    magnitude = 2 // 30% de las veces
   } else {
-    // Cambio grande — burst de tráfico
-    magnitude = randomInRange(8, 13)
+    magnitude = 3 // 15% de las veces
   }
 
   return sign * magnitude
@@ -76,20 +71,17 @@ export default function LiveVisitors() {
       setCount((prev) => {
         const delta = pickDelta()
         let next = prev + delta
-        // Clamp: rango realista 18-74 — si se sale, rebota hacia adentro
-        if (next < 18) next = 19 + randomInRange(0, 5)
-        if (next > 74) next = 72 - randomInRange(0, 4)
+        // Clamp: rango realista entre 18 y 48 — mantiene sensación "en los 20s-40s"
+        if (next < 18) next = 18 + randomInRange(1, 3)
+        if (next > 48) next = 48 - randomInRange(1, 3)
         return avoidRoundNumbers(next)
       })
     }
 
-    // Intervalos variables que simulan actividad real:
-    // - 70% probabilidad: intervalo corto (3-10s) — momento activo
-    // - 30% probabilidad: intervalo largo (15-35s) — momento tranquilo
+    // Intervalo regular de 6-14s — fluctuación natural sin saltos
     let timeoutId: ReturnType<typeof setTimeout>
     const schedule = () => {
-      const isActive = Math.random() < 0.7
-      const delay = isActive ? randomInRange(3000, 10000) : randomInRange(15000, 35000)
+      const delay = randomInRange(6000, 14000)
       timeoutId = setTimeout(() => {
         tick()
         schedule()
