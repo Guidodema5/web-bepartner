@@ -53,23 +53,12 @@ export default function PortalSection() {
               <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-violet-light px-3 py-1.5">
                 <Cpu size={14} className="text-brand-violet" />
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-violet">
-                  Software propio con algoritmo
+                  Creamos un software exclusivo para nuestros clientes
                 </span>
               </div>
-              <h2 className="section-title mb-4 mt-2">
-                Un algoritmo que optimiza tus campañas mientras dormís
+              <h2 className="section-title mb-8 mt-2">
+                Con algoritmo propio que mejora las campañas publicitarias de tu tienda online
               </h2>
-              <p className="mb-6 text-lg text-text-secondary">
-                El corazón del Portal de Clientes es un algoritmo propio que analiza
-                cada venta de tu tienda, la cruza con los datos de tus campañas de
-                Meta Ads, y te dice exactamente qué anuncio está rindiendo y cuál
-                está quemando plata — en tiempo real.
-              </p>
-              <p className="mb-8 text-text-primary">
-                No es un dashboard más. Es el sistema que convierte tus números
-                en decisiones concretas: qué creatividad escalar, qué audiencia
-                pausar, qué producto tiene margen para aumentar la inversión.
-              </p>
             </motion.div>
 
             {/* Core algorithm benefit */}

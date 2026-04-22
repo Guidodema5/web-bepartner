@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronDown, TrendingUp } from 'lucide-react'
+import { ArrowRight, ChevronDown, TrendingUp, ChevronLeft, ChevronRight, Plus } from 'lucide-react'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -85,6 +85,11 @@ export default function CaseStudy() {
   const bandInView = useInView(bandRef, { once: true, amount: 0.3 })
   const [expanded, setExpanded] = useState(false)
   const [expandedSecondary, setExpandedSecondary] = useState<number | null>(null)
+  const [carouselIndex, setCarouselIndex] = useState(0)
+
+  const totalSlides = secondaryCases.length
+  const goPrev = () => setCarouselIndex((i) => (i - 1 + totalSlides) % totalSlides)
+  const goNext = () => setCarouselIndex((i) => (i + 1) % totalSlides)
 
   useEffect(() => {
     if (sectionInView && typeof window !== 'undefined' && typeof window.fbq === 'function') {
@@ -271,48 +276,138 @@ export default function CaseStudy() {
           )}
         </AnimatePresence>
 
-        {/* CASOS SECUNDARIOS — Grid 2x2 */}
-        <div className="mb-8 grid gap-4 sm:grid-cols-2">
-          {secondaryCases.map((c, i) => (
-            <motion.div
-              key={c.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.08 }}
-              className="rounded-xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-[#c8a2e8]/40 hover:bg-white/15"
-            >
-              <div className="mb-3 flex items-center gap-2">
-                <TrendingUp size={14} className="text-[#c8a2e8]" />
-                <span className="text-xs font-medium text-white/50">{c.tag}</span>
-              </div>
-              <h3 className="text-lg font-bold text-white">{c.title}</h3>
-              <div className="mt-3 font-display text-5xl font-extrabold text-[#c8a2e8]">{c.metric}</div>
-              <p className="mt-1 text-sm text-white/70">{c.subtitle}</p>
-
+        {/* CASOS SECUNDARIOS — Carrusel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-6"
+        >
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-[#c8a2e8]">
+              Y no son los únicos
+            </h3>
+            <div className="flex items-center gap-2">
               <button
-                onClick={() => setExpandedSecondary(expandedSecondary === i ? null : i)}
-                className="mt-4 text-sm font-medium text-[#c8a2e8] transition-colors hover:text-white"
+                onClick={goPrev}
+                aria-label="Caso anterior"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all hover:border-[#c8a2e8]/60 hover:bg-white/15"
               >
-                {expandedSecondary === i ? 'Cerrar' : 'Ver caso completo →'}
+                <ChevronLeft size={18} />
               </button>
+              <button
+                onClick={goNext}
+                aria-label="Caso siguiente"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all hover:border-[#c8a2e8]/60 hover:bg-white/15"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
 
-              <AnimatePresence>
-                {expandedSecondary === i && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <p className="mt-3 text-sm text-white/70">{c.description}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          <div className="relative overflow-hidden">
+            <motion.div
+              animate={{ x: `-${carouselIndex * 100}%` }}
+              transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+              className="flex"
+            >
+              {secondaryCases.map((c, i) => (
+                <div
+                  key={c.title}
+                  className="w-full flex-shrink-0 px-1 sm:w-1/2 sm:px-2"
+                  aria-hidden={i !== carouselIndex && i !== carouselIndex + 1}
+                >
+                  <div className="h-full rounded-xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-[#c8a2e8]/40 hover:bg-white/15">
+                    <div className="mb-3 flex items-center gap-2">
+                      <TrendingUp size={14} className="text-[#c8a2e8]" />
+                      <span className="text-xs font-medium text-white/50">{c.tag}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white">{c.title}</h3>
+                    <div className="mt-3 font-display text-5xl font-extrabold text-[#c8a2e8]">
+                      {c.metric}
+                    </div>
+                    <p className="mt-1 text-sm text-white/70">{c.subtitle}</p>
+
+                    <button
+                      onClick={() =>
+                        setExpandedSecondary(expandedSecondary === i ? null : i)
+                      }
+                      className="mt-4 text-sm font-medium text-[#c8a2e8] transition-colors hover:text-white"
+                    >
+                      {expandedSecondary === i ? 'Cerrar' : 'Ver caso completo →'}
+                    </button>
+
+                    <AnimatePresence>
+                      {expandedSecondary === i && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <p className="mt-3 text-sm text-white/70">{c.description}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              ))}
             </motion.div>
-          ))}
-        </div>
+          </div>
+
+          {/* Dots */}
+          <div className="mt-6 flex items-center justify-center gap-2">
+            {secondaryCases.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCarouselIndex(i)}
+                aria-label={`Ir al caso ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === carouselIndex ? 'w-8 bg-[#c8a2e8]' : 'w-2 bg-white/25 hover:bg-white/40'
+                }`}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* "Y muchos más" — el cierre que sugiere que hay más */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mt-10 flex flex-col items-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-8 text-center backdrop-blur-sm sm:flex-row sm:justify-between sm:text-left"
+        >
+          <div className="flex items-center gap-4">
+            {/* Stacked avatars feel */}
+            <div className="flex -space-x-2">
+              {[0, 1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1a1a2e] bg-gradient-to-br from-brand-violet to-[#c8a2e8] text-xs font-bold text-white"
+                >
+                  <Plus size={14} />
+                </div>
+              ))}
+            </div>
+            <div>
+              <p className="font-display text-lg font-bold text-white sm:text-xl">
+                Y hay muchos más
+              </p>
+              <p className="text-sm text-white/60">
+                Ecommerce escalando con el sistema ahora mismo
+              </p>
+            </div>
+          </div>
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-xl"
+          >
+            Sumá tu caso <ArrowRight size={16} />
+          </a>
+        </motion.div>
       </div>
     </section>
   )

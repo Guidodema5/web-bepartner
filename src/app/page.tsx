@@ -12,6 +12,7 @@ import CTAForm from '@/components/CTAForm'
 import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
+import SectionConnector from '@/components/SectionConnector'
 
 export default function Home() {
   return (
@@ -19,11 +20,19 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        {/* Hilo conductor: el recorrido que hace el usuario en el sitio */}
+        <SectionConnector step="01" label="El problema" />
         <ProblemSection />
+        <SectionConnector step="02" label="Para quién" />
         <ForWhomSection />
+        <SectionConnector step="03" label="La solución" />
         <PortalSection />
+        {/* El caso de éxito rompe el hilo — sección dark = impacto */}
         <CaseStudy />
+        {/* Después del impacto, volvemos al hilo */}
+        <SectionConnector step="04" label="Quién está detrás" />
         <AboutSection />
+        {/* El formulario es el destino — sección dark = cierre */}
         <CTAForm />
         <FAQ />
       </main>

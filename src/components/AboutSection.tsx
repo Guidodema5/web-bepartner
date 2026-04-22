@@ -35,14 +35,14 @@ export default function AboutSection() {
           className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg"
         >
           <div className="mb-6 flex flex-col items-center gap-5 sm:flex-row">
-            {/* LinkedIn profile photo — replace with actual file at /public/demaria.jpg */}
-            <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-full border-4 border-brand-violet/20 bg-brand-violet-light sm:h-32 sm:w-32">
+            {/* Profile photo */}
+            <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-full border-4 border-brand-violet/20 bg-brand-violet-light shadow-lg sm:h-36 sm:w-36">
               <Image
                 src="/demaria.jpg"
                 alt="Demaria — Fundador de Bepartner"
                 fill
-                className="object-cover"
-                sizes="128px"
+                className="object-cover object-[30%_30%]"
+                sizes="144px"
               />
             </div>
             <div>
