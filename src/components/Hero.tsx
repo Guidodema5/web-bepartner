@@ -192,27 +192,23 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
-        className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-0"
+        className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
       >
-        {stats.map((stat, i) => (
+        {stats.map((stat) => (
           <div
             key={stat.label}
-            className={`flex flex-col items-center gap-1 px-8 py-4 text-center ${
-              i < stats.length - 1 ? 'sm:border-r sm:border-gray-200' : ''
-            }`}
+            className="flex flex-col items-center gap-2 rounded-xl border-2 border-brand-violet/20 bg-white p-5 text-center shadow-lg transition-all hover:-translate-y-1 hover:border-brand-violet/40 hover:shadow-xl"
           >
-            <div className="rounded-lg bg-brand-violet/10 px-4 py-2">
-              <span className="font-display text-2xl font-bold text-text-heading sm:text-3xl">
-                {stat.prefix === '+$' ? (
-                  <span>+$<CountUp target={stat.value} suffix="K" /></span>
-                ) : stat.prefix === '+' ? (
-                  <>+<CountUp target={stat.value} suffix={stat.suffix} /></>
-                ) : (
-                  <><CountUp target={stat.value} suffix="x" /></>
-                )}
-              </span>
-            </div>
-            <span className="text-sm text-text-secondary">{stat.label}</span>
+            <span className="font-display text-2xl font-extrabold text-brand-violet sm:text-3xl">
+              {stat.prefix === '+$' ? (
+                <span>+$<CountUp target={stat.value} suffix="K" /></span>
+              ) : stat.prefix === '+' ? (
+                <>+<CountUp target={stat.value} suffix={stat.suffix} /></>
+              ) : (
+                <><CountUp target={stat.value} suffix="x" /></>
+              )}
+            </span>
+            <span className="text-xs font-medium text-text-secondary sm:text-sm">{stat.label}</span>
           </div>
         ))}
       </motion.div>
