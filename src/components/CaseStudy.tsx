@@ -381,22 +381,21 @@ export default function CaseStudy() {
           className="mt-10 flex flex-col items-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-8 text-center backdrop-blur-sm sm:flex-row sm:justify-between sm:text-left"
         >
           <div className="flex items-center gap-4">
-            {/* Stacked avatars */}
-            <div className="flex -space-x-3">
+            {/* Stacked brand avatars */}
+            <div className="flex -space-x-2">
               {[
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop',
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop',
-                'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop',
-              ].map((src, i) => (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
+                { initials: 'LM', gradient: 'from-[#753D94] to-[#c8a2e8]' },
+                { initials: 'PB', gradient: 'from-[#5e3177] to-[#a57cc5]' },
+                { initials: 'SW', gradient: 'from-[#c8a2e8] to-[#753D94]' },
+                { initials: 'EC', gradient: 'from-[#4a2a6b] to-[#9b6dc4]' },
+              ].map((brand, i) => (
+                <div
                   key={i}
-                  src={src}
-                  alt={`Cliente ${i + 1}`}
-                  className="h-12 w-12 rounded-full border-[3px] border-[#1a1a2e] object-cover shadow-md"
-                  loading="lazy"
-                />
+                  className={`flex h-12 w-12 items-center justify-center rounded-full border-[3px] border-[#1a1a2e] bg-gradient-to-br ${brand.gradient} font-display text-xs font-extrabold text-white shadow-md`}
+                  title={`Marca ${brand.initials}`}
+                >
+                  {brand.initials}
+                </div>
               ))}
             </div>
             <div>

@@ -327,7 +327,7 @@ export default function CTAForm() {
                 </div>
 
                 <p className="mt-4 text-xs text-text-secondary">
-                  Cupos limitados — Solo trabajamos con ecommerce que ya venden
+                  Solo 5 plazas disponibles — Trabajamos únicamente con tiendas online comprometidas
                 </p>
               </motion.div>
             )}
@@ -357,9 +357,22 @@ export default function CTAForm() {
           </AnimatePresence>
         </motion.div>
 
-        <p className="mt-5 text-center text-sm text-gray-400">
-          Cupos limitados — Solo trabajamos con ecommerce que ya venden
-        </p>
+        {/* Prominent limited-spots banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+          className="mx-auto mt-8 flex max-w-xl items-center justify-center gap-3 rounded-xl border-2 border-red-500/40 bg-red-500/10 px-6 py-4 backdrop-blur-sm"
+        >
+          <div className="relative flex h-3 w-3 flex-shrink-0">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500" />
+          </div>
+          <p className="text-center text-sm font-semibold text-white sm:text-base">
+            Abrimos solo <span className="text-red-300">5 plazas</span> para tiendas online que quieran trabajar con nosotros
+          </p>
+        </motion.div>
       </div>
     </section>
   )

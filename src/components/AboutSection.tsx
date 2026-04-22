@@ -39,7 +39,7 @@ export default function AboutSection() {
             <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-full border-4 border-brand-violet/20 bg-brand-violet-light shadow-lg sm:h-36 sm:w-36">
               <Image
                 src="/demaria.jpg"
-                alt="Demaria — Fundador de Bepartner"
+                alt="Guido Demaria — Fundador de Bepartner"
                 fill
                 className="object-cover object-[30%_30%]"
                 sizes="144px"
@@ -47,7 +47,7 @@ export default function AboutSection() {
             </div>
             <div>
               <h3 className="mb-1 text-center text-xl font-bold text-text-heading sm:text-left">
-                Demaria — Fundador
+                Guido Demaria — Fundador
               </h3>
               <p className="text-center text-text-secondary sm:text-left">
                 Creé Bepartner porque me cansé de ver cómo cobran por hacer anuncios sin importarles si el cliente crece. Acá nos jugamos por tus resultados.
