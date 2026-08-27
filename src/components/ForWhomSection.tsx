@@ -1,9 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle2, XCircle, ArrowRight } from 'lucide-react'
-
-const LEADMAGNET_URL = '/programa'
+import { CheckCircle2, XCircle } from 'lucide-react'
 
 const yesItems = [
   'Ya tenés una tienda online con ventas (Tiendanube, Shopify, WooCommerce)',
@@ -82,21 +80,6 @@ export default function ForWhomSection() {
         </div>
 
         {/* CTA card for beginners */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="rounded-xl border-2 border-brand-violet/20 bg-brand-violet-light p-6 text-center"
-        >
-          <p className="mb-4 text-text-heading">
-            <span className="font-semibold">¿Recién arrancás a vender online?</span>{' '}
-            Tenemos un programa de 6 semanas para construir las bases de tu ecommerce.
-          </p>
-          <a href={LEADMAGNET_URL} className="btn-secondary inline-flex gap-2">
-            Conocer el programa <ArrowRight size={18} />
-          </a>
-        </motion.div>
       </div>
     </section>
   )

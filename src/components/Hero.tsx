@@ -1,11 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate } from 'framer-motion'
-import { ArrowRight, Lock } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Script from 'next/script'
-import Link from 'next/link'
-import { useVideoUnlock } from '@/context/VideoContext'
 
 const YOUTUBE_VIDEO_ID = 'cPdVI5AvztA'
 
@@ -27,24 +25,9 @@ function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
   return <span ref={ref}>{value}{suffix}</span>
 }
 
-function YouTubePlayer({ videoId, onQuarter }: { videoId: string; onQuarter: () => void }) {
+function YouTubePlayer({ videoId }: { videoId: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const playerRef = useRef<YT.Player | null>(null)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const calledRef = useRef(false)
-
-  const checkProgress = useCallback(() => {
-    if (calledRef.current || !playerRef.current) return
-    try {
-      const current = playerRef.current.getCurrentTime()
-      const duration = playerRef.current.getDuration()
-      if (current >= 180) { // 3 minutos
-        calledRef.current = true
-        onQuarter()
-        if (intervalRef.current) clearInterval(intervalRef.current)
-      }
-    } catch {}
-  }, [onQuarter])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -54,15 +37,6 @@ function YouTubePlayer({ videoId, onQuarter }: { videoId: string; onQuarter: () 
       playerRef.current = new window.YT.Player(containerRef.current, {
         videoId,
         playerVars: { rel: 0, modestbranding: 1 },
-        events: {
-          onStateChange: (e: YT.OnStateChangeEvent) => {
-            if (e.data === window.YT.PlayerState.PLAYING) {
-              intervalRef.current = setInterval(checkProgress, 1000)
-            } else if (intervalRef.current) {
-              clearInterval(intervalRef.current)
-            }
-          },
-        },
       })
     }
 
@@ -71,11 +45,7 @@ function YouTubePlayer({ videoId, onQuarter }: { videoId: string; onQuarter: () 
     } else {
       window.onYouTubeIframeAPIReady = initPlayer
     }
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [videoId, checkProgress])
+  }, [videoId])
 
   return (
     <>
@@ -93,8 +63,6 @@ const stats = [
 ]
 
 export default function Hero() {
-  const { unlocked, unlock } = useVideoUnlock()
-
   return (
     <section id="inicio" className="relative overflow-hidden px-4 pb-12 pt-28 sm:px-6 lg:px-8 lg:pb-16 lg:pt-32">
       <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-brand-violet/5 blur-3xl" />
@@ -140,7 +108,7 @@ export default function Hero() {
           className="mx-auto mb-8 max-w-4xl"
         >
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-brand-violet-dark to-surface-dark shadow-2xl">
-            <YouTubePlayer videoId={YOUTUBE_VIDEO_ID} onQuarter={unlock} />
+            <YouTubePlayer videoId={YOUTUBE_VIDEO_ID} />
           </div>
         </motion.div>
 
@@ -151,38 +119,12 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
           className="mb-8 flex flex-col items-center gap-3"
         >
-          {unlocked ? (
-            <a href="#contacto" className="btn-primary gap-2 text-lg">
-              QUIERO MI AUDITORÍA GRATUITA <ArrowRight size={20} />
-            </a>
-          ) : (
-            <button
-              disabled
-              className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-gray-300 px-8 py-3 text-lg font-semibold text-gray-500"
-            >
-              <Lock size={18} />
-              QUIERO MI AUDITORÍA GRATUITA
-            </button>
-          )}
+          <a href="#contacto" className="btn-primary gap-2 text-lg">
+            QUIERO MI AUDITORÍA GRATUITA <ArrowRight size={20} />
+          </a>
           <span className="flex items-center gap-2 text-sm text-text-secondary">
-            {unlocked ? (
-              <>
-                <span className="inline-block h-2 w-2 rounded-full bg-status-negative" />
-                Solo 5 cupos disponibles este mes
-              </>
-            ) : (
-              <>
-                <Lock size={12} />
-                Mirá el video para desbloquear
-              </>
-            )}
-          </span>
-
-          <span className="mt-2 text-sm text-text-secondary">
-            ¿Todavía no vendés online de forma constante?{' '}
-            <Link href="/programa" className="font-medium text-brand-violet underline">
-              Ver programa de 6 semanas
-            </Link>
+            <span className="inline-block h-2 w-2 rounded-full bg-status-negative" />
+            Solo 5 cupos disponibles este mes
           </span>
         </motion.div>
       </div>

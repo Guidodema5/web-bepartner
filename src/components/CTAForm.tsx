@@ -3,8 +3,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ArrowRight, ArrowLeft, Loader2, Lock } from 'lucide-react'
-import { useVideoUnlock } from '@/context/VideoContext'
+import { Check, ArrowRight, ArrowLeft, Loader2 } from 'lucide-react'
 
 type FormData = {
   nombre: string
@@ -29,7 +28,6 @@ const miniSteps = [
 ]
 
 export default function CTAForm() {
-  const { unlocked } = useVideoUnlock()
   const [step, setStep] = useState(1)
   const [submitting, setSubmitting] = useState(false)
   const [qualified, setQualified] = useState<boolean | null>(null)
@@ -134,18 +132,6 @@ export default function CTAForm() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           className="relative mx-auto max-w-lg rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
         >
-          {/* Lock overlay */}
-          {!unlocked && (
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl bg-white/90 backdrop-blur-sm">
-              <Lock size={32} className="mb-3 text-gray-400" />
-              <p className="text-lg font-semibold text-text-heading">Formulario bloqueado</p>
-              <p className="mt-1 text-sm text-text-secondary">Mirá el video del inicio para desbloquear</p>
-              <a href="#inicio" className="mt-4 text-sm font-medium text-brand-violet hover:underline">
-                Ir al video
-              </a>
-            </div>
-          )}
-
           {/* Progress dots */}
           <div className="mb-6 flex items-center justify-center gap-2">
             {[1, 2, 3].map((s) => (
@@ -341,17 +327,15 @@ export default function CTAForm() {
                 transition={{ duration: 0.4 }}
                 className="text-center"
               >
-                <h3 className="mb-3 text-xl font-semibold text-text-heading">
-                  Todavía no estás en el punto ideal para nuestro servicio principal, pero creamos algo especialmente para vos
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-violet/10">
+                  <Check size={28} className="text-brand-violet" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold text-text-heading">
+                  ¡Gracias por tu interés!
                 </h3>
-                <p className="mb-6 text-text-secondary">
-                  En 6 semanas construís la base para que después podamos trabajar juntos.
-                  Estructurás tu ecommerce desde cero, publicás tu tienda, conseguís tus primeras
-                  ventas online y dejás listo el sistema para escalar.
+                <p className="text-text-secondary">
+                  Recibimos tu consulta. En breve nos ponemos en contacto con vos para contarte las opciones que tenemos disponibles.
                 </p>
-                <a href="/programa" className="btn-primary inline-flex gap-2">
-                  Ver programa para empezar desde cero <ArrowRight size={18} />
-                </a>
               </motion.div>
             )}
           </AnimatePresence>

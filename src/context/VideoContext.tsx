@@ -13,7 +13,7 @@ const VideoContext = createContext<VideoContextType>({
 })
 
 export function VideoProvider({ children }: { children: ReactNode }) {
-  const [unlocked, setUnlocked] = useState(false)
+  const [unlocked, setUnlocked] = useState(true)
   const unlock = useCallback(() => setUnlocked(true), [])
 
   return (
