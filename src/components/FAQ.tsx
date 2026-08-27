@@ -16,11 +16,6 @@ const faqs = [
       'Las agencias te cobran un fee mensual sin importar si vendés o no. Sus intereses no están alineados con los tuyos. Nosotros nos metemos adentro de tu negocio, empezamos por las bases (oferta, comunicación, conversión) y recién después encendemos los anuncios. Los ads amplifican lo que ya existe — si el sistema no convierte, más pauta solo significa más plata perdida.',
   },
   {
-    question: '¿Cuánto cuesta y cómo es el pago?',
-    answer:
-      'La inversión es USD 1.500, con opción de 2 pagos de USD 900. No es un fee mensual sin garantía: si aplicás todo al pie de la letra y no lográs facturar entre 20 y 50M en 90 días, extendemos el servicio gratis hasta que lo logrés.',
-  },
-  {
     question: '¿En cuánto tiempo se ven resultados?',
     answer:
       'La primera fase es diagnóstico y setup (semana 1). Los cambios en oferta, comunicación y conversión empiezan desde la semana 2. Los resultados en ventas se potencian a partir de la fase de anuncios (semana 7). Uno de nuestros casos pasó de 4 a 102 ventas mensuales en 3 meses (+1.760%).',
