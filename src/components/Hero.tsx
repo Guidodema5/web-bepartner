@@ -6,6 +6,8 @@ import { ArrowRight } from 'lucide-react'
 import Script from 'next/script'
 
 const YOUTUBE_VIDEO_ID = 'cPdVI5AvztA'
+// Oculto a pedido de Guido (19/10/2026). Para volver a mostrarlo, poner true.
+const MOSTRAR_VIDEO = false
 
 function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -101,7 +103,7 @@ export default function Hero() {
         </motion.p>
 
         {/* YouTube Video */}
-        <motion.div
+        {MOSTRAR_VIDEO && <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
@@ -110,7 +112,7 @@ export default function Hero() {
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-brand-violet-dark to-surface-dark shadow-2xl">
             <YouTubePlayer videoId={YOUTUBE_VIDEO_ID} />
           </div>
-        </motion.div>
+        </motion.div>}
 
         {/* CTA — locked until 25% video */}
         <motion.div
