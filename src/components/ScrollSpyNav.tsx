@@ -12,11 +12,13 @@ type Section = {
 const sections: Section[] = [
   { id: 'inicio', label: 'Inicio', step: '00' },
   { id: 'problema', label: 'El problema', step: '01' },
-  { id: 'para-quien', label: 'Para quién', step: '02' },
-  { id: 'portal', label: 'El software', step: '03' },
-  { id: 'caso-exito', label: 'Casos de éxito', step: '04' },
-  { id: 'nosotros', label: 'Nosotros', step: '05' },
-  { id: 'contacto', label: 'Contacto', step: '06' },
+  { id: 'metodo', label: 'El método', step: '02' },
+  { id: 'para-quien', label: 'Para quién', step: '03' },
+  { id: 'app', label: 'La app', step: '04' },
+  { id: 'caso-exito', label: 'Casos de éxito', step: '05' },
+  { id: 'comparativa', label: 'Por qué nosotros', step: '06' },
+  { id: 'nosotros', label: 'Nosotros', step: '07' },
+  { id: 'contacto', label: 'Contacto', step: '08' },
 ]
 
 /**

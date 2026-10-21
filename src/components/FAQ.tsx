@@ -3,34 +3,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import { faqs } from '@/data/faqs'
 
-const faqs = [
-  {
-    question: '¿Cómo es el proceso de trabajo?',
-    answer:
-      'Trabajamos 90 días con la metodología BEP en 4 fases: Diagnóstico (encontramos el cuello de botella real de tu tienda), Oferta & Comunicación (definimos qué y cómo comunicar), Ecommerce que Convierte (optimizamos tu sitio y embudo), y Adquisición & Escala (armamos la estrategia de anuncios sobre una base sana). Incluye acceso a curso en Skool, soporte por WhatsApp, 2 llamadas grupales y 1 reunión de onboarding 1 a 1.',
-  },
-  {
-    question: 'Ya probé agencias y no me funcionó',
-    answer:
-      'Las agencias te cobran un fee mensual sin importar si vendés o no. Sus intereses no están alineados con los tuyos. Nosotros nos metemos adentro de tu negocio, empezamos por las bases (oferta, comunicación, conversión) y recién después encendemos los anuncios. Los ads amplifican lo que ya existe — si el sistema no convierte, más pauta solo significa más plata perdida.',
-  },
-  {
-    question: '¿En cuánto tiempo se ven resultados?',
-    answer:
-      'La primera fase es diagnóstico y setup (semana 1). Los cambios en oferta, comunicación y conversión empiezan desde la semana 2. Los resultados en ventas se potencian a partir de la fase de anuncios (semana 7). Uno de nuestros casos pasó de 4 a 102 ventas mensuales en 3 meses (+1.760%).',
-  },
-  {
-    question: '¿Qué pasa si no logro los resultados?',
-    answer:
-      'Tenemos garantía de resultado: si aplicás todo al pie de la letra y no llegás a facturar entre 20 y 50M en 90 días, extendemos el servicio gratis hasta que lo logrés. Nuestro éxito depende del tuyo.',
-  },
-  {
-    question: '¿Necesito saber de publicidad o marketing?',
-    answer:
-      'No. El programa en Skool te enseña desde la estructura del negocio, propuesta de valor, optimización de tu tienda, hasta la estrategia de anuncios y escala en Meta. Cuando lleguemos a la parte de publicidad, te enseñamos a hacerlo o te conectamos con alguien validado por nosotros.',
-  },
-]
 
 function AccordionItem({
   faq,

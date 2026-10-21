@@ -5,7 +5,6 @@ import {
   Cpu,
   BarChart3,
   Sparkles,
-  TrendingUp,
   Calculator,
   DollarSign,
   Target,
@@ -14,32 +13,27 @@ import {
   Zap,
 } from 'lucide-react'
 
-const secondaryBenefits = [
-  {
-    icon: BarChart3,
-    title: 'Dashboard de métricas en tiempo real',
-    description: 'Facturación, ROAS, conversión e inversión actualizado mes a mes. Sin esperar reportes.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Análisis semanal de campañas',
-    description: 'Cada semana sabés exactamente qué ajustar. Con diagnóstico y próximos pasos claros.',
-  },
+const features = [
   {
     icon: Sparkles,
-    title: 'Generador de ideas de anuncios',
-    description: 'Crea conceptos creativos para tus productos en minutos. Sin depender de terceros para cada pieza.',
+    title: 'Generador de anuncios ilimitado con IA',
+    description: 'Ideas de anuncios pensadas para tus productos y tu cliente, en minutos.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Tablero de métricas semanales',
+    description: 'Facturación, inversión, retorno y conversión. Ves la evolución desde el día 1, sin esperar reportes.',
   },
   {
     icon: Calculator,
-    title: 'Calculadora de ROAS por producto',
-    description: 'Ponés tus costos y te dice tu punto de equilibrio exacto. Sabé cuánto podés gastar sin perder margen.',
+    title: 'Calculadora de inversión por producto',
+    description: 'Ponés tus costos y sabés cuánto podés gastar por venta sin perder plata.',
   },
 ]
 
 export default function PortalSection() {
   return (
-    <section id="portal" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section id="app" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Left column */}
@@ -53,45 +47,20 @@ export default function PortalSection() {
               <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-violet-light px-3 py-1.5">
                 <Cpu size={14} className="text-brand-violet" />
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-violet">
-                  Creamos un software exclusivo para nuestros clientes
+                  Nuestra app
                 </span>
               </div>
-              <h2 className="section-title mb-8 mt-2">
-                Con algoritmo propio que mejora las campañas publicitarias de tu tienda online
+              <h2 className="section-title mt-2">
+                Creamos nuestra propia app para hacer anuncios que venden.
               </h2>
-            </motion.div>
-
-            {/* Core algorithm benefit */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-              className="mb-6 rounded-xl border-2 border-brand-violet/30 bg-white p-5 shadow-md"
-            >
-              <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet">
-                  <Zap size={20} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="mb-1 font-semibold text-text-heading">
-                    Decisiones basadas en datos, no en intuición
-                  </h3>
-                  <p className="text-sm text-text-secondary">
-                    El algoritmo cruza ventas × inversión × creatividad × audiencia
-                    y te dice qué mover. Eso es lo que transforma tu inversión
-                    en publicidad en ventas reales y predecibles.
-                  </p>
-                </div>
-              </div>
+              <p className="mb-8 mt-4 text-lg text-text-secondary">
+                Nunca más te vas a preguntar qué grabar esta semana.
+              </p>
             </motion.div>
 
             {/* Secondary benefits — compact list */}
             <div className="mb-8 space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
-                Además incluye
-              </p>
-              {secondaryBenefits.map((benefit, i) => {
+              {features.map((benefit, i) => {
                 const Icon = benefit.icon
                 return (
                   <motion.div
@@ -156,14 +125,14 @@ export default function PortalSection() {
                 <div className="flex items-center gap-2">
                   <Zap size={14} className="text-brand-violet" />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet">
-                    Recomendación del algoritmo
+                    Nueva idea de anuncio
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-white">
-                  Escalar <span className="font-bold">creatividad #3</span> — ROAS 9.4x, CPA óptimo.
+                  <span className="font-bold">"La cartera que va del trabajo a la cena"</span> — video a cámara, 30 segundos.
                 </p>
                 <p className="mt-1 text-xs text-white/60">
-                  Pausar audiencia "Lookalike 2% LTV" — CPA 140% por encima del objetivo.
+                  Lista para grabar esta semana.
                 </p>
               </div>
 

@@ -4,6 +4,8 @@ import { VideoProvider } from '@/context/VideoContext'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import ProblemSection from '@/components/ProblemSection'
+import WheelsSection from '@/components/WheelsSection'
+import Comparison from '@/components/Comparison'
 import ForWhomSection from '@/components/ForWhomSection'
 import PortalSection from '@/components/PortalSection'
 import CaseStudy from '@/components/CaseStudy'
@@ -23,9 +25,11 @@ export default function Home() {
       <main>
         <Hero />
         <ProblemSection />
+        <WheelsSection />
         <ForWhomSection />
         <PortalSection />
         <CaseStudy />
+        <Comparison />
         <AboutSection />
         <CTAForm />
         <FAQ />

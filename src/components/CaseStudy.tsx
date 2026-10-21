@@ -47,6 +47,13 @@ const steps = [
 
 const secondaryCases = [
   {
+    tag: 'E-commerce / Suplementos',
+    title: 'Green Power: de menos de 10M a 38M por mes',
+    metric: '$38M',
+    subtitle: '30M en 60 días · 38M en septiembre',
+    description: 'No pasaba los 10M por mes. En 60 días llegó a 30M, y en septiembre facturó 38M.',
+  },
+  {
     tag: 'E-commerce / Moda',
     title: 'Tienda de sweaters: $50M en 70 días',
     metric: '$50M',
@@ -54,27 +61,21 @@ const secondaryCases = [
     description: 'Marca de sweaters que pasó de vender $460.000 por mes a facturar 50 millones en apenas 70 días. Una estrategia de escalado agresivo con ángulos de comunicación segmentados por temporada.',
   },
   {
-    tag: 'E-commerce / Productos ecológicos',
-    title: 'Ecoproductos: $30M en 60 días con ROAS 10x',
-    metric: '+350%',
-    subtitle: '$30M en 60 días · ROAS 10x promedio',
-    description: 'Tienda online de productos ecológicos que multiplicó su facturación por 3.5x en 60 días manteniendo un ROAS promedio de 10x. El sistema probó que nicho no es limitante cuando la estrategia está bien diseñada.',
+    tag: 'E-commerce / Accesorios ecológicos',
+    title: 'Pullbag: $30M en 60 días con ROAS 10x',
+    metric: '$30M',
+    subtitle: 'En 60 días · ROAS 10x',
+    description: 'Marca de accesorios ecológicos que llegó a facturar $30M en 60 días, con un ROAS de 10x.',
   },
   {
-    tag: 'E-commerce / Accesorios',
-    title: 'Pullbag: +350% facturación y ROAS de 10',
-    metric: '350%',
-    subtitle: '+350% facturación · ROAS 10x',
-    description: 'Marca de mochilas y accesorios que pasó de vender por redes sociales a escalar con Meta Ads. Alcanzaron un ROAS de 10x en su mejor mes.',
-  },
-  {
-    tag: 'Servicio / Movilidad',
-    title: 'Derentas: +300% en leads calificados',
-    metric: '300%',
-    subtitle: '+300% leads calificados',
-    description: 'Empresa de alquiler de vehículos que triplicó sus leads calificados con una estrategia de embudo completo en Meta Ads.',
+    tag: 'Servicio / Alquiler de autos',
+    title: 'Derentas: cerca de 13.000 contactos calificados por mes',
+    metric: '13.000',
+    subtitle: 'Contactos calificados por mes',
+    description: 'Le manejamos toda la publicidad digital. Hoy recibe cerca de 13.000 contactos calificados por mes.',
   },
 ]
+
 
 export default function CaseStudy() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -166,14 +167,14 @@ export default function CaseStudy() {
             <span className="rounded-full bg-brand-violet px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
               Caso destacado
             </span>
-            <span className="text-xs font-medium text-[#c8a2e8]">E-commerce / Moda femenina</span>
+            <span className="text-xs font-medium text-[#c8a2e8]">E-commerce / Carteras artesanales</span>
           </div>
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
               <h3 className="text-2xl font-bold text-white sm:text-3xl">
-                Le Marde: De 4 a 102 ventas/mes en 3 meses
+                Le Mardé: de 4 a 102 ventas por mes
               </h3>
-              <p className="mt-2 text-white/60">Ecommerce de carteras artesanales — Argentina</p>
+              <p className="mt-2 text-white/60">Carteras artesanales</p>
             </div>
             <div className="text-center md:text-right">
               <div className="font-display text-6xl font-extrabold text-[#c8a2e8] sm:text-7xl">
@@ -387,7 +388,7 @@ export default function CaseStudy() {
                 { initials: 'LM', gradient: 'from-[#753D94] to-[#c8a2e8]' },
                 { initials: 'PB', gradient: 'from-[#5e3177] to-[#a57cc5]' },
                 { initials: 'SW', gradient: 'from-[#c8a2e8] to-[#753D94]' },
-                { initials: 'EC', gradient: 'from-[#4a2a6b] to-[#9b6dc4]' },
+                { initials: 'GP', gradient: 'from-[#4a2a6b] to-[#9b6dc4]' },
               ].map((brand, i) => (
                 <div
                   key={i}

@@ -4,12 +4,11 @@ import { motion } from 'framer-motion'
 import { X } from 'lucide-react'
 
 const painPoints = [
-  'Invertís en publicidad pero no ves retorno claro',
-  'No sabés qué anuncios funcionan y cuáles pierden plata',
-  'Tenés tráfico pero no convertís lo suficiente',
-  'No tenés visibilidad en tiempo real de tus números',
-  'Probaste agencias antes y no viste resultados',
-  'Add to Cart alto pero pocas compras',
+  'Le pagás todos los meses a alguien y seguís facturando lo mismo.',
+  'Tu Instagram es lindo, pero no vende.',
+  'No sabés si ganás o perdés plata con la publicidad.',
+  'Para tu agencia sos uno más.',
+  'Probaste de todo y el número no se mueve.',
 ]
 
 export default function ProblemSection() {

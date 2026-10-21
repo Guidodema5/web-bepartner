@@ -88,9 +88,9 @@ export default function CTAForm() {
           className="mb-8 text-center"
         >
           <h2 className="mb-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-            ¿Listo para escalar tu ecommerce?
+            ¿Listo para que tu tienda crezca?
           </h2>
-          <p className="text-lg text-gray-300">Agendá una auditoría gratuita</p>
+          <p className="text-lg text-gray-300">Agendá tu auditoría gratuita, sin compromiso.</p>
 
           <div className="mt-5 flex flex-wrap items-center justify-center gap-4">
             {['Análisis sin compromiso', 'Plan personalizado', 'Resultados predecibles'].map(
@@ -123,6 +123,7 @@ export default function CTAForm() {
           <p className="mt-4 text-base text-white">
             Completá tus datos y en 48hs te mandamos un diagnóstico gratuito de tu tienda.
           </p>
+          <p className="mt-2 text-sm font-semibold text-[#c8a2e8]">Abrimos solo 5 cupos por mes.</p>
         </motion.div>
 
         <motion.div

@@ -6,7 +6,7 @@ import { BarChart3, Users, TrendingUp } from 'lucide-react'
 
 const miniStats = [
   { icon: BarChart3, label: '+$100K USD en pauta gestionada' },
-  { icon: Users, label: 'Portal de clientes propio' },
+  { icon: Users, label: 'App propia para tus anuncios' },
   { icon: TrendingUp, label: 'Modelo de comisión alineado' },
 ]
 
@@ -50,17 +50,10 @@ export default function AboutSection() {
                 Guido Demaria — Fundador
               </h3>
               <p className="text-center text-text-secondary sm:text-left">
-                Creé Bepartner porque me cansé de ver cómo cobran por hacer anuncios sin importarles si el cliente crece. Acá nos jugamos por tus resultados.
+                Creé Bepartner porque me cansé de ver cómo les cobran a los dueños de tiendas por hacer anuncios, sin importarles si crecen. Por eso no vendemos entregables: nos metemos de lleno en tu negocio y vamos a porcentaje de lo que crecés. Si vos crecés, nosotros crecemos.
               </p>
             </div>
           </div>
-
-          <p className="mb-6 text-text-primary">
-            Bepartner nació de ver cómo le venden anuncios a los dueños de tiendas
-            sin importarles si crecen o no. Construimos un sistema
-            propio — con portal, herramientas y metodología — porque creemos que
-            si el cliente no crece, nosotros no deberíamos cobrar.
-          </p>
 
           {/* Mini stats */}
           <div className="grid gap-4 border-t border-gray-100 pt-6 sm:grid-cols-3">

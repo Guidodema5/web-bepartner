@@ -87,8 +87,8 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           className="mb-4 font-display text-4xl font-extrabold leading-tight text-text-heading sm:text-5xl lg:text-6xl"
         >
-          ¿Tenés una tienda online y facturás entre{' '}
-          <span className="text-brand-violet">4 a 10 millones</span>?
+          ¿Tenés una tienda online y{' '}
+          <span className="text-brand-violet">hace meses que facturás lo mismo</span>?
         </motion.h1>
 
         {/* Subtitle */}
@@ -98,8 +98,7 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
           className="mx-auto mb-8 max-w-2xl text-lg text-text-secondary sm:text-xl"
         >
-          Descubrí la metodología para lograr desde{' '}
-          <span className="font-semibold text-text-heading">20 a 50 millones</span> en 90 días
+          Sabemos cómo llevar tu marca a ser líder en lo que hace.
         </motion.p>
 
         {/* YouTube Video */}

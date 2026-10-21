@@ -1,21 +1,26 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle2, XCircle } from 'lucide-react'
+import { Store, Factory, XCircle } from 'lucide-react'
 
-const yesItems = [
-  'Ya tenés una tienda online con ventas (Tiendanube, Shopify, WooCommerce)',
-  'Facturás pero no podés pasar los $10 millones por mes',
-  'Invertís en publicidad sin retorno claro o sin estrategia',
-  'Querés un socio que se juegue por tus resultados, no un proveedor más',
-  'Estás dispuesto a crecer con sistema y datos',
+const doors = [
+  {
+    icon: Store,
+    title: 'Si tenés una tienda online:',
+    text: 'Ya vendés por internet, tenés web y una marca cuidada, pero hace meses que no pasás del mismo número. Ya probaste agencias o freelancers y no viste el cambio.',
+  },
+  {
+    icon: Factory,
+    title: 'Si tenés un showroom o una fábrica:',
+    text: 'Vendés bien en persona, pero online no despega. Querés que internet venda tu producto tan bien como lo vendés vos.',
+  },
 ]
 
 const noItems = [
-  'Todavía no vendés online ni tenés producto validado',
-  'Buscás resultados mágicos sin proceso',
-  'No estás dispuesto a invertir en publicidad digital',
-  'Querés a alguien que solo "suba posteos"',
+  'Todavía no tenés producto validado.',
+  'Buscás resultados mágicos sin proceso.',
+  'No estás dispuesto a invertir en publicidad.',
+  'Querés a alguien que solo "suba posteos".',
 ]
 
 export default function ForWhomSection() {
@@ -29,57 +34,48 @@ export default function ForWhomSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-10 text-center"
         >
-          <span className="section-label">¿Esto es para vos?</span>
-          <h2 className="section-title mt-3">
-            Trabajamos con ecommerce que están listos para escalar
-          </h2>
+          <h2 className="section-title">¿Esto es para vos?</h2>
         </motion.div>
 
-        <div className="mb-10 grid gap-8 md:grid-cols-2">
-          {/* YES column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="rounded-xl border border-gray-200 bg-white p-6 shadow-md"
-          >
-            <h3 className="mb-5 text-lg font-semibold text-text-heading">
-              Esto ES para vos si:
-            </h3>
-            <div className="flex flex-col gap-4">
-              {yesItems.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="mt-0.5 flex-shrink-0 text-status-positive" />
-                  <p className="text-text-primary">{item}</p>
+        <div className="mb-8 grid gap-6 md:grid-cols-2">
+          {doors.map((d, i) => {
+            const Icon = d.icon
+            return (
+              <motion.div
+                key={d.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
+                className="rounded-xl border-2 border-brand-violet/20 bg-white p-6 shadow-md"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-brand-violet">
+                  <Icon size={22} className="text-white" />
                 </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* NO column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-            className="rounded-xl border border-gray-200 bg-white p-6 shadow-md"
-          >
-            <h3 className="mb-5 text-lg font-semibold text-text-heading">
-              Esto NO es para vos si:
-            </h3>
-            <div className="flex flex-col gap-4">
-              {noItems.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <XCircle size={20} className="mt-0.5 flex-shrink-0 text-status-negative" />
-                  <p className="text-text-primary">{item}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                <h3 className="mb-2 text-lg font-semibold text-text-heading">{d.title}</h3>
+                <p className="text-text-primary">{d.text}</p>
+              </motion.div>
+            )
+          })}
         </div>
 
-        {/* CTA card for beginners */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="rounded-xl border border-gray-200 bg-white p-6 shadow-md"
+        >
+          <h3 className="mb-5 text-lg font-semibold text-text-heading">No es para vos si:</h3>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {noItems.map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <XCircle size={20} className="mt-0.5 flex-shrink-0 text-status-negative" />
+                <p className="text-text-primary">{item}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

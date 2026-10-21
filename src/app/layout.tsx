@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
+import { faqs } from '@/data/faqs'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -13,11 +14,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL('https://bepartner.lat'),
   title: {
-    default: 'Bepartner | Especialistas en Escalar Tiendas Online',
+    default: 'Bepartner | Agencia de performance para tiendas online',
     template: '%s | Bepartner',
   },
   description:
-    'Ayudamos a tiendas online que facturan entre 4 y 10 millones a escalar a 20-50 millones en 90 días. Sistema probado de Meta Ads + Portal exclusivo de métricas en tiempo real. Caso real: +1.760% en ventas.',
+    'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
   keywords: [
     'especialistas ecommerce argentina',
     'publicidad digital ecommerce',
@@ -54,9 +55,9 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://bepartner.lat',
     siteName: 'Bepartner',
-    title: 'Bepartner | Escalá tu ecommerce a $50M en 90 días',
+    title: 'Bepartner | Agencia de performance para tiendas online',
     description:
-      'Especialistas en escalar tiendas online. Sistema probado + Portal exclusivo + Resultados reales. De 4 a 102 ventas/mes en 3 meses.',
+      'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
     images: [
       {
         url: '/og-image.jpg',
@@ -68,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bepartner | Escalá tu ecommerce a $50M en 90 días',
+    title: 'Bepartner | Agencia de performance para tiendas online',
     description:
-      'De 4 a 102 ventas/mes en 3 meses. Sistema probado de Meta Ads + Portal exclusivo.',
+      'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
     images: ['/og-image.jpg'],
   },
   alternates: {
@@ -89,7 +90,7 @@ const jsonLdBusiness = {
   '@type': 'ProfessionalService',
   name: 'Bepartner',
   description:
-    'Especialistas en escalar tiendas online. Ayudamos a ecommerce a multiplicar su facturación con Meta Ads y un portal exclusivo de métricas.',
+    'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
   url: 'https://bepartner.lat',
   logo: 'https://bepartner.lat/logo-bepartner.png',
   image: 'https://bepartner.lat/og-image.jpg',
@@ -112,43 +113,16 @@ const jsonLdBusiness = {
   sameAs: ['https://www.instagram.com/bepartner.lat/'],
 }
 
+// Mismas preguntas y respuestas que la sección FAQ de la página (Google pide
+// que el dato estructurado coincida con lo que ve el usuario).
 const jsonLdFAQ = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: '¿Ya probé agencias y no me funcionó, por qué Bepartner sería diferente?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Nosotros no vendemos anuncios. Instalamos un sistema completo y te damos acceso a un portal exclusivo donde ves tus métricas en tiempo real. Sin resultados, no cobramos comisión.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Cuánto tarda en verse resultados con Bepartner?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Nuestro caso documentado pasó de 4 a 102 ventas en 3 meses. El primer mes es de diagnóstico y setup. Los resultados empiezan a verse desde el segundo mes.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Qué es el Portal de Clientes de Bepartner?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Es una plataforma exclusiva con dashboard de métricas en tiempo real, generador de anuncios ilimitados, análisis semanal de campañas y calculadora de ROAS por producto. Nadie más en el mercado lo tiene.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Para qué tipo de ecommerce trabaja Bepartner?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Trabajamos con tiendas online que ya venden pero no pueden superar los 10 millones de pesos por mes. Tiendanube, Shopify, WooCommerce — cualquier plataforma.',
-      },
-    },
-  ],
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
 }
 
 export default function RootLayout({
