@@ -282,9 +282,10 @@ export default function CaseStudy() {
             { value: '$30M', label: 'A los 60 días' },
             { value: '$38M', label: 'En septiembre' },
           ]}
-          brand="Green Power"
-          brandInitials="GP"
-          brandDescription="Suplementos"
+          person="Facundo"
+          role="Dueño de Green Power · Suplementos"
+          brandLogo="/images/logo-greenpower.png"
+          brandName="Green Power"
         />
 
         {/* CASOS SECUNDARIOS — Carrusel */}

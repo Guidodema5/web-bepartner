@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { TrendingUp } from 'lucide-react'
 
 type Metric = { value: string; label: string }
@@ -11,9 +12,12 @@ type Props = {
   title: string
   description: string
   metrics: Metric[]
-  brand: string
-  brandInitials: string
-  brandDescription: string
+  /** Quien habla en el video, por ejemplo "Facundo". */
+  person: string
+  /** Su rol, por ejemplo "Dueño de Green Power". */
+  role: string
+  brandLogo: string
+  brandName: string
   /** Pone el video a la derecha, para alternar si hay varios testimonios seguidos. */
   videoRight?: boolean
 }
@@ -26,9 +30,10 @@ export default function VideoTestimonial({
   title,
   description,
   metrics,
-  brand,
-  brandInitials,
-  brandDescription,
+  person,
+  role,
+  brandLogo,
+  brandName,
   videoRight = false,
 }: Props) {
   return (
@@ -68,12 +73,12 @@ export default function VideoTestimonial({
           </div>
 
           <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#753D94] to-[#c8a2e8] font-display text-xs font-extrabold text-white">
-              {brandInitials}
+            <div className="relative h-20 w-24 flex-shrink-0">
+              <Image src={brandLogo} alt={brandName} fill sizes="96px" className="object-contain" />
             </div>
             <div>
-              <p className="font-semibold text-white">{brand}</p>
-              <p className="text-sm text-white/60">{brandDescription}</p>
+              <p className="font-semibold text-white">{person}</p>
+              <p className="text-sm text-white/60">{role}</p>
             </div>
           </div>
         </div>
