@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react'
+import VideoTestimonial from './VideoTestimonial'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -46,13 +47,6 @@ const steps = [
 ]
 
 const secondaryCases = [
-  {
-    tag: 'E-commerce / Suplementos',
-    title: 'Green Power: de menos de 10M a 38M por mes',
-    metric: '$38M',
-    subtitle: '30M en 60 días · 38M en septiembre',
-    description: 'No pasaba los 10M por mes. En 60 días llegó a 30M, y en septiembre facturó 38M.',
-  },
   {
     tag: 'E-commerce / Moda',
     title: 'Tienda de sweaters: $50M en 70 días',
@@ -276,6 +270,22 @@ export default function CaseStudy() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* TESTIMONIO EN VIDEO — Green Power */}
+        <VideoTestimonial
+          video="/videos/testimonio-greenpower.mp4"
+          poster="/images/testimonio-greenpower.jpg"
+          title="De menos de $10M a $30M por mes en 60 días con su tienda de suplementos"
+          description="No pasaba los 10M por mes. En 60 días llegó a 30M, y en septiembre facturó 38M."
+          metrics={[
+            { value: '<$10M', label: 'Antes, por mes' },
+            { value: '$30M', label: 'A los 60 días' },
+            { value: '$38M', label: 'En septiembre' },
+          ]}
+          brand="Green Power"
+          brandInitials="GP"
+          brandDescription="Suplementos"
+        />
 
         {/* CASOS SECUNDARIOS — Carrusel */}
         <motion.div
