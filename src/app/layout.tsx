@@ -12,7 +12,8 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bepartner.lat'),
+  // La dirección oficial es con www: bepartner.lat redirige ahí (Vercel).
+  metadataBase: new URL('https://www.bepartner.lat'),
   title: {
     default: 'Bepartner | Agencia de performance para tiendas online',
     template: '%s | Bepartner',
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     'meta ads argentina ecommerce',
     'consultoria ecommerce',
   ],
-  authors: [{ name: 'Bepartner', url: 'https://bepartner.lat' }],
+  authors: [{ name: 'Bepartner', url: 'https://www.bepartner.lat' }],
   creator: 'Bepartner',
   publisher: 'Bepartner',
   robots: {
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://bepartner.lat',
+    url: 'https://www.bepartner.lat',
     siteName: 'Bepartner',
     title: 'Bepartner | Agencia de performance para tiendas online',
     description:
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
       {
         url: '/og-image.jpg',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'Bepartner — Socios de crecimiento para ecommerce',
       },
     ],
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://bepartner.lat',
+    canonical: 'https://www.bepartner.lat',
   },
   icons: {
     icon: [
@@ -91,17 +92,19 @@ const jsonLdBusiness = {
   name: 'Bepartner',
   description:
     'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
-  url: 'https://bepartner.lat',
-  logo: 'https://bepartner.lat/logo-bepartner.png',
-  image: 'https://bepartner.lat/og-image.jpg',
+  url: 'https://www.bepartner.lat',
+  logo: 'https://www.bepartner.lat/logo-violet.png',
+  image: 'https://www.bepartner.lat/og-image.jpg',
   email: 'agencia.bepartner@gmail.com',
   areaServed: { '@type': 'Country', name: 'Argentina' },
   serviceType: [
-    'Publicidad Digital para Ecommerce',
-    'Meta Ads para Tiendas Online',
-    'Optimización de Tiendas Online',
-    'Consultoría Ecommerce',
+    'Agencia de performance para tiendas online',
+    'Publicidad en Meta y TikTok para ecommerce',
+    'Propuesta de valor y oferta para tiendas online',
+    'Optimización de tiendas online',
   ],
+  founder: { '@type': 'Person', name: 'Guido Demaria', jobTitle: 'Fundador' },
+  priceRange: 'Porcentaje sobre el crecimiento',
   knowsAbout: [
     'Meta Ads',
     'Facebook Ads para ecommerce',
@@ -111,6 +114,14 @@ const jsonLdBusiness = {
     'Shopify',
   ],
   sameAs: ['https://www.instagram.com/bepartner.lat/'],
+}
+
+const jsonLdWebsite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Bepartner',
+  url: 'https://www.bepartner.lat',
+  inLanguage: 'es-AR',
 }
 
 // Mismas preguntas y respuestas que la sección FAQ de la página (Google pide
@@ -131,7 +142,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={spaceGrotesk.variable}>
+    <html lang="es-AR" className={spaceGrotesk.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -140,6 +151,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
         />
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
