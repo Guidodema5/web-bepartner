@@ -35,6 +35,7 @@ type Caso = {
   logo?: string
   video?: string
   poster?: string
+  oculto?: boolean
 }
 
 const casos: Caso[] = [
@@ -65,28 +66,34 @@ const casos: Caso[] = [
   {
     marca: 'Pullbag',
     rubro: 'Accesorios ecológicos',
-    titulo: '$30 millones en 60 días',
-    historia: 'Con un retorno de 10 pesos por cada peso invertido en publicidad.',
+    titulo: 'De $0 a $30 millones en 60 días',
+    historia:
+      'El negocio estaba parado hacía 5 meses, sin ventas. Como había que arrancar de cero, aplicamos las 4 Ruedas completas: armamos la propuesta de valor alrededor de un ángulo bien específico, la llevamos a formatos de anuncios ganadores y rehicimos la web para que persuada y no sea una más. En 60 días facturó $30 millones, con un retorno de 10 pesos por cada peso invertido en publicidad.',
     logo: '/images/logo-pullbag.svg',
   },
   {
     marca: 'Destore',
-    rubro: 'Tienda online',
-    titulo: '1 millón de pesos por día',
-    historia: 'Lo logró en su primer mes con nosotros.',
+    rubro: 'Tienda online multiproducto',
+    titulo: 'De $5 millones a $30 millones por mes',
+    historia:
+      'Facturaba $5 millones por mes. Trabajamos la oferta y la persuasión desde el primer día, y llegó a facturar $1 millón por día: unos $30 millones por mes.',
     logo: '/images/logo-destore.png',
   },
+  {
+    marca: 'Victor Gemas',
+    rubro: 'Joyería online',
+    titulo: 'De $3 millones por mes a $40 millones en 45 días',
+    historia:
+      'Los anuncios no funcionaban, la propuesta de valor no le hablaba a nadie en particular y tenía muchos productos sin saber el costo de ninguno. Ordenamos los números del catálogo, definimos a quién le vende y armamos la propuesta de valor para ese cliente. Rehicimos los anuncios y optimizamos la web, que estaba muy lenta. Recién con eso funcionando sumamos nuevas estrategias de pauta.',
+    logo: '/images/logo-victorgemas.png',
+  },
+  // Oculto a pedido de Guido (23/10/2026). Para mostrarlo, sacar "oculto".
   {
     marca: 'Tienda de sweaters',
     rubro: 'Moda',
     titulo: 'De $460.000 a $50 millones en 70 días',
     historia: 'Con una estrategia de crecimiento rápido y mensajes distintos para cada temporada.',
-  },
-  {
-    marca: 'Victor Gemas',
-    rubro: 'Joyería',
-    titulo: 'Tienda online de joyas y gemas',
-    logo: '/images/logo-victorgemas.png',
+    oculto: true,
   },
 ]
 
@@ -155,7 +162,7 @@ export default function CaseStudy() {
 
         {/* CASOS — uno debajo del otro, mismo formato (como Peak) */}
         <div className="mx-auto flex max-w-4xl flex-col gap-8">
-          {casos.map((c) => (
+          {casos.filter((c) => !c.oculto).map((c) => (
             <motion.article
               key={c.marca}
               initial={{ opacity: 0, y: 20 }}
