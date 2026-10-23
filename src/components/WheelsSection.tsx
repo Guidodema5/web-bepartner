@@ -1,13 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Package, Gift, Megaphone, MonitorSmartphone, Fuel } from 'lucide-react'
+import { Package, Gift, Megaphone, MonitorSmartphone, TrendingUp } from 'lucide-react'
 
-const wheels = [
-  { icon: Package, title: 'Producto', text: 'Elegimos qué empujar y dejamos claros tus números.' },
-  { icon: Gift, title: 'Propuesta de valor', text: 'Armamos una oferta a la que le cueste decir que no.' },
-  { icon: Megaphone, title: 'Anuncios', text: 'Que generen ganas de comprar, no solo que se vean lindos.' },
-  { icon: MonitorSmartphone, title: 'Página web', text: 'Que la gente que llega, compre.' },
+const pilares = [
+  { icon: Package, title: 'Producto', text: 'Definimos qué productos impulsar según margen, demanda y rentabilidad.' },
+  { icon: Gift, title: 'Propuesta de valor', text: 'Construimos una oferta clara y diferencial para cada tipo de cliente.' },
+  { icon: Megaphone, title: 'Anuncios', text: 'Creatividades basadas en datos, pensadas para generar ventas y no solo alcance.' },
+  { icon: MonitorSmartphone, title: 'Sitio web', text: 'Optimizamos la experiencia de compra para que el tráfico se convierta en ventas.' },
 ]
 
 export default function WheelsSection() {
@@ -21,12 +21,12 @@ export default function WheelsSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="section-label">El método</span>
+          <span className="section-label">Nuestro método</span>
           <h2 className="section-title mt-3">
-            Seguramente te dijeron que el problema es la publicidad.
+            La publicidad sola no hace crecer una marca.
           </h2>
-          <p className="mt-5 text-lg font-semibold text-text-heading">
-            La publicidad es la nafta. Pero si las ruedas están mal, por más nafta que pongas, tu tienda no avanza.
+          <p className="mt-5 text-lg text-text-secondary">
+            Antes de invertir en pauta, alineamos los cuatro pilares que definen si una tienda online vende.
           </p>
         </motion.div>
 
@@ -41,7 +41,7 @@ export default function WheelsSection() {
         </motion.h3>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {wheels.map((w, i) => {
+          {pilares.map((w, i) => {
             const Icon = w.icon
             return (
               <motion.div
@@ -71,9 +71,9 @@ export default function WheelsSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-3 rounded-xl bg-brand-violet px-6 py-4 text-center text-white shadow-lg"
         >
-          <Fuel size={22} className="flex-shrink-0" />
+          <TrendingUp size={22} className="flex-shrink-0" />
           <p className="font-medium">
-            Recién ahí ponemos la nafta: la pauta en Meta, TikTok y donde haga falta.
+            Con las cuatro ruedas alineadas, escalamos la inversión en Meta, TikTok y Google.
           </p>
         </motion.div>
       </div>

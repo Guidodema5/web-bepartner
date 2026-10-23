@@ -4,26 +4,26 @@ export const faqs = [
   {
     question: '¿Cómo es el proceso de trabajo?',
     answer:
-      'Arrancamos con una auditoría de tu negocio. Después ordenamos las 4 ruedas (producto, propuesta de valor, anuncios y web) y activamos la pauta. Vos nos pasás la información al principio y grabás anuncios una vez por semana. Del resto nos encargamos nosotros.',
+      'Comenzamos con una auditoría integral del negocio. Después trabajamos producto, propuesta de valor, anuncios y sitio web, y recién entonces escalamos la inversión publicitaria. Tu equipo nos comparte la información inicial y graba contenido una vez por semana; del resto nos encargamos nosotros.',
   },
   {
-    question: 'Ya probé agencias y no me funcionó.',
+    question: 'Ya trabajé con agencias y no obtuve resultados.',
     answer:
-      'Seguramente te tocaron solo los anuncios, y cobraban lo mismo vendieras o no. Nosotros arreglamos las 4 ruedas antes de pautar y vamos a resultados.',
+      'La mayoría de las agencias se limita a gestionar anuncios y cobra lo mismo con o sin resultados. Nosotros trabajamos el negocio completo antes de invertir en pauta, y nuestra remuneración está atada a tu crecimiento.',
   },
   {
     question: '¿En cuánto tiempo se ven resultados?',
     answer:
-      'Depende de cómo esté cada rueda en tu negocio. En la auditoría te decimos plazos realistas para tu tienda. Como referencia, Green Power pasó de facturar 10.000 USD a 50.000 USD por mes.',
+      'Depende del punto de partida de cada negocio. En la auditoría definimos plazos realistas para tu caso.',
   },
   {
     question: '¿Qué pasa si no logro los resultados?',
     answer:
-      'No trabajamos con cualquiera. Si te aceptamos, es porque sabemos que te podemos hacer crecer. Por eso no pagás por entregables: a partir del tercer mes vamos a porcentaje de lo que crecés.',
+      'Somos selectivos: solo aceptamos negocios que sabemos que podemos hacer crecer. Por eso no cobramos por entregables: a partir del tercer mes, nuestros honorarios pasan a ser un porcentaje del crecimiento.',
   },
   {
     question: '¿Necesito saber de publicidad o marketing?',
     answer:
-      'No. Tu trabajo es tener buen producto y grabar una vez por semana. Lo demás lo hacemos nosotros.',
+      'No. Lo que necesitamos de tu equipo es un buen producto y que grabe contenido una vez por semana. Del resto nos encargamos nosotros.',
   },
 ]
