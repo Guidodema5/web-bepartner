@@ -67,9 +67,9 @@ const casos: Caso[] = [
   {
     marca: 'Pullbag',
     rubro: 'Accesorios ecológicos',
-    titulo: 'De $0 a $30 millones en 60 días',
+    titulo: 'De $2 millones a $30 millones en 60 días',
     historia:
-      'El negocio estaba parado hacía 5 meses, sin ventas. Como había que arrancar de cero, trabajamos el negocio completo: armamos la propuesta de valor alrededor de un ángulo bien específico, la llevamos a formatos de anuncios ganadores y rehicimos la web para que convierta. En 60 días facturó $30 millones, con un retorno de 10 pesos por cada peso invertido en publicidad.',
+      'El negocio venía estancado hacía 5 meses y arrancó con nosotros facturando $2 millones. Como había que reconstruir todo, trabajamos el negocio completo: armamos la propuesta de valor alrededor de un ángulo bien específico, la llevamos a formatos de anuncios ganadores y rehicimos la web para que convierta. En 60 días facturó $30 millones, con un retorno de 10 pesos por cada peso invertido en publicidad.',
     logo: '/images/logo-pullbag.svg',
   },
   {
