@@ -9,7 +9,7 @@ export const faqs = [
   {
     question: 'Ya probé agencias y no me funcionó.',
     answer:
-      'Seguramente te tocaron solo los anuncios, y cobraban lo mismo vendieras o no. Nosotros arreglamos las 4 ruedas antes de pautar y vamos a porcentaje de lo que crecés.',
+      'Seguramente te tocaron solo los anuncios, y cobraban lo mismo vendieras o no. Nosotros arreglamos las 4 ruedas antes de pautar y vamos a resultados.',
   },
   {
     question: '¿En cuánto tiempo se ven resultados?',

@@ -4,10 +4,10 @@ import { Instagram, Mail, ExternalLink } from 'lucide-react'
 import { BepartnerLogo } from './Navbar'
 
 const navLinks = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Casos de Éxito', href: '#caso-exito' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Inicio', href: '/#inicio' },
+  { label: 'Casos de Éxito', href: '/#caso-exito' },
+  { label: 'Nosotros', href: '/#nosotros' },
+  { label: 'Contacto', href: '/#contacto' },
 ]
 
 export default function Footer() {
@@ -85,6 +85,16 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center">
           <p className="text-sm text-gray-500">&copy; 2026 Bepartner Latam</p>
+          <div className="mx-auto mt-4 max-w-3xl space-y-2 text-xs leading-relaxed text-gray-600">
+            <p>
+              Este sitio no forma parte de Meta Platforms, Inc. ni de Google, y no está respaldado por ellos.
+              Facebook e Instagram son marcas registradas de Meta Platforms, Inc.
+            </p>
+            <p>
+              Los resultados que mostramos son de clientes reales y no están garantizados: cada negocio depende
+              de su producto, su mercado y su inversión.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

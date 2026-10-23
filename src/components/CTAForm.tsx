@@ -15,7 +15,6 @@ type FormData = {
   desafio: string
 }
 
-const WEBHOOK_URL = process.env.NEXT_PUBLIC_FORM_WEBHOOK_URL || ''
 const CALENDLY_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/agencia-bepartner/30min'
 const LEADMAGNET_URL = process.env.NEXT_PUBLIC_LEADMAGNET_URL || '#'
@@ -47,20 +46,15 @@ export default function CTAForm() {
   const onSubmit = async (data: FormData) => {
     setSubmitting(true)
 
-    if (WEBHOOK_URL) {
-      try {
-        await fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...data,
-            timestamp: new Date().toISOString(),
-            qualified: data.facturacion !== 'no_vendo' && data.url_tienda.length > 0,
-          }),
-        })
-      } catch (e) {
-        console.error('Webhook error:', e)
-      }
+    // Guarda el contacto en el Google Sheet (ver app/api/contacto).
+    try {
+      await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+    } catch (e) {
+      console.error('No se pudo guardar el contacto:', e)
     }
 
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {

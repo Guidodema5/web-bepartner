@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, ChevronDown, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, ChevronDown, TrendingUp } from 'lucide-react'
 import VideoTestimonial from './VideoTestimonial'
 import FeaturedLogoCase from './FeaturedLogoCase'
 
@@ -41,31 +41,12 @@ const timeline = [
   { month: 'Feb 2026', sales: '102 ventas', revenue: '$12.9M', roas: 'ROAS 7x', phase: 'Consolidación' },
 ]
 
-const steps = [
-  'Estrategia de comunicación y ángulos de venta por producto',
-  'Embudo completo Meta Ads: testeo → validación → escalado → consolidación',
-  'Optimización semanal basada en datos reales',
-  'Acceso al Portal de Clientes con métricas en tiempo real',
+// Le Mardē contado como historia: cómo estaba, qué hicimos y qué pasó.
+const historiaLeMarde = [
+  { label: 'Antes', text: 'Buen producto y clientas fieles, pero sin un sistema de publicidad que convirtiera en ventas. Vendía 4 carteras por mes.' },
+  { label: 'Qué hicimos', text: 'Ángulos de venta por producto, anuncios probados por etapas (testeo, validación, escalado) y ajustes semanales con datos reales.' },
+  { label: 'Resultado', text: 'En 4 meses pasó a 102 ventas por mes y a facturar $12,9 millones en febrero.' },
 ]
-
-const secondaryCases = [
-  {
-    tag: 'E-commerce / Moda',
-    title: 'Tienda de sweaters: $50M en 70 días',
-    metric: '$50M',
-    subtitle: 'En 70 días — arrancó facturando $460K',
-    description: 'Marca de sweaters que pasó de vender $460.000 por mes a facturar 50 millones en apenas 70 días. Una estrategia de escalado agresivo con ángulos de comunicación segmentados por temporada.',
-  },
-  {
-    tag: 'E-commerce / Accesorios ecológicos',
-    logo: '/images/logo-pullbag.svg',
-    title: 'Pullbag: $30M en 60 días con ROAS 10x',
-    metric: '$30M',
-    subtitle: 'En 60 días · ROAS 10x',
-    description: 'Marca de accesorios ecológicos que llegó a facturar $30M en 60 días, con un ROAS de 10x.',
-  },
-]
-
 
 export default function CaseStudy() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -75,12 +56,6 @@ export default function CaseStudy() {
   const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 })
   const bandInView = useInView(bandRef, { once: true, amount: 0.3 })
   const [expanded, setExpanded] = useState(false)
-  const [expandedSecondary, setExpandedSecondary] = useState<number | null>(null)
-  const [carouselIndex, setCarouselIndex] = useState(0)
-
-  const totalSlides = secondaryCases.length
-  const goPrev = () => setCarouselIndex((i) => (i - 1 + totalSlides) % totalSlides)
-  const goNext = () => setCarouselIndex((i) => (i + 1) % totalSlides)
 
   useEffect(() => {
     if (sectionInView && typeof window !== 'undefined' && typeof window.fbq === 'function') {
@@ -145,132 +120,7 @@ export default function CaseStudy() {
           </div>
         </motion.div>
 
-        {/* CASO PRINCIPAL — Le Marde */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 rounded-2xl border-2 border-[#c8a2e8]/40 bg-white/10 p-6 shadow-xl backdrop-blur-sm sm:p-8"
-        >
-          <div className="mb-4 flex items-center gap-2">
-            <span className="rounded-full bg-brand-violet px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-              Caso destacado
-            </span>
-            <span className="text-xs font-medium text-[#c8a2e8]">E-commerce / Carteras artesanales</span>
-          </div>
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <div className="relative mb-4 h-9 w-44">
-                <Image src="/images/logo-lemarde.png" alt="Le Mardé" fill sizes="176px" className="object-contain object-left" />
-              </div>
-              <h3 className="text-2xl font-bold text-white sm:text-3xl">
-                Le Mardé: de 4 a 102 ventas por mes
-              </h3>
-              <p className="mt-2 text-white/60">Carteras artesanales</p>
-            </div>
-            <div className="text-center md:text-right">
-              <div className="font-display text-6xl font-extrabold text-[#c8a2e8] sm:text-7xl">
-                +1.760%
-              </div>
-              <p className="mt-1 text-sm text-white/70">Crecimiento en ventas</p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-          >
-            {expanded ? 'Cerrar detalle' : 'Ver caso completo'}
-            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown size={16} />
-            </motion.div>
-          </button>
-        </motion.div>
-
-        {/* Expanded detail — Le Marde */}
-        <AnimatePresence>
-          {expanded && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className="overflow-hidden"
-            >
-              <div className="mb-6 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
-                <p className="mb-6 text-white/80">
-                  Buen producto, clientas fieles, pero sin sistema de publicidad que convirtiera en ventas escalables.
-                </p>
-
-                {/* Metrics */}
-                <div ref={metricsRef}>
-                  <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-                    {metrics.map((m) => (
-                      <div
-                        key={m.label}
-                        className="rounded-lg bg-white/10 p-4 text-center backdrop-blur-sm"
-                      >
-                        <div className="mb-1 font-display text-3xl font-extrabold text-[#c8a2e8] sm:text-4xl">
-                          <CountUp target={m.value} prefix={m.prefix} suffix={m.suffix} inView={metricsInView} />
-                        </div>
-                        <div className="text-xs text-white/70">{m.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Timeline */}
-                <div className="mb-8">
-                  <h4 className="mb-4 text-xs font-medium uppercase tracking-wider text-white/50">
-                    Evolución mes a mes
-                  </h4>
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    {timeline.map((t) => (
-                      <div key={t.month} className="rounded-lg bg-white/5 p-4">
-                        <div className="mb-1 text-xs font-semibold text-[#c8a2e8]">{t.phase}</div>
-                        <div className="text-sm font-bold text-white">{t.month}</div>
-                        <div className="mt-2 space-y-1 text-xs text-white/60">
-                          <div>{t.sales}</div>
-                          <div>{t.revenue}</div>
-                          <div>{t.roas}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* What we did */}
-                <div className="mb-6">
-                  <h4 className="mb-3 text-xs font-medium uppercase tracking-wider text-white/50">
-                    Lo que hicimos
-                  </h4>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {steps.map((step, i) => (
-                      <div key={i} className="flex items-start gap-2 text-sm text-white/70">
-                        <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-violet text-[10px] font-bold text-white">
-                          {i + 1}
-                        </span>
-                        {step}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <a
-                    href="#contacto"
-                    className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-                  >
-                    Quiero resultados como estos <ArrowRight size={18} />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* TESTIMONIO EN VIDEO — Green Power */}
+        {/* 1. TESTIMONIO EN VIDEO — Green Power */}
         <VideoTestimonial
           video="/videos/testimonio-greenpower.mp4"
           poster="/images/testimonio-greenpower.jpg"
@@ -287,160 +137,154 @@ export default function CaseStudy() {
           brandName="Green Power"
         />
 
-        {/* CASO DESTACADO CON LOGO — Derentas */}
+        {/* 2. CASO CON LOGO — Derentas */}
         <FeaturedLogoCase
           logo="/images/logo-derentas.svg"
           brand="deRentas"
           tag="Alquiler de autos"
-          title="Derentas: cerca de 13.000 contactos calificados por mes"
-          description="Le manejamos toda la publicidad digital. Hoy recibe cerca de 13.000 contactos calificados por mes."
-          metric="13.000"
-          metricLabel="contactos calificados por mes"
+          title="La empresa N°1 de alquiler de autos para Uber"
+          description="Le manejamos toda la publicidad digital."
         />
 
-        {/* CASOS SECUNDARIOS — Carrusel */}
+        {/* 3. Le Mardē — contado como historia */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6"
+          className="mb-6 rounded-2xl border border-white/15 bg-white/10 p-6 shadow-xl backdrop-blur-sm sm:p-8"
         >
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-[#c8a2e8]">
-              Y no son los únicos
-            </h3>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={goPrev}
-                aria-label="Caso anterior"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all hover:border-[#c8a2e8]/60 hover:bg-white/15"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                onClick={goNext}
-                aria-label="Caso siguiente"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all hover:border-[#c8a2e8]/60 hover:bg-white/15"
-              >
-                <ChevronRight size={18} />
-              </button>
+          <div className="mb-4 flex items-center gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full bg-brand-violet px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+              <TrendingUp size={12} /> Carteras artesanales
+            </span>
+          </div>
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <div className="relative mb-4 h-9 w-44">
+                <Image src="/images/logo-lemarde.png" alt="Le Mardé" fill sizes="176px" className="object-contain object-left" />
+              </div>
+              <h3 className="text-2xl font-bold text-white sm:text-3xl">
+                De 4 a 102 ventas por mes en solo 4 meses
+              </h3>
+            </div>
+            <div className="text-center md:text-right">
+              <div className="font-display text-6xl font-extrabold text-[#c8a2e8] sm:text-7xl">
+                +1.760%
+              </div>
+              <p className="mt-1 text-sm text-white/70">Crecimiento en ventas</p>
             </div>
           </div>
 
-          <div className="relative overflow-hidden">
-            <motion.div
-              animate={{ x: `-${carouselIndex * 100}%` }}
-              transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-              className="flex"
-            >
-              {secondaryCases.map((c, i) => (
-                <div
-                  key={c.title}
-                  className="w-full flex-shrink-0 px-1 sm:w-1/2 sm:px-2"
-                  aria-hidden={i !== carouselIndex && i !== carouselIndex + 1}
-                >
-                  <div className="h-full rounded-xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-[#c8a2e8]/40 hover:bg-white/15">
-                    <div className="mb-3 flex items-center gap-2">
-                      <TrendingUp size={14} className="text-[#c8a2e8]" />
-                      <span className="text-xs font-medium text-white/50">{c.tag}</span>
-                    </div>
-                    {'logo' in c && c.logo && (
-                      <div className="relative mb-3 h-8 w-36">
-                        <Image src={c.logo} alt={c.title.split(':')[0]} fill sizes="144px" className="object-contain object-left" />
-                      </div>
-                    )}
-                    <h3 className="text-lg font-bold text-white">{c.title}</h3>
-                    <div className="mt-3 font-display text-5xl font-extrabold text-[#c8a2e8]">
-                      {c.metric}
-                    </div>
-                    <p className="mt-1 text-sm text-white/70">{c.subtitle}</p>
-
-                    <button
-                      onClick={() =>
-                        setExpandedSecondary(expandedSecondary === i ? null : i)
-                      }
-                      className="mt-4 text-sm font-medium text-[#c8a2e8] transition-colors hover:text-white"
-                    >
-                      {expandedSecondary === i ? 'Cerrar' : 'Ver caso completo →'}
-                    </button>
-
-                    <AnimatePresence>
-                      {expandedSecondary === i && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden"
-                        >
-                          <p className="mt-3 text-sm text-white/70">{c.description}</p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            {historiaLeMarde.map((h, i) => (
+              <div key={h.label} className="rounded-xl bg-white/5 p-4">
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-violet text-[10px] font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#c8a2e8]">{h.label}</span>
                 </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Dots */}
-          <div className="mt-6 flex items-center justify-center gap-2">
-            {secondaryCases.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCarouselIndex(i)}
-                aria-label={`Ir al caso ${i + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === carouselIndex ? 'w-8 bg-[#c8a2e8]' : 'w-2 bg-white/25 hover:bg-white/40'
-                }`}
-              />
+                <p className="text-sm text-white/75">{h.text}</p>
+              </div>
             ))}
           </div>
+
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
+          >
+            {expanded ? 'Cerrar detalle' : 'Ver los números mes a mes'}
+            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
+              <ChevronDown size={16} />
+            </motion.div>
+          </button>
+
+          <AnimatePresence>
+            {expanded && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <div ref={metricsRef} className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+                  {metrics.map((m) => (
+                    <div key={m.label} className="rounded-lg bg-white/10 p-4 text-center">
+                      <div className="mb-1 font-display text-3xl font-extrabold text-[#c8a2e8] sm:text-4xl">
+                        <CountUp target={m.value} prefix={m.prefix} suffix={m.suffix} inView={metricsInView} />
+                      </div>
+                      <div className="text-xs text-white/70">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {timeline.map((t) => (
+                    <div key={t.month} className="rounded-lg bg-white/5 p-4">
+                      <div className="mb-1 text-xs font-semibold text-[#c8a2e8]">{t.phase}</div>
+                      <div className="text-sm font-bold text-white">{t.month}</div>
+                      <div className="mt-2 space-y-1 text-xs text-white/60">
+                        <div>{t.sales}</div>
+                        <div>{t.revenue}</div>
+                        <div>{t.roas}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
-        {/* "Y muchos más" — el cierre que sugiere que hay más */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mt-10 flex flex-col items-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-8 text-center backdrop-blur-sm sm:flex-row sm:justify-between sm:text-left"
-        >
-          <div className="flex items-center gap-4">
-            {/* Stacked brand avatars */}
-            <div className="flex -space-x-2">
-              {[
-                { initials: 'LM', gradient: 'from-[#753D94] to-[#c8a2e8]' },
-                { initials: 'PB', gradient: 'from-[#5e3177] to-[#a57cc5]' },
-                { initials: 'SW', gradient: 'from-[#c8a2e8] to-[#753D94]' },
-                { initials: 'GP', gradient: 'from-[#4a2a6b] to-[#9b6dc4]' },
-              ].map((brand, i) => (
-                <div
-                  key={i}
-                  className={`flex h-12 w-12 items-center justify-center rounded-full border-[3px] border-[#1a1a2e] bg-gradient-to-br ${brand.gradient} font-display text-xs font-extrabold text-white shadow-md`}
-                  title={`Marca ${brand.initials}`}
-                >
-                  {brand.initials}
-                </div>
-              ))}
-            </div>
-            <div>
-              <p className="font-display text-lg font-bold text-white sm:text-xl">
-                Y hay muchos más
-              </p>
-              <p className="text-sm text-white/60">
-                Ecommerce escalando con el sistema ahora mismo
-              </p>
-            </div>
-          </div>
-          <a
-            href="#contacto"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-xl"
+        {/* 4. Pullbag + enlace al resto de los casos */}
+        <div className="grid gap-6 md:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="rounded-2xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm sm:p-8"
           >
-            Sumá tu caso <ArrowRight size={16} />
-          </a>
-        </motion.div>
+            <div className="mb-3 flex items-center gap-2">
+              <TrendingUp size={14} className="text-[#c8a2e8]" />
+              <span className="text-xs font-medium text-white/50">Accesorios ecológicos</span>
+            </div>
+            <div className="relative mb-3 h-8 w-36">
+              <Image src="/images/logo-pullbag.svg" alt="Pullbag" fill sizes="144px" className="object-contain object-left" />
+            </div>
+            <div className="mt-3 font-display text-5xl font-extrabold text-[#c8a2e8]">$30M</div>
+            <h3 className="mt-1 text-lg font-bold text-white">facturados en 60 días</h3>
+            <p className="mt-1 text-sm text-white/70">Con un retorno de 10 pesos por cada peso invertido en publicidad.</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+            className="flex flex-col justify-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+          >
+            <div>
+              <p className="font-display text-2xl font-bold text-white">Y hay muchos más</p>
+              <p className="mt-1 text-white/60">Ecommerce escalando con el sistema ahora mismo.</p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#contacto"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90"
+              >
+                Quiero resultados así <ArrowRight size={16} />
+              </a>
+              <a
+                href="/casos"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
+              >
+                Ver más casos
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -6,10 +6,10 @@ import { Instagram, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 
 const navLinks = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Casos de Éxito', href: '#caso-exito' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Inicio', href: '/#inicio' },
+  { label: 'Casos de Éxito', href: '/#caso-exito' },
+  { label: 'Nosotros', href: '/#nosotros' },
+  { label: 'Contacto', href: '/#contacto' },
 ]
 
 function BepartnerLogo() {
@@ -48,7 +48,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-4 py-2 sm:px-6 lg:px-10">
-          <a href="#inicio" className="flex items-center">
+          <a href="/#inicio" className="flex items-center">
             <BepartnerLogo />
           </a>
 

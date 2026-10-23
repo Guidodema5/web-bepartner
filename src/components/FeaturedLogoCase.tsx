@@ -10,8 +10,8 @@ type Props = {
   tag: string
   title: string
   description: string
-  metric: string
-  metricLabel: string
+  metric?: string
+  metricLabel?: string
 }
 
 // Caso destacado con el logo de la marca en grande, para clientes sin video
@@ -31,10 +31,12 @@ export default function FeaturedLogoCase({ logo, brand, tag, title, description,
           <div className="relative h-16 w-64 sm:h-20 sm:w-72">
             <Image src={logo} alt={brand} fill sizes="288px" className="object-contain" />
           </div>
-          <div className="text-center">
-            <div className="font-display text-5xl font-extrabold text-[#c8a2e8] sm:text-6xl">{metric}</div>
-            <div className="mt-1 text-sm text-white/70">{metricLabel}</div>
-          </div>
+          {metric && (
+            <div className="text-center">
+              <div className="font-display text-5xl font-extrabold text-[#c8a2e8] sm:text-6xl">{metric}</div>
+              <div className="mt-1 text-sm text-white/70">{metricLabel}</div>
+            </div>
+          )}
         </div>
 
         <div className="flex w-full flex-col">

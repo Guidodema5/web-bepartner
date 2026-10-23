@@ -5,7 +5,6 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import ProblemSection from '@/components/ProblemSection'
 import WheelsSection from '@/components/WheelsSection'
-import Comparison from '@/components/Comparison'
 import ForWhomSection from '@/components/ForWhomSection'
 import PortalSection from '@/components/PortalSection'
 import CaseStudy from '@/components/CaseStudy'
@@ -15,7 +14,7 @@ import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import ScrollSpyNav from '@/components/ScrollSpyNav'
-import LiveVisitors from '@/components/LiveVisitors'
+import LogoBar from '@/components/LogoBar'
 
 export default function Home() {
   return (
@@ -24,19 +23,18 @@ export default function Home() {
       <ScrollSpyNav />
       <main>
         <Hero />
+        <LogoBar />
         <ProblemSection />
         <WheelsSection />
         <ForWhomSection />
         <PortalSection />
         <CaseStudy />
-        <Comparison />
         <AboutSection />
         <CTAForm />
         <FAQ />
       </main>
       <Footer />
       <WhatsAppButton />
-      <LiveVisitors />
     </VideoProvider>
   )
 }
