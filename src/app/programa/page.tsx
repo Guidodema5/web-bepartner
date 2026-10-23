@@ -16,7 +16,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import CaseStudy from '@/components/CaseStudy'
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
+// Número de WhatsApp de Bepartner (público): 54 9 11 4470-9617.
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491144709617'
 const WA_MESSAGE = encodeURIComponent('Hola, quiero anotarme al programa de Bepartner')
 const WA_LINK = WHATSAPP_NUMBER
   ? `https://wa.me/${WHATSAPP_NUMBER}?text=${WA_MESSAGE}`

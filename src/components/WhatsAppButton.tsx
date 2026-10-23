@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
+// Número de WhatsApp de Bepartner (público): 54 9 11 4470-9617.
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491144709617'
 
 export default function WhatsAppButton() {
   if (!WHATSAPP_NUMBER) return null
