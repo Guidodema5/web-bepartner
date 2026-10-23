@@ -1,42 +1,35 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {
-  Cpu,
-  BarChart3,
-  Sparkles,
-  Calculator,
-  DollarSign,
-  Target,
-  ShoppingCart,
-  ArrowUpRight,
-  Zap,
-} from 'lucide-react'
+import Image from 'next/image'
+import { Cpu, Sparkles, BarChart3, Calculator } from 'lucide-react'
 
 const features = [
   {
     icon: Sparkles,
-    title: 'Creador de anuncios para tu marca',
-    description: 'Ideas de anuncios pensadas para tus productos y tu cliente, en minutos.',
+    title: 'Tus anuncios de la semana, listos para grabar.',
+    description:
+      'Ideas pensadas para tus productos y tus clientas, con la guía de cada video: cómo arranca, qué mostrar y ejemplos reales. Detrás está el método con el que trabajamos tus campañas.',
   },
   {
     icon: BarChart3,
-    title: 'Tablero de métricas semanales',
-    description: 'Facturación, inversión, retorno y conversión. Ves la evolución desde el día 1, sin esperar reportes.',
+    title: 'Tus métricas, claras y al día.',
+    description:
+      'Facturación, ventas, retorno y costo por venta, semana a semana y mes a mes, sin esperar reportes. Ves qué campañas y qué videos te están trayendo plata.',
   },
   {
     icon: Calculator,
-    title: 'Calculadora de inversión por producto',
-    description: 'Ponés tus costos y sabés cuánto podés gastar por venta sin perder plata.',
+    title: 'Calculadora de ROAS por producto.',
+    description:
+      'Cargás tus costos y sabés cuál es el retorno mínimo para ganar plata y cuánto podés invertir por venta sin perder.',
   },
 ]
 
 export default function PortalSection() {
   return (
     <section id="app" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* Left column */}
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -51,34 +44,31 @@ export default function PortalSection() {
                 </span>
               </div>
               <h2 className="section-title mt-2">
-                Creamos nuestra propia app para hacer anuncios que venden.
+                Cada semana sabés qué grabar y cuánto te deja cada anuncio.
               </h2>
               <p className="mb-8 mt-4 text-lg text-text-secondary">
-                Nunca más te vas a preguntar qué grabar esta semana.
+                La app que acompaña nuestro servicio: tus ideas de anuncios armadas con la estrategia de Bepartner y tus números claros, todo en un mismo lugar.
               </p>
             </motion.div>
 
-            {/* Secondary benefits — compact list */}
-            <div className="mb-8 space-y-3">
-              {features.map((benefit, i) => {
-                const Icon = benefit.icon
+            <div className="mb-8 space-y-5">
+              {features.map((f, i) => {
+                const Icon = f.icon
                 return (
                   <motion.div
-                    key={benefit.title}
+                    key={f.title}
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
                     transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 + i * 0.05 }}
                     className="flex gap-3"
                   >
-                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet-light">
-                      <Icon size={16} className="text-brand-violet" />
+                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet-light">
+                      <Icon size={18} className="text-brand-violet" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-text-heading">
-                        {benefit.title}
-                      </h4>
-                      <p className="text-sm text-text-secondary">{benefit.description}</p>
+                      <h4 className="font-semibold text-text-heading">{f.title}</h4>
+                      <p className="mt-1 text-sm text-text-secondary">{f.description}</p>
                     </div>
                   </motion.div>
                 )
@@ -102,71 +92,21 @@ export default function PortalSection() {
             </motion.div>
           </div>
 
-          {/* Right column — Mockup */}
+          {/* Captura real de la app (docs/web/app-anuncios.png de la app de anuncios) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
-            className="overflow-hidden rounded-2xl border border-gray-800/20 bg-surface-dark shadow-2xl"
-            style={{ transform: 'perspective(1000px) rotateY(-2deg)' }}
           >
-            {/* Browser bar */}
-            <div className="flex items-center gap-2 border-b border-white/10 bg-[#151528] px-4 py-3">
-              <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
-              <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
-              <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
-              <span className="ml-2 text-xs text-gray-500">bepartnerclientes.com.ar</span>
-            </div>
-
-            <div className="p-4 sm:p-5">
-              {/* Algorithm recommendation card */}
-              <div className="mb-4 rounded-lg border border-brand-violet/30 bg-brand-violet/10 p-4">
-                <div className="flex items-center gap-2">
-                  <Zap size={14} className="text-brand-violet" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-violet">
-                    Nueva idea de anuncio
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-white">
-                  <span className="font-bold">"La cartera que va del trabajo a la cena"</span> — video a cámara, 30 segundos.
-                </p>
-                <p className="mt-1 text-xs text-white/60">
-                  Lista para grabar esta semana.
-                </p>
-              </div>
-
-              {/* Metric cards */}
-              <div className="mb-4 grid grid-cols-2 gap-2.5">
-                {[
-                  { label: 'Facturación', value: '$12.9M', icon: DollarSign, change: '+42%' },
-                  { label: 'ROAS', value: '8.2x', icon: Target, change: '+1.3x' },
-                  { label: 'Conversión', value: '35.3%', icon: ArrowUpRight, change: '+8.1%' },
-                  { label: 'Ventas', value: '102', icon: ShoppingCart, change: '+580%' },
-                ].map((m) => (
-                  <div key={m.label} className="rounded-lg bg-white/5 p-3">
-                    <div className="mb-1.5 flex items-center justify-between">
-                      <m.icon size={14} className="text-brand-violet" />
-                      <span className="text-[10px] font-medium text-emerald-400">{m.change}</span>
-                    </div>
-                    <div className="text-base font-bold text-white sm:text-lg">{m.value}</div>
-                    <div className="text-[10px] text-gray-500">{m.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Chart */}
-              <div className="rounded-lg bg-white/5 p-3">
-                <div className="mb-2 text-[10px] font-semibold text-gray-500">Facturación mensual</div>
-                <div className="flex items-end gap-1.5" style={{ height: '80px' }}>
-                  {[30, 45, 38, 60, 52, 75, 90, 100].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t bg-brand-violet/40" style={{ height: `${h}%` }}>
-                      <div className="h-full rounded-t bg-brand-violet" style={{ height: `${Math.min(100, h + 10)}%` }} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <Image
+              src="/images/app-anuncios.png"
+              alt="App de anuncios de Bepartner: los videos de la semana con su guía y las métricas"
+              width={2640}
+              height={1940}
+              sizes="(min-width: 1024px) 60vw, 100vw"
+              className="h-auto w-full"
+            />
           </motion.div>
         </div>
       </div>
