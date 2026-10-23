@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: '%s | Bepartner',
   },
   description:
-    'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
+    'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a resultados.',
   keywords: [
     'especialistas ecommerce argentina',
     'publicidad digital ecommerce',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: 'Bepartner',
     title: 'Bepartner | Agencia de performance para tiendas online',
     description:
-      'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
+      'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a resultados.',
     images: [
       {
         url: '/og-image.jpg',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bepartner | Agencia de performance para tiendas online',
     description:
-      'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
+      'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a resultados.',
     images: ['/og-image.jpg'],
   },
   alternates: {
@@ -91,7 +91,7 @@ const jsonLdBusiness = {
   '@type': 'ProfessionalService',
   name: 'Bepartner',
   description:
-    'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a porcentaje de lo que crecés.',
+    'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a resultados.',
   url: 'https://www.bepartner.lat',
   logo: 'https://www.bepartner.lat/logo-violet.png',
   image: 'https://www.bepartner.lat/og-image.jpg',
