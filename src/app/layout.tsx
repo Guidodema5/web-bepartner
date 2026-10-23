@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   // La dirección oficial es con www: bepartner.lat redirige ahí (Vercel).
   metadataBase: new URL('https://www.bepartner.lat'),
   title: {
-    default: 'Bepartner | Agencia de performance para tiendas online',
+    default: 'Bepartner | Agencia de resultados para tiendas online',
     template: '%s | Bepartner',
   },
   description:
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://www.bepartner.lat',
     siteName: 'Bepartner',
-    title: 'Bepartner | Agencia de performance para tiendas online',
+    title: 'Bepartner | Agencia de resultados para tiendas online',
     description:
       'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a resultados.',
     images: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bepartner | Agencia de performance para tiendas online',
+    title: 'Bepartner | Agencia de resultados para tiendas online',
     description:
       'Llevamos tiendas online estancadas a 30-50M por mes. Sin pagar por entregables: vamos a resultados.',
     images: ['/og-image.jpg'],
@@ -98,7 +98,7 @@ const jsonLdBusiness = {
   email: 'agencia.bepartner@gmail.com',
   areaServed: { '@type': 'Country', name: 'Argentina' },
   serviceType: [
-    'Agencia de performance para tiendas online',
+    'Agencia de resultados para tiendas online',
     'Publicidad en Meta y TikTok para ecommerce',
     'Propuesta de valor y oferta para tiendas online',
     'Optimización de tiendas online',
