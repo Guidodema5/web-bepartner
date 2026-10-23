@@ -1,11 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
+import { motion, useInView, animate } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, ChevronDown, TrendingUp } from 'lucide-react'
-import VideoTestimonial from './VideoTestimonial'
-import FeaturedLogoCase from './FeaturedLogoCase'
+import { ArrowRight } from 'lucide-react'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -27,35 +25,91 @@ function CountUp({ target, prefix = '', suffix = '', inView }: { target: number;
   )
 }
 
-const metrics = [
-  { value: 1760, prefix: '+', suffix: '%', label: 'Crecimiento en ventas' },
-  { value: 8, prefix: '', suffix: 'x', label: 'ROAS máximo alcanzado' },
-  { value: 35.3, prefix: '', suffix: '%', label: 'Tasa de conversión' },
-  { value: 12.9, prefix: '$', suffix: 'M', label: 'Facturación febrero 2026' },
-]
+// Casos en el orden que pidió Guido, todos con el mismo formato.
+// Solo van datos confirmados por él: si falta la historia, se deja vacía.
+type Caso = {
+  marca: string
+  rubro: string
+  titulo: string
+  historia?: string
+  logo?: string
+  logoGrande?: boolean
+  resultado?: string
+  resultadoTexto?: string
+  video?: string
+  poster?: string
+}
 
-const timeline = [
-  { month: 'Nov 2025', sales: '4 ventas', revenue: '$694K', roas: 'ROAS 2.5x', phase: 'Testeo' },
-  { month: 'Dic 2025', sales: '15 ventas', revenue: '$2.1M', roas: 'ROAS 2.5x', phase: 'Validación' },
-  { month: 'Ene 2026', sales: '96 ventas', revenue: '$10.1M', roas: 'ROAS 8x', phase: 'Escalado' },
-  { month: 'Feb 2026', sales: '102 ventas', revenue: '$12.9M', roas: 'ROAS 7x', phase: 'Consolidación' },
-]
-
-// Le Mardē contado como historia: cómo estaba, qué hicimos y qué pasó.
-const historiaLeMarde = [
-  { label: 'Antes', text: 'Buen producto y clientas fieles, pero sin un sistema de publicidad que convirtiera en ventas. Vendía 4 carteras por mes.' },
-  { label: 'Qué hicimos', text: 'Ángulos de venta por producto, anuncios probados por etapas (testeo, validación, escalado) y ajustes semanales con datos reales.' },
-  { label: 'Resultado', text: 'En 4 meses pasó a 102 ventas por mes y a facturar $12,9 millones en febrero.' },
+const casos: Caso[] = [
+  {
+    marca: 'Green Power',
+    rubro: 'Suplementos · Facundo, dueño',
+    titulo: 'De 10.000 USD a 50.000 USD por mes',
+    historia: 'Facundo vende suplementos por su tienda online. Facturaba 10.000 USD por mes; hoy factura 50.000 USD por mes.',
+    logo: '/images/logo-greenpower.png',
+    logoGrande: true,
+    resultado: 'x5',
+    resultadoTexto: 'su facturación mensual',
+    video: '/videos/testimonio-greenpower.mp4',
+    poster: '/images/testimonio-greenpower.jpg',
+  },
+  {
+    marca: 'Derentas',
+    rubro: 'Alquiler de autos',
+    titulo: 'La empresa N°1 de alquiler de autos para Uber',
+    historia: 'Le manejamos toda la publicidad digital.',
+    logo: '/images/logo-derentas.svg',
+  },
+  {
+    marca: 'Le Mardē',
+    rubro: 'Carteras artesanales',
+    titulo: 'De 4 a 102 ventas por mes en solo 4 meses',
+    historia:
+      'Tenía buen producto y clientas fieles, pero no un sistema de publicidad que convirtiera en ventas. Armamos ángulos de venta por producto, probamos los anuncios por etapas y los ajustamos cada semana con datos reales. En 4 meses pasó de 4 a 102 ventas por mes y facturó $12,9 millones en febrero.',
+    logo: '/images/logo-lemarde.png',
+    resultado: '+1.760%',
+    resultadoTexto: 'crecimiento en ventas',
+  },
+  {
+    marca: 'Pullbag',
+    rubro: 'Accesorios ecológicos',
+    titulo: '$30 millones en 60 días',
+    historia: 'Llegó a facturar $30 millones en 60 días, con un retorno de 10 pesos por cada peso invertido en publicidad.',
+    logo: '/images/logo-pullbag.svg',
+    resultado: '$30M',
+    resultadoTexto: 'en 60 días',
+  },
+  {
+    marca: 'Destore',
+    rubro: 'Tienda online',
+    titulo: '1 millón de pesos por día',
+    historia: 'En un mes llegó a facturar 1 millón de pesos por día.',
+    logo: '/images/logo-destore.png',
+    resultado: '$1M',
+    resultadoTexto: 'por día',
+  },
+  {
+    marca: 'Tienda de sweaters',
+    rubro: 'Moda',
+    titulo: 'De $460.000 a $50 millones en 70 días',
+    historia:
+      'Vendía $460.000 por mes. Con una estrategia de crecimiento rápido y mensajes distintos para cada temporada, facturó 50 millones en 70 días.',
+    resultado: '$50M',
+    resultadoTexto: 'en 70 días',
+  },
+  {
+    marca: 'Victor Gemas',
+    rubro: 'Joyería',
+    titulo: 'Tienda online de joyas y gemas',
+    logo: '/images/logo-victorgemas.png',
+  },
 ]
 
 export default function CaseStudy() {
   const sectionRef = useRef<HTMLElement>(null)
-  const metricsRef = useRef<HTMLDivElement>(null)
   const bandRef = useRef<HTMLDivElement>(null)
   const sectionInView = useInView(sectionRef, { once: true, amount: 0.2 })
-  const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 })
   const bandInView = useInView(bandRef, { once: true, amount: 0.3 })
-  const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
     if (sectionInView && typeof window !== 'undefined' && typeof window.fbq === 'function') {
@@ -120,169 +174,68 @@ export default function CaseStudy() {
           </div>
         </motion.div>
 
-        {/* 1. TESTIMONIO EN VIDEO — Green Power */}
-        <VideoTestimonial
-          video="/videos/testimonio-greenpower.mp4"
-          poster="/images/testimonio-greenpower.jpg"
-          title="De 10.000 USD a 50.000 USD por mes con su tienda de suplementos"
-          description="Pasó de facturar 10.000 USD a 50.000 USD por mes."
-          metrics={[
-            { value: '10K USD', label: 'Antes, por mes' },
-            { value: '50K USD', label: 'Ahora, por mes' },
-            { value: 'x5', label: 'Su facturación' },
-          ]}
-          person="Facundo"
-          role="Dueño de Green Power · Suplementos"
-          brandLogo="/images/logo-greenpower.png"
-          brandName="Green Power"
-        />
-
-        {/* 2. CASO CON LOGO — Derentas */}
-        <FeaturedLogoCase
-          logo="/images/logo-derentas.svg"
-          brand="deRentas"
-          tag="Alquiler de autos"
-          title="La empresa N°1 de alquiler de autos para Uber"
-          description="Le manejamos toda la publicidad digital."
-        />
-
-        {/* 3. Le Mardē — contado como historia */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 rounded-2xl border border-white/15 bg-white/10 p-6 shadow-xl backdrop-blur-sm sm:p-8"
-        >
-          <div className="mb-4 flex items-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full bg-brand-violet px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-              <TrendingUp size={12} /> Carteras artesanales
-            </span>
-          </div>
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <div className="relative mb-4 h-9 w-44">
-                <Image src="/images/logo-lemarde.png" alt="Le Mardé" fill sizes="176px" className="object-contain object-left" />
-              </div>
-              <h3 className="text-2xl font-bold text-white sm:text-3xl">
-                De 4 a 102 ventas por mes en solo 4 meses
-              </h3>
-            </div>
-            <div className="text-center md:text-right">
-              <div className="font-display text-6xl font-extrabold text-[#c8a2e8] sm:text-7xl">
-                +1.760%
-              </div>
-              <p className="mt-1 text-sm text-white/70">Crecimiento en ventas</p>
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-3 md:grid-cols-3">
-            {historiaLeMarde.map((h, i) => (
-              <div key={h.label} className="rounded-xl bg-white/5 p-4">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-violet text-[10px] font-bold text-white">
-                    {i + 1}
-                  </span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#c8a2e8]">{h.label}</span>
-                </div>
-                <p className="text-sm text-white/75">{h.text}</p>
-              </div>
-            ))}
-          </div>
-
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet transition-all hover:bg-white/90 hover:shadow-lg"
-          >
-            {expanded ? 'Cerrar detalle' : 'Ver los números mes a mes'}
-            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown size={16} />
-            </motion.div>
-          </button>
-
-          <AnimatePresence>
-            {expanded && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="overflow-hidden"
-              >
-                <div ref={metricsRef} className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-                  {metrics.map((m) => (
-                    <div key={m.label} className="rounded-lg bg-white/10 p-4 text-center">
-                      <div className="mb-1 font-display text-3xl font-extrabold text-[#c8a2e8] sm:text-4xl">
-                        <CountUp target={m.value} prefix={m.prefix} suffix={m.suffix} inView={metricsInView} />
-                      </div>
-                      <div className="text-xs text-white/70">{m.label}</div>
+        {/* CASOS — uno debajo del otro, mismo formato (como Peak) */}
+        <div className="mx-auto flex max-w-4xl flex-col gap-8">
+          {casos.map((c) => (
+            <motion.article
+              key={c.marca}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] shadow-xl"
+            >
+              {/* Panel: video o marca, con el resultado */}
+              <div className="flex flex-col items-center gap-6 bg-[#14142a] p-6 sm:flex-row sm:justify-center sm:gap-12 sm:p-8">
+                {c.video && (
+                  <div className="w-full max-w-[240px] flex-shrink-0 overflow-hidden rounded-xl bg-black shadow-2xl">
+                    <video src={c.video} poster={c.poster} controls playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
+                  </div>
+                )}
+                <div className="flex flex-col items-center gap-5 py-4 text-center">
+                  {c.logo && (
+                    <div className={`relative ${c.logoGrande ? 'h-28 w-56' : 'h-14 w-60'}`}>
+                      <Image src={c.logo} alt={c.marca} fill sizes="240px" className="object-contain" />
                     </div>
-                  ))}
-                </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {timeline.map((t) => (
-                    <div key={t.month} className="rounded-lg bg-white/5 p-4">
-                      <div className="mb-1 text-xs font-semibold text-[#c8a2e8]">{t.phase}</div>
-                      <div className="text-sm font-bold text-white">{t.month}</div>
-                      <div className="mt-2 space-y-1 text-xs text-white/60">
-                        <div>{t.sales}</div>
-                        <div>{t.revenue}</div>
-                        <div>{t.roas}</div>
-                      </div>
+                  )}
+                  {c.resultado && (
+                    <div>
+                      <div className="font-display text-5xl font-extrabold text-[#c8a2e8] sm:text-6xl">{c.resultado}</div>
+                      {c.resultadoTexto && <div className="mt-1 text-sm text-white/70">{c.resultadoTexto}</div>}
                     </div>
-                  ))}
+                  )}
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+              </div>
 
-        {/* 4. Pullbag + enlace al resto de los casos */}
-        <div className="grid gap-6 md:grid-cols-2">
+              {/* Historia */}
+              <div className="p-6 sm:p-8">
+                <h3 className="text-xl font-bold text-white sm:text-2xl">{c.titulo}</h3>
+                {c.historia && <p className="mt-3 leading-relaxed text-white/70">{c.historia}</p>}
+                <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+                  <span className="font-semibold text-white">{c.marca}</span>
+                  <span className="text-sm text-white/50">· {c.rubro}</span>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="rounded-2xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm sm:p-8"
-          >
-            <div className="mb-3 flex items-center gap-2">
-              <TrendingUp size={14} className="text-[#c8a2e8]" />
-              <span className="text-xs font-medium text-white/50">Accesorios ecológicos</span>
-            </div>
-            <div className="relative mb-3 h-8 w-36">
-              <Image src="/images/logo-pullbag.svg" alt="Pullbag" fill sizes="144px" className="object-contain object-left" />
-            </div>
-            <div className="mt-3 font-display text-5xl font-extrabold text-[#c8a2e8]">$30M</div>
-            <h3 className="mt-1 text-lg font-bold text-white">facturados en 60 días</h3>
-            <p className="mt-1 text-sm text-white/70">Con un retorno de 10 pesos por cada peso invertido en publicidad.</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-            className="flex flex-col justify-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+            className="flex flex-col items-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-6 text-center sm:flex-row sm:justify-between sm:p-8 sm:text-left"
           >
             <div>
               <p className="font-display text-2xl font-bold text-white">Y hay muchos más</p>
               <p className="mt-1 text-white/60">Ecommerce escalando con el sistema ahora mismo.</p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90"
-              >
-                Quiero resultados así <ArrowRight size={16} />
-              </a>
-              <a
-                href="/casos"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
-              >
-                Ver más casos
-              </a>
-            </div>
+            <a
+              href="#contacto"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90"
+            >
+              Quiero resultados así <ArrowRight size={16} />
+            </a>
           </motion.div>
         </div>
       </div>
