@@ -37,3 +37,6 @@ CLAUDE.md
 # Stray files / large media
 b
 *.mp4
+
+# Los videos de testimonios de la web sí van al repo
+!public/videos/*.mp4
