@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 1200,
-        alt: 'Bepartner — Socios de crecimiento para ecommerce',
+        alt: 'Bepartner — Socios de crecimiento para tiendas online',
       },
     ],
   },
@@ -99,7 +99,7 @@ const jsonLdBusiness = {
   areaServed: { '@type': 'Country', name: 'Argentina' },
   serviceType: [
     'Agencia de resultados para tiendas online',
-    'Publicidad en Meta y TikTok para ecommerce',
+    'Publicidad en Meta y TikTok para tiendas online',
     'Propuesta de valor y oferta para tiendas online',
     'Optimización de tiendas online',
   ],
@@ -107,7 +107,7 @@ const jsonLdBusiness = {
   priceRange: 'Porcentaje sobre el crecimiento',
   knowsAbout: [
     'Meta Ads',
-    'Facebook Ads para ecommerce',
+    'Facebook Ads para tiendas online',
     'ROAS optimization',
     'Conversion rate optimization',
     'Tiendanube',

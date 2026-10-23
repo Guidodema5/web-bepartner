@@ -243,7 +243,7 @@ const yesItems = [
   'Vendés por Instagram (DMs, stories, catálogo manual) y querés pasar a una tienda real',
   'Tenés un showroom o local físico y querés que también venda online',
   'Tu facturación online está por debajo de $3M ARS/mes o directamente en $0',
-  'Querés entender cómo funciona el ecommerce antes de contratar algo grande',
+  'Querés entender cómo funciona una tienda online antes de contratar algo grande',
   'Podés dedicarle 3-4 horas por semana durante 6 semanas',
 ]
 
@@ -328,7 +328,7 @@ const weeks = [
       'Tu producto estrella: cuál vas primero y por qué no todos a la vez',
       'Tu cliente online: quién te compra y por qué elige comprarte a vos',
       'Plataforma correcta: Tiendanube, Shopify u otra según tu negocio',
-      'Cómo funciona el ecommerce y qué necesitás para que funcione para vos',
+      'Cómo funciona una tienda online y qué necesitás para que funcione para vos',
     ],
     entregable: 'Hoja de fundamentos — producto, cliente y plataforma definidos en papel',
   },
@@ -349,7 +349,7 @@ const weeks = [
     title: 'Tu oferta',
     tagline: 'Aprendés a cobrar lo que vale y a presentarlo bien',
     bullets: [
-      'Precio para ecommerce: cómo calcularlo con margen real y sin quedarte corta',
+      'Precio para tiendas online: cómo calcularlo con margen real y sin quedarte corta',
       'Cómo presentar el producto para que lo quieran comprar sin que vos lo vendas',
       'Políticas de envío y devolución que construyen confianza y eliminan fricciones',
       'Cómo crear urgencia de verdad sin mentirle a tu cliente',
@@ -373,7 +373,7 @@ const weeks = [
     title: 'Primeros anuncios',
     tagline: 'Invertís en publicidad por primera vez sin perder plata',
     bullets: [
-      'Cómo funciona Meta Ads para ecommerce (distinto a lo que hacen para servicios)',
+      'Cómo funciona Meta Ads para tiendas online (distinto a lo que hacen para servicios)',
       'Primer anuncio: desde cero hasta publicado, paso a paso',
       'Con cuánto arrancar y cómo saber si está funcionando',
       'El pixel: qué es, por qué importa y cómo verificar que está bien instalado',
@@ -500,7 +500,7 @@ function Precio() {
 
           <div className="rounded-3xl border-2 border-brand-violet bg-white p-8 pt-10 shadow-2xl">
             <h3 className="text-center font-display text-2xl font-bold text-text-heading">
-              Estructurá tu Ecommerce
+              Estructurá tu tienda online
             </h3>
             <p className="mt-2 text-center text-sm text-text-secondary">
               Para negocios que venden por IG o tienen local físico pero sin ventas constantes online

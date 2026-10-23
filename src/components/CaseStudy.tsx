@@ -128,7 +128,7 @@ export default function CaseStudy() {
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-lg text-white/60">
             No son casos de hace 5 años ni clientes que no conocemos.
-            Son ecommerce que escalaron con nosotros — con números documentados mes a mes.
+            Son tiendas online que escalaron con nosotros — con números documentados mes a mes.
           </p>
         </motion.div>
 
@@ -151,7 +151,7 @@ export default function CaseStudy() {
             <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
               <CountUp target={48} prefix="+" suffix="" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/70">Ecommerce escalados</div>
+            <div className="mt-1 text-xs text-white/70">Tiendas online escaladas</div>
           </div>
           <div className="text-center">
             <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
@@ -213,7 +213,7 @@ export default function CaseStudy() {
           >
             <div>
               <p className="font-display text-2xl font-bold text-white">Y hay muchos más</p>
-              <p className="mt-1 text-white/60">Ecommerce escalando con el sistema ahora mismo.</p>
+              <p className="mt-1 text-white/60">Tiendas online escalando con el sistema ahora mismo.</p>
             </div>
             <a
               href="#contacto"

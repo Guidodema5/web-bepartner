@@ -25,7 +25,7 @@ const phases = [
   {
     num: '03',
     title: 'Meta Ads',
-    description: 'Creamos la estrategia publicitaria: creativos, segmentación, estructura de campañas optimizada para ecommerce.',
+    description: 'Creamos la estrategia publicitaria: creativos, segmentación, estructura de campañas optimizada para tiendas online.',
     icon: Megaphone,
   },
   {

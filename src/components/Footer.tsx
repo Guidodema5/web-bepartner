@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             <BepartnerLogo />
             <p className="mt-3 text-sm text-gray-400">
-              Socios de crecimiento para ecommerce
+              Socios de crecimiento para tiendas online
             </p>
           </div>
 
