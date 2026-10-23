@@ -5,6 +5,12 @@ import { NextResponse } from 'next/server'
 // del script vive en la variable SHEET_WEBHOOK_URL de Vercel.
 const CAMPOS = ['nombre', 'email', 'telefono', 'url_tienda', 'facturacion', 'invierte_ads', 'desafio'] as const
 
+// El apóstrofo hace que la planilla guarde el valor como texto: así no pierde
+// el + ni los ceros de un teléfono y no interpreta nada como fórmula.
+function comoTexto(valor: string) {
+  return /^[=+\-@0-9]/.test(valor) ? `'${valor}` : valor
+}
+
 export async function POST(req: Request) {
   const url = process.env.SHEET_WEBHOOK_URL
   if (!url) {
@@ -19,9 +25,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false }, { status: 400 })
   }
 
-  const fila: Record<string, string> = { fecha: new Date().toISOString() }
+  const fecha = new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires', hour12: false })
+  const fila: Record<string, string> = { fecha }
   for (const campo of CAMPOS) {
-    fila[campo] = String(body[campo] ?? '').slice(0, 2000)
+    fila[campo] = String(body[campo] ?? '').trim().slice(0, 2000)
   }
   if (!fila.email && !fila.telefono) {
     return NextResponse.json({ ok: false }, { status: 400 })
@@ -32,7 +39,7 @@ export async function POST(req: Request) {
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(fila),
+      body: JSON.stringify(Object.fromEntries(Object.entries(fila).map(([k, v]) => [k, comoTexto(v)]))),
       redirect: 'follow',
       signal: AbortSignal.timeout(15000),
     })
