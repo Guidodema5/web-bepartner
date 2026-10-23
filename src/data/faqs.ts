@@ -2,28 +2,38 @@
 // Google (layout.tsx), así que viven en un solo lugar.
 export const faqs = [
   {
-    question: '¿Cómo es el proceso de trabajo?',
+    question: '¿Trabajan con cualquier tipo de tienda?',
     answer:
-      'Comenzamos con una auditoría integral del negocio. Después trabajamos producto, propuesta de valor, anuncios y sitio web, y recién entonces escalamos la inversión publicitaria. Tu equipo nos comparte la información inicial y graba contenido una vez por semana; del resto nos encargamos nosotros.',
+      'Con cualquier producto, sí. Lo que miramos es otra cosa: que tu producto sea bueno, que ya vendas y que te hayas quedado estancado. Si eso se da, sabemos cómo hacerte crecer. Si no, te lo decimos en la auditoría, sin vueltas.',
   },
   {
-    question: 'Ya trabajé con agencias y no obtuve resultados.',
+    question: 'Ya probé agencias y no me funcionó. ¿Por qué con ustedes sería distinto?',
     answer:
-      'La mayoría de las agencias se limita a gestionar anuncios y cobra lo mismo con o sin resultados. Nosotros trabajamos el negocio completo antes de invertir en pauta, y nuestra remuneración está atada a tu crecimiento.',
+      'Te entendemos, es lo que más escuchamos. Casi siempre pasa lo mismo: te hacían los anuncios que contrataste y listo, vendieras o no. Nosotros primero miramos todo lo que hay detrás: tu producto, tu oferta, tu web. Y vamos a resultados: si tu tienda no crece, para nosotros tampoco funciona.',
   },
   {
-    question: '¿En cuánto tiempo se ven resultados?',
+    question: '¿Qué tengo que hacer yo?',
     answer:
-      'Depende del punto de partida de cada negocio. En la auditoría definimos plazos realistas para tu caso. Como referencia, Green Power pasó de facturar 10.000 USD a 50.000 USD por mes.',
+      'Pasarnos toda la información al principio y grabar anuncios una vez por semana. Nada más. Y no hace falta que sepas de publicidad: con la app te decimos qué grabar y por qué.',
   },
   {
-    question: '¿Qué pasa si no logro los resultados?',
+    question: '¿En cuánto tiempo voy a ver resultados?',
     answer:
-      'Somos selectivos: solo aceptamos negocios que sabemos que podemos hacer crecer. Por eso no cobramos por entregables: a partir del tercer mes, nuestros honorarios pasan a ser un porcentaje del crecimiento.',
+      'Depende de dónde esté parada tu tienda hoy. Por eso arrancamos con la auditoría: ahí te damos un plazo real para tu caso, no uno que suene lindo. Como referencia, Green Power pasó de facturar 10.000 a 50.000 dólares por mes.',
   },
   {
-    question: '¿Necesito saber de publicidad o marketing?',
+    question: '¿Cuánto cuesta?',
     answer:
-      'No. Lo que necesitamos de tu equipo es un buen producto y que grabe contenido una vez por semana. Del resto nos encargamos nosotros.',
+      'Depende de cada negocio, y lo vemos en la llamada después de la auditoría. Lo que sí te podemos adelantar: no pagás por entregables ni por packs. Vamos a resultados, así que nos conviene lo mismo que a vos: que vendas más.',
+  },
+  {
+    question: '¿La auditoría gratuita tiene letra chica?',
+    answer:
+      'No. Analizamos tu tienda y te mandamos un diagnóstico de qué está frenando tus ventas. Te sirve aunque no trabajes con nosotros. Si vemos que hay match, te contamos cómo seguiríamos. Si no, quedás con el diagnóstico igual.',
+  },
+  {
+    question: '¿Qué pasa si no crezco?',
+    answer:
+      'No aceptamos a cualquiera. Si te decimos que sí, es porque vemos que te podemos hacer crecer. Y como vamos a resultados, somos los primeros interesados en que eso pase.',
   },
 ]
