@@ -16,7 +16,7 @@ import {
 const features = [
   {
     icon: Sparkles,
-    title: 'Generador de anuncios ilimitado con IA',
+    title: 'Creador de anuncios para tu marca',
     description: 'Ideas de anuncios pensadas para tus productos y tu cliente, en minutos.',
   },
   {

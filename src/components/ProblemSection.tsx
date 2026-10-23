@@ -8,7 +8,6 @@ const painPoints = [
   'Tu Instagram es lindo, pero no vende.',
   'No sabés si ganás o perdés plata con la publicidad.',
   'Para tu agencia sos uno más.',
-  'Probaste de todo y el número no se mueve.',
 ]
 
 export default function ProblemSection() {

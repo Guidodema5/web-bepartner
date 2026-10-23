@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Target, Cog, BadgeCheck, LayoutDashboard, ArrowRight } from 'lucide-react'
+import { Target, BadgeCheck } from 'lucide-react'
 
 // Fundador y "por qué nosotros" en una sola sección, a pedido de Guido.
 const pillars = [
@@ -12,19 +12,9 @@ const pillars = [
     text: 'No vendemos entregables. Si vos crecés, nosotros crecemos.',
   },
   {
-    icon: Cog,
-    title: 'Trabajamos producto, oferta, anuncios y web',
-    text: 'Ordenamos las 4 ruedas antes de poner la nafta.',
-  },
-  {
     icon: BadgeCheck,
     title: 'Elegimos a quién aceptamos',
     text: 'Si te aceptamos, es porque sabemos que te podemos hacer crecer.',
-  },
-  {
-    icon: LayoutDashboard,
-    title: 'Te queda un sistema, la app y tus números claros',
-    text: 'Ves la evolución desde el día 1, sin esperar reportes.',
   },
 ]
 
@@ -92,11 +82,6 @@ export default function AboutSection() {
           </div>
         </motion.div>
 
-        <div className="mt-8 text-center">
-          <a href="#contacto" className="btn-primary gap-2">
-            Agendá tu llamada <ArrowRight size={18} />
-          </a>
-        </div>
       </div>
     </section>
   )

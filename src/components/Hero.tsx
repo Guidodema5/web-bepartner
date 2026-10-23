@@ -61,7 +61,6 @@ const stats = [
   { value: 100, prefix: '+$', suffix: 'K', label: 'USD en pauta gestionada' },
   { value: 48, prefix: '+', suffix: '', label: 'casos de éxito' },
   { value: 6, prefix: '+', suffix: ' años', label: 'de experiencia' },
-  { value: 8, prefix: '', suffix: 'x', label: 'ROAS promedio' },
 ]
 
 export default function Hero() {
@@ -135,14 +134,14 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
-        className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
+        className="mx-auto grid max-w-4xl grid-cols-3 gap-3 sm:gap-4"
       >
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col items-center gap-2 rounded-xl border-2 border-brand-violet/20 bg-white p-5 text-center shadow-lg transition-all hover:-translate-y-1 hover:border-brand-violet/40 hover:shadow-xl"
+            className="flex flex-col items-center gap-2 rounded-xl border-2 border-brand-violet/20 bg-white p-3 text-center sm:p-5 shadow-lg transition-all hover:-translate-y-1 hover:border-brand-violet/40 hover:shadow-xl"
           >
-            <span className="font-display text-2xl font-extrabold text-brand-violet sm:text-3xl">
+            <span className="font-display text-xl font-extrabold text-brand-violet sm:text-3xl">
               {stat.prefix === '+$' ? (
                 <span>+$<CountUp target={stat.value} suffix="K" /></span>
               ) : stat.prefix === '+' ? (

@@ -21,14 +21,11 @@ export default function WheelsSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="section-label">El problema no es la publicidad</span>
+          <span className="section-label">El método</span>
           <h2 className="section-title mt-3">
             Seguramente te dijeron que el problema es la publicidad.
           </h2>
-          <p className="mt-5 text-lg text-text-secondary">
-            Que necesitás más anuncios, más inversión, mejores creativos. Lo probaste, y el número siguió igual.
-          </p>
-          <p className="mt-4 text-lg font-semibold text-text-heading">
+          <p className="mt-5 text-lg font-semibold text-text-heading">
             La publicidad es la nafta. Pero si las ruedas están mal, por más nafta que pongas, tu tienda no avanza.
           </p>
         </motion.div>

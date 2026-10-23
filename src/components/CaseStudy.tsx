@@ -25,17 +25,14 @@ function CountUp({ target, prefix = '', suffix = '', inView }: { target: number;
   )
 }
 
-// Casos en el orden que pidió Guido, todos con el mismo formato.
-// Solo van datos confirmados por él: si falta la historia, se deja vacía.
+// Casos en el orden que pidió Guido. Formato como Peak: video o logo a un
+// costado y la historia al lado. La cifra va una sola vez, en el título.
 type Caso = {
   marca: string
   rubro: string
   titulo: string
   historia?: string
   logo?: string
-  logoGrande?: boolean
-  resultado?: string
-  resultadoTexto?: string
   video?: string
   poster?: string
 }
@@ -45,11 +42,8 @@ const casos: Caso[] = [
     marca: 'Green Power',
     rubro: 'Suplementos · Facundo, dueño',
     titulo: 'De 10.000 USD a 50.000 USD por mes',
-    historia: 'Facundo vende suplementos por su tienda online. Facturaba 10.000 USD por mes; hoy factura 50.000 USD por mes.',
+    historia: 'Facundo vende suplementos por su tienda online. Facturaba 10.000 USD por mes; hoy factura 50.000 USD por mes: cinco veces más.',
     logo: '/images/logo-greenpower.png',
-    logoGrande: true,
-    resultado: 'x5',
-    resultadoTexto: 'su facturación mensual',
     video: '/videos/testimonio-greenpower.mp4',
     poster: '/images/testimonio-greenpower.jpg',
   },
@@ -65,37 +59,28 @@ const casos: Caso[] = [
     rubro: 'Carteras artesanales',
     titulo: 'De 4 a 102 ventas por mes en solo 4 meses',
     historia:
-      'Tenía buen producto y clientas fieles, pero no un sistema de publicidad que convirtiera en ventas. Armamos ángulos de venta por producto, probamos los anuncios por etapas y los ajustamos cada semana con datos reales. En 4 meses pasó de 4 a 102 ventas por mes y facturó $12,9 millones en febrero.',
+      'Tenía buen producto y clientas fieles, pero no un sistema de publicidad que convirtiera en ventas. Armamos ángulos de venta por producto, probamos los anuncios por etapas y los ajustamos cada semana con datos reales. En febrero facturó $12,9 millones.',
     logo: '/images/logo-lemarde.png',
-    resultado: '+1.760%',
-    resultadoTexto: 'crecimiento en ventas',
   },
   {
     marca: 'Pullbag',
     rubro: 'Accesorios ecológicos',
     titulo: '$30 millones en 60 días',
-    historia: 'Llegó a facturar $30 millones en 60 días, con un retorno de 10 pesos por cada peso invertido en publicidad.',
+    historia: 'Con un retorno de 10 pesos por cada peso invertido en publicidad.',
     logo: '/images/logo-pullbag.svg',
-    resultado: '$30M',
-    resultadoTexto: 'en 60 días',
   },
   {
     marca: 'Destore',
     rubro: 'Tienda online',
     titulo: '1 millón de pesos por día',
-    historia: 'En un mes llegó a facturar 1 millón de pesos por día.',
+    historia: 'Lo logró en su primer mes con nosotros.',
     logo: '/images/logo-destore.png',
-    resultado: '$1M',
-    resultadoTexto: 'por día',
   },
   {
     marca: 'Tienda de sweaters',
     rubro: 'Moda',
     titulo: 'De $460.000 a $50 millones en 70 días',
-    historia:
-      'Vendía $460.000 por mes. Con una estrategia de crecimiento rápido y mensajes distintos para cada temporada, facturó 50 millones en 70 días.',
-    resultado: '$50M',
-    resultadoTexto: 'en 70 días',
+    historia: 'Con una estrategia de crecimiento rápido y mensajes distintos para cada temporada.',
   },
   {
     marca: 'Victor Gemas',
@@ -146,28 +131,22 @@ export default function CaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 grid grid-cols-2 gap-3 rounded-2xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm sm:grid-cols-4"
+          className="mx-auto mb-10 grid max-w-4xl grid-cols-3 gap-3 rounded-2xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm"
         >
           <div className="text-center">
-            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
+            <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
               <CountUp target={100} prefix="+$" suffix="K" inView={bandInView} />
             </div>
             <div className="mt-1 text-xs text-white/70">USD en pauta gestionada</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
+            <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
               <CountUp target={48} prefix="+" suffix="" inView={bandInView} />
             </div>
             <div className="mt-1 text-xs text-white/70">Ecommerce escalados</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
-              <CountUp target={8} prefix="" suffix="x" inView={bandInView} />
-            </div>
-            <div className="mt-1 text-xs text-white/70">ROAS promedio</div>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-3xl font-extrabold text-white sm:text-4xl">
+            <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
               <CountUp target={92} prefix="" suffix="M" inView={bandInView} />
             </div>
             <div className="mt-1 text-xs text-white/70">ARS facturados para clientes</div>
@@ -183,37 +162,35 @@ export default function CaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] shadow-xl"
+              className="grid overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] shadow-xl md:grid-cols-[280px_1fr]"
             >
-              {/* Panel: video o marca, con el resultado */}
-              <div className="flex flex-col items-center gap-6 bg-[#14142a] p-6 sm:flex-row sm:justify-center sm:gap-12 sm:p-8">
-                {c.video && (
-                  <div className="w-full max-w-[240px] flex-shrink-0 overflow-hidden rounded-xl bg-black shadow-2xl">
+              {/* Costado: video o logo, siempre del mismo tamaño */}
+              <div className="flex items-center justify-center bg-[#14142a] p-6">
+                {c.video ? (
+                  <div className="w-full max-w-[220px] overflow-hidden rounded-xl bg-black shadow-2xl">
                     <video src={c.video} poster={c.poster} controls playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
                   </div>
+                ) : c.logo ? (
+                  <div className="relative h-20 w-52">
+                    <Image src={c.logo} alt={c.marca} fill sizes="208px" className="object-contain" />
+                  </div>
+                ) : (
+                  <span className="text-center font-display text-2xl font-bold text-white">{c.marca}</span>
                 )}
-                <div className="flex flex-col items-center gap-5 py-4 text-center">
-                  {c.logo && (
-                    <div className={`relative ${c.logoGrande ? 'h-28 w-56' : 'h-14 w-60'}`}>
-                      <Image src={c.logo} alt={c.marca} fill sizes="240px" className="object-contain" />
-                    </div>
-                  )}
-                  {c.resultado && (
-                    <div>
-                      <div className="font-display text-5xl font-extrabold text-[#c8a2e8] sm:text-6xl">{c.resultado}</div>
-                      {c.resultadoTexto && <div className="mt-1 text-sm text-white/70">{c.resultadoTexto}</div>}
-                    </div>
-                  )}
-                </div>
               </div>
 
               {/* Historia */}
-              <div className="p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-white sm:text-2xl">{c.titulo}</h3>
+              <div className="flex flex-col justify-center p-6 sm:p-8">
+                {c.video && c.logo && (
+                  <div className="relative mb-4 h-12 w-28">
+                    <Image src={c.logo} alt={c.marca} fill sizes="112px" className="object-contain object-left" />
+                  </div>
+                )}
+                <h3 className="text-2xl font-bold leading-snug text-white sm:text-3xl">{c.titulo}</h3>
                 {c.historia && <p className="mt-3 leading-relaxed text-white/70">{c.historia}</p>}
-                <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+                <div className="mt-6 flex flex-wrap items-center gap-x-2 border-t border-white/10 pt-5 text-sm">
                   <span className="font-semibold text-white">{c.marca}</span>
-                  <span className="text-sm text-white/50">· {c.rubro}</span>
+                  <span className="text-white/50">· {c.rubro}</span>
                 </div>
               </div>
             </motion.article>
