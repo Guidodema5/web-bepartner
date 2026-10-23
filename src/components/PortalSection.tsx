@@ -92,7 +92,7 @@ export default function PortalSection() {
             </motion.div>
           </div>
 
-          {/* Captura real de la app (docs/web/app-anuncios.png de la app de anuncios) */}
+          {/* Captura real de la app (docs/web/app-anuncios-green-power.png de la app de anuncios) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -100,10 +100,10 @@ export default function PortalSection() {
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
           >
             <Image
-              src="/images/app-anuncios.png"
-              alt="App de anuncios de Bepartner: los videos de la semana con su guía y las métricas"
+              src="/images/app-anuncios-green-power.png"
+              alt="App de Bepartner: métricas de Green Power por campaña y facturación por mes"
               width={2640}
-              height={1940}
+              height={1460}
               sizes="(min-width: 1024px) 60vw, 100vw"
               className="h-auto w-full"
             />
