@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import { ArrowRight, ChevronDown, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react'
 import VideoTestimonial from './VideoTestimonial'
 import FeaturedLogoCase from './FeaturedLogoCase'
@@ -57,6 +58,7 @@ const secondaryCases = [
   },
   {
     tag: 'E-commerce / Accesorios ecológicos',
+    logo: '/images/logo-pullbag.svg',
     title: 'Pullbag: $30M en 60 días con ROAS 10x',
     metric: '$30M',
     subtitle: 'En 60 días · ROAS 10x',
@@ -159,6 +161,9 @@ export default function CaseStudy() {
           </div>
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
+              <div className="relative mb-4 h-9 w-44">
+                <Image src="/images/logo-lemarde.png" alt="Le Mardé" fill sizes="176px" className="object-contain object-left" />
+              </div>
               <h3 className="text-2xl font-bold text-white sm:text-3xl">
                 Le Mardé: de 4 a 102 ventas por mes
               </h3>
@@ -269,12 +274,12 @@ export default function CaseStudy() {
         <VideoTestimonial
           video="/videos/testimonio-greenpower.mp4"
           poster="/images/testimonio-greenpower.jpg"
-          title="De menos de $10M a $30M por mes en 60 días con su tienda de suplementos"
-          description="No pasaba los 10M por mes. En 60 días llegó a 30M, y en septiembre facturó 38M."
+          title="De 10.000 USD a 50.000 USD por mes con su tienda de suplementos"
+          description="Pasó de facturar 10.000 USD a 50.000 USD por mes."
           metrics={[
-            { value: '<$10M', label: 'Antes, por mes' },
-            { value: '$30M', label: 'A los 60 días' },
-            { value: '$38M', label: 'En septiembre' },
+            { value: '10K USD', label: 'Antes, por mes' },
+            { value: '50K USD', label: 'Ahora, por mes' },
+            { value: 'x5', label: 'Su facturación' },
           ]}
           person="Facundo"
           role="Dueño de Green Power · Suplementos"
@@ -340,6 +345,11 @@ export default function CaseStudy() {
                       <TrendingUp size={14} className="text-[#c8a2e8]" />
                       <span className="text-xs font-medium text-white/50">{c.tag}</span>
                     </div>
+                    {'logo' in c && c.logo && (
+                      <div className="relative mb-3 h-8 w-36">
+                        <Image src={c.logo} alt={c.title.split(':')[0]} fill sizes="144px" className="object-contain object-left" />
+                      </div>
+                    )}
                     <h3 className="text-lg font-bold text-white">{c.title}</h3>
                     <div className="mt-3 font-display text-5xl font-extrabold text-[#c8a2e8]">
                       {c.metric}

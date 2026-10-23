@@ -14,7 +14,7 @@ export const faqs = [
   {
     question: '¿En cuánto tiempo se ven resultados?',
     answer:
-      'Depende de cómo esté cada rueda en tu negocio. En la auditoría te decimos plazos realistas para tu tienda. Como referencia, Green Power pasó de menos de 10M a 30M por mes en 60 días.',
+      'Depende de cómo esté cada rueda en tu negocio. En la auditoría te decimos plazos realistas para tu tienda. Como referencia, Green Power pasó de facturar 10.000 USD a 50.000 USD por mes.',
   },
   {
     question: '¿Qué pasa si no logro los resultados?',
