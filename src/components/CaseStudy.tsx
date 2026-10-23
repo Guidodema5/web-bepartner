@@ -43,7 +43,8 @@ const casos: Caso[] = [
     marca: 'Green Power',
     rubro: 'Suplementos · Facundo, dueño',
     titulo: 'De 10.000 USD a 50.000 USD por mes',
-    historia: 'Facundo vende suplementos por su tienda online. Facturaba 10.000 USD por mes; hoy factura 50.000 USD por mes: cinco veces más.',
+    historia:
+      'En la auditoría vimos que fallaban la propuesta de valor y los anuncios. Armamos una propuesta de valor por producto y por combo, ángulos para cada tipo de cliente, los formatos de anuncios que mejor funcionaban y una estructura de venta. Facturaba 10.000 USD por mes; hoy factura 50.000 USD por mes: cinco veces más.',
     logo: '/images/logo-greenpower.png',
     video: '/videos/testimonio-greenpower.mp4',
     poster: '/images/testimonio-greenpower.jpg',
@@ -74,9 +75,9 @@ const casos: Caso[] = [
   {
     marca: 'Destore',
     rubro: 'Tienda online multiproducto',
-    titulo: 'De $5 millones a $30 millones por mes',
+    titulo: 'De $5 millones a $30 millones por mes en 60 días',
     historia:
-      'Facturaba $5 millones por mes. Trabajamos la oferta y la persuasión desde el primer día, y llegó a facturar $1 millón por día: unos $30 millones por mes.',
+      'Facturaba $5 millones por mes. Trabajamos la oferta y la persuasión desde el primer día, y en 60 días llegó a facturar $1 millón por día: unos $30 millones por mes.',
     logo: '/images/logo-destore.png',
   },
   {

@@ -14,7 +14,7 @@ export const faqs = [
   {
     question: '¿En cuánto tiempo se ven resultados?',
     answer:
-      'Depende del punto de partida de cada negocio. En la auditoría definimos plazos realistas para tu caso.',
+      'Depende del punto de partida de cada negocio. En la auditoría definimos plazos realistas para tu caso. Como referencia, Green Power pasó de facturar 10.000 USD a 50.000 USD por mes.',
   },
   {
     question: '¿Qué pasa si no logro los resultados?',
