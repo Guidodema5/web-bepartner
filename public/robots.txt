@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bepartner.lat/sitemap.xml
+
+Sitemap: https://www.bepartner.lat/sitemap.xml
