@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react'
 import VideoTestimonial from './VideoTestimonial'
+import FeaturedLogoCase from './FeaturedLogoCase'
 
 function CountUp({ target, prefix = '', suffix = '', inView }: { target: number; prefix?: string; suffix?: string; inView: boolean }) {
   const [value, setValue] = useState(0)
@@ -60,13 +61,6 @@ const secondaryCases = [
     metric: '$30M',
     subtitle: 'En 60 días · ROAS 10x',
     description: 'Marca de accesorios ecológicos que llegó a facturar $30M en 60 días, con un ROAS de 10x.',
-  },
-  {
-    tag: 'Servicio / Alquiler de autos',
-    title: 'Derentas: cerca de 13.000 contactos calificados por mes',
-    metric: '13.000',
-    subtitle: 'Contactos calificados por mes',
-    description: 'Le manejamos toda la publicidad digital. Hoy recibe cerca de 13.000 contactos calificados por mes.',
   },
 ]
 
@@ -286,6 +280,17 @@ export default function CaseStudy() {
           role="Dueño de Green Power · Suplementos"
           brandLogo="/images/logo-greenpower.png"
           brandName="Green Power"
+        />
+
+        {/* CASO DESTACADO CON LOGO — Derentas */}
+        <FeaturedLogoCase
+          logo="/images/logo-derentas.svg"
+          brand="deRentas"
+          tag="Alquiler de autos"
+          title="Derentas: cerca de 13.000 contactos calificados por mes"
+          description="Le manejamos toda la publicidad digital. Hoy recibe cerca de 13.000 contactos calificados por mes."
+          metric="13.000"
+          metricLabel="contactos calificados por mes"
         />
 
         {/* CASOS SECUNDARIOS — Carrusel */}

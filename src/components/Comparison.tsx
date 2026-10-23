@@ -1,31 +1,31 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Percent, Cog, BadgeCheck, LayoutDashboard } from 'lucide-react'
 
-const rows = [
+// Cómo trabajamos. Antes era una tabla contra agencias y freelancers; Guido
+// pidió presentar mejor la solución, así que queda solo lo que hace Bepartner.
+// Las frases de apoyo salen del resto del copy de la página.
+const pillars = [
   {
-    label: 'Cómo cobra',
-    agencia: 'Fee fijo, vendas o no',
-    freelancer: 'Fee fijo por anuncios',
-    bepartner: 'Vamos a porcentaje de lo que crecés',
+    icon: Percent,
+    title: 'Vamos a porcentaje de lo que crecés',
+    text: 'No vendemos entregables. Si vos crecés, nosotros crecemos.',
   },
   {
-    label: 'Qué trabaja',
-    agencia: 'El pack que contrataste',
-    freelancer: 'Solo anuncios',
-    bepartner: 'Producto, oferta, anuncios y web',
+    icon: Cog,
+    title: 'Trabajamos producto, oferta, anuncios y web',
+    text: 'Ordenamos las 4 ruedas antes de poner la nafta.',
   },
   {
-    label: 'Cuántos clientes',
-    agencia: 'Cientos: sos uno más',
-    freelancer: 'Muchos, solo',
-    bepartner: 'Elegimos a quién aceptamos',
+    icon: BadgeCheck,
+    title: 'Elegimos a quién aceptamos',
+    text: 'Si te aceptamos, es porque sabemos que te podemos hacer crecer.',
   },
   {
-    label: 'Qué te queda si se va',
-    agencia: 'Nada',
-    freelancer: 'Nada',
-    bepartner: 'Un sistema, la app y tus números claros',
+    icon: LayoutDashboard,
+    title: 'Te queda un sistema, la app y tus números claros',
+    text: 'Ves la evolución desde el día 1, sin esperar reportes.',
   },
 ]
 
@@ -43,48 +43,28 @@ export default function Comparison() {
           <h2 className="section-title">¿Por qué no somos una agencia más?</h2>
         </motion.div>
 
-        {/* Escritorio: tabla */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="hidden overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg md:block"
-        >
-          <table className="w-full text-left">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="w-1/4 p-5" />
-                <th className="w-1/4 p-5 text-sm font-semibold text-text-secondary">Agencia tradicional</th>
-                <th className="w-1/4 p-5 text-sm font-semibold text-text-secondary">Freelancer</th>
-                <th className="w-1/4 bg-brand-violet p-5 text-sm font-bold text-white">Bepartner</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r, i) => (
-                <tr key={r.label} className={i < rows.length - 1 ? 'border-b border-gray-100' : ''}>
-                  <td className="p-5 text-sm font-semibold text-text-heading">{r.label}</td>
-                  <td className="p-5 text-sm text-text-secondary">{r.agencia}</td>
-                  <td className="p-5 text-sm text-text-secondary">{r.freelancer}</td>
-                  <td className="bg-brand-violet-light p-5 text-sm font-semibold text-brand-violet">{r.bepartner}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
-
-        {/* Celular: una tarjeta por fila, sin scroll horizontal */}
-        <div className="flex flex-col gap-4 md:hidden">
-          {rows.map((r) => (
-            <div key={r.label} className="rounded-xl border border-gray-200 bg-white p-5 shadow-md">
-              <p className="mb-3 font-semibold text-text-heading">{r.label}</p>
-              <div className="space-y-2 text-sm">
-                <p className="text-text-secondary"><span className="font-medium">Agencia tradicional:</span> {r.agencia}</p>
-                <p className="text-text-secondary"><span className="font-medium">Freelancer:</span> {r.freelancer}</p>
-                <p className="rounded-lg bg-brand-violet-light px-3 py-2 font-semibold text-brand-violet">Bepartner: {r.bepartner}</p>
-              </div>
-            </div>
-          ))}
+        <div className="grid gap-4 sm:grid-cols-2">
+          {pillars.map((p, i) => {
+            const Icon = p.icon
+            return (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
+                className="flex items-start gap-4 rounded-xl border-2 border-brand-violet/20 bg-white p-6 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet">
+                  <Icon size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-text-heading">{p.title}</h3>
+                  <p className="mt-1 text-text-secondary">{p.text}</p>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
