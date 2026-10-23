@@ -61,7 +61,7 @@ const casos: Caso[] = [
     rubro: 'Carteras artesanales',
     titulo: 'De 4 a 102 ventas por mes en solo 4 meses',
     historia:
-      'Tenía buen producto y clientas fieles, pero no un sistema de publicidad que convirtiera en ventas. Armamos ángulos de venta por producto, probamos los anuncios por etapas y los ajustamos cada semana con datos reales. En febrero facturó $12,9 millones.',
+      'Tenía buen producto y clientas fieles, pero no un sistema de publicidad que convirtiera en ventas. Armamos ángulos de venta por producto, probamos los anuncios por etapas y los ajustamos cada semana con datos reales.',
     logo: '/images/logo-lemarde.png',
   },
   {
