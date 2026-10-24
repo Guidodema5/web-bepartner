@@ -43,8 +43,8 @@ export default function Navbar() {
       <nav
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#1a1a2e]/95 shadow-lg backdrop-blur-xl'
-            : 'bg-[#1a1a2e]'
+            ? 'border-b border-noche-linea bg-noche-fondo/90 backdrop-blur-xl'
+            : 'border-b border-transparent bg-noche-fondo'
         }`}
       >
         <div className="flex items-center justify-between px-4 py-2 sm:px-6 lg:px-10">
@@ -57,7 +57,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                className="text-sm font-medium text-noche-suave transition-colors hover:text-noche-texto"
               >
                 {link.label}
               </a>
@@ -66,7 +66,7 @@ export default function Navbar() {
               href="https://www.instagram.com/bepartner.lat/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 transition-colors hover:text-white"
+              className="text-noche-suave transition-colors hover:text-noche-texto"
             >
               <Instagram size={20} />
             </a>
@@ -74,7 +74,7 @@ export default function Navbar() {
               href="https://bepartnerclientes.com.ar"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-brand-violet bg-brand-violet/10 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-brand-violet hover:shadow-lg"
+              className="rounded-xl bg-brand-violet px-4 py-2 text-sm font-semibold text-white shadow-brillo transition-colors hover:bg-brand-violet-hover"
             >
               Acceso clientes
             </a>
@@ -105,7 +105,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 z-50 h-full w-72 bg-[#1a1a2e] p-6 shadow-xl"
+              className="fixed right-0 top-0 z-50 h-full w-72 border-l border-noche-linea bg-noche-fondo p-6"
             >
               <button
                 onClick={() => setMobileOpen(false)}
@@ -120,17 +120,17 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-lg font-medium text-gray-200 transition-colors hover:text-white"
+                    className="text-lg font-medium text-noche-texto transition-colors hover:text-white"
                   >
                     {link.label}
                   </a>
                 ))}
-                <hr className="border-white/10" />
+                <hr className="border-noche-linea" />
                 <a
                   href="https://www.instagram.com/bepartner.lat/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white"
+                  className="flex items-center gap-2 text-noche-suave hover:text-noche-texto"
                 >
                   <Instagram size={20} /> Instagram
                 </a>
@@ -138,7 +138,7 @@ export default function Navbar() {
                   href="https://bepartnerclientes.com.ar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg border border-brand-violet bg-brand-violet px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-brand-violet-hover"
+                  className="rounded-xl bg-brand-violet px-5 py-3 text-center text-sm font-semibold text-white shadow-brillo transition-colors hover:bg-brand-violet-hover"
                 >
                   Acceso clientes
                 </a>

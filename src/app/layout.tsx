@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import Script from 'next/script'
 import { faqs } from '@/data/faqs'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
+// Misma tipografía que la app de anuncios: Geist para todo y Geist Mono para etiquetas y números.
 
 export const metadata: Metadata = {
   // La dirección oficial es con www: bepartner.lat redirige ahí (Vercel).
@@ -142,7 +138,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es-AR" className={spaceGrotesk.variable}>
+    <html lang="es-AR" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
         <script
           type="application/ld+json"

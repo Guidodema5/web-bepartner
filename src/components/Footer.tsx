@@ -12,18 +12,18 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-dark px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="border-t border-noche-linea bg-noche-fondo px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <BepartnerLogo />
-            <p className="mt-3 text-sm text-gray-400">
+            <p className="mt-3 text-sm text-noche-suave">
               Socios de crecimiento para tiendas online
             </p>
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <h4 className="section-label-noche mb-4">
               Navegación
             </h4>
             <ul className="flex flex-col gap-2">
@@ -31,7 +31,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-300 transition-colors hover:text-white"
+                    className="text-sm text-noche-suave transition-colors hover:text-noche-texto"
                   >
                     {link.label}
                   </a>
@@ -41,14 +41,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <h4 className="section-label-noche mb-4">
               Contacto
             </h4>
             <ul className="flex flex-col gap-3">
               <li>
                 <a
                   href="mailto:agencia.bepartner@gmail.com"
-                  className="flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-white"
+                  className="flex items-center gap-2 text-sm text-noche-suave transition-colors hover:text-noche-texto"
                 >
                   <Mail size={16} />
                   agencia.bepartner@gmail.com
@@ -59,7 +59,7 @@ export default function Footer() {
                   href="https://www.instagram.com/bepartner.lat/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-white"
+                  className="flex items-center gap-2 text-sm text-noche-suave transition-colors hover:text-noche-texto"
                 >
                   <Instagram size={16} />
                   @bepartner.lat
@@ -69,23 +69,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <h4 className="section-label-noche mb-4">
               Clientes
             </h4>
             <a
               href="https://bepartnerclientes.com.ar"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-brand-violet px-4 py-2 text-sm font-medium text-brand-violet transition-all hover:bg-brand-violet hover:text-white"
+              className="btn-noche gap-2 px-4 py-2 text-sm"
             >
               Acceso al portal <ExternalLink size={14} />
             </a>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-6 text-center">
-          <p className="text-sm text-gray-500">&copy; 2026 Bepartner Latam</p>
-          <div className="mx-auto mt-4 max-w-3xl space-y-2 text-xs leading-relaxed text-gray-600">
+        <div className="mt-10 border-t border-noche-linea pt-6 text-center">
+          <p className="text-sm text-noche-tenue">&copy; 2026 Bepartner Latam</p>
+          <div className="mx-auto mt-4 max-w-3xl space-y-2 text-xs leading-relaxed text-noche-tenue">
             <p>
               Este sitio no forma parte de Meta Platforms, Inc. ni de Google, y no está respaldado por ellos.
               Facebook e Instagram son marcas registradas de Meta Platforms, Inc.

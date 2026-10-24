@@ -27,7 +27,7 @@ const features = [
 
 export default function PortalSection() {
   return (
-    <section id="app" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section id="app" className="bg-noche-fondo px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <div>
@@ -37,16 +37,14 @@ export default function PortalSection() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-violet-light px-3 py-1.5">
-                <Cpu size={14} className="text-brand-violet" />
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-brand-violet">
-                  Nuestra app
-                </span>
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-noche-linea-fuerte px-3 py-1.5">
+                <Cpu size={13} className="text-violeta-300" />
+                <span className="section-label-noche">Nuestra app</span>
               </div>
-              <h2 className="section-title mt-2">
+              <h2 className="section-title mt-2 text-noche-texto">
                 Cada semana sabés qué grabar y cuánto te deja cada anuncio.
               </h2>
-              <p className="mb-8 mt-4 text-lg text-text-secondary">
+              <p className="mb-8 mt-4 text-lg text-noche-suave">
                 La app que acompaña nuestro servicio: tus ideas de anuncios armadas con la estrategia de Bepartner y tus números claros, todo en un mismo lugar.
               </p>
             </motion.div>
@@ -63,12 +61,12 @@ export default function PortalSection() {
                     transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 + i * 0.05 }}
                     className="flex gap-3"
                   >
-                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet-light">
-                      <Icon size={18} className="text-brand-violet" />
+                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-noche-linea bg-noche-superficie-2 text-violeta-300">
+                      <Icon size={17} strokeWidth={1.75} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-heading">{f.title}</h4>
-                      <p className="mt-1 text-sm text-text-secondary">{f.description}</p>
+                      <h4 className="font-semibold text-noche-texto">{f.title}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-noche-suave">{f.description}</p>
                     </div>
                   </motion.div>
                 )
@@ -85,7 +83,7 @@ export default function PortalSection() {
                 href="https://bepartnerclientes.com.ar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-brand-violet bg-brand-violet/10 px-6 py-3 text-sm font-semibold text-brand-violet transition-all hover:bg-brand-violet hover:text-white"
+                className="btn-primary text-sm"
               >
                 Acceso clientes
               </a>

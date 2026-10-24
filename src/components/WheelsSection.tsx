@@ -35,7 +35,7 @@ export default function WheelsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 text-center font-display text-2xl font-bold text-brand-violet"
+          className="mb-6 text-center font-display text-xl font-semibold tracking-tight text-violeta-600"
         >
           Método de las 4 Ruedas
         </motion.h3>
@@ -50,10 +50,10 @@ export default function WheelsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
-                className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="tarjeta flex items-start gap-4 p-5"
               >
-                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet-light">
-                  <Icon size={22} className="text-brand-violet" />
+                <div className="icono h-11 w-11">
+                  <Icon size={20} strokeWidth={1.75} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-text-heading">{w.title}</h4>
@@ -69,9 +69,9 @@ export default function WheelsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-3 rounded-xl bg-brand-violet px-6 py-4 text-center text-white shadow-lg"
+          className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-3 rounded-tarjeta bg-noche-fondo px-6 py-4 text-center text-noche-texto"
         >
-          <TrendingUp size={22} className="flex-shrink-0" />
+          <TrendingUp size={20} strokeWidth={1.75} className="flex-shrink-0 text-violeta-300" />
           <p className="font-medium">
             Con las cuatro ruedas alineadas, escalamos la inversión en Meta, TikTok y Google.
           </p>

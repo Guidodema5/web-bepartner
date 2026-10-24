@@ -16,12 +16,12 @@ function AccordionItem({
   onClick: () => void
 }) {
   return (
-    <div className="border-b border-gray-100">
+    <div className="border-b border-linea">
       <button
         onClick={onClick}
         className="flex w-full items-center justify-between py-5 text-left"
       >
-        <span className="pr-4 text-lg font-semibold text-text-heading">
+        <span className="pr-4 text-[17px] font-medium text-text-heading">
           {faq.question}
         </span>
         <motion.div
@@ -73,7 +73,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="rounded-xl border border-gray-200 bg-white px-6 shadow-lg"
+          className="tarjeta px-6"
         >
           {faqs.map((faq, i) => (
             <AccordionItem

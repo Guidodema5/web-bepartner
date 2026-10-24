@@ -19,7 +19,7 @@ export default function GraciasPage() {
             <Check size={40} className="text-brand-violet" />
           </div>
 
-          <h1 className="mb-4 font-display text-4xl font-extrabold text-text-heading sm:text-5xl">
+          <h1 className="mb-4 font-display text-4xl font-semibold text-text-heading sm:text-5xl">
             ¡Gracias!
           </h1>
 

@@ -69,9 +69,9 @@ export default function Methodology() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
-                className="relative rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="relative rounded-xl border border-linea bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
               >
-                <span className="absolute right-4 top-4 font-display text-4xl font-bold text-gray-100">
+                <span className="absolute right-4 top-4 font-display text-4xl font-semibold text-gray-100">
                   {phase.num}
                 </span>
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-violet-light">

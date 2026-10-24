@@ -40,11 +40,11 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg"
+          className="tarjeta p-8"
         >
           <div className="mb-6 flex flex-col items-center gap-5 sm:flex-row">
             {/* Profile photo */}
-            <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-full border-4 border-brand-violet/20 bg-brand-violet-light shadow-lg sm:h-36 sm:w-36">
+            <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-full border border-linea bg-surface-card-2 sm:h-36 sm:w-36">
               <Image
                 src="/demaria.jpg"
                 alt="Guido Demaria — Fundador de Bepartner"
@@ -54,7 +54,7 @@ export default function AboutSection() {
               />
             </div>
             <div>
-              <h3 className="mb-1 text-center text-xl font-bold text-text-heading sm:text-left">
+              <h3 className="mb-1 text-center text-xl font-semibold text-text-heading sm:text-left">
                 Guido Demaria — Fundador
               </h3>
               <p className="text-center text-text-secondary sm:text-left">
@@ -64,13 +64,13 @@ export default function AboutSection() {
           </div>
 
           {/* Por qué nosotros */}
-          <div className="grid gap-5 border-t border-gray-100 pt-6 sm:grid-cols-2">
+          <div className="grid gap-5 border-t border-linea pt-6 sm:grid-cols-2">
             {pillars.map((p) => {
               const Icon = p.icon
               return (
                 <div key={p.title} className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-brand-violet">
-                    <Icon size={22} className="text-white" />
+                  <div className="icono h-11 w-11">
+                    <Icon size={20} strokeWidth={1.75} />
                   </div>
                   <div>
                     <h4 className="font-semibold text-text-heading">{p.title}</h4>

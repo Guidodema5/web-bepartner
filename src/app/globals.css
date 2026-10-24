@@ -5,36 +5,56 @@
 @layer base {
   body {
     @apply bg-surface-warm text-text-primary antialiased;
-    background-image:
-      linear-gradient(rgba(117, 61, 148, 0.04) 1px, transparent 0px),
-      linear-gradient(90deg, rgba(117, 61, 148, 0.04) 1px, transparent 0px);
-    background-size: 30px 30px;
   }
 
   html {
     scroll-behavior: smooth;
   }
+
+  ::selection {
+    background: #753d94;
+    color: white;
+  }
 }
 
+/* Las mismas piezas que la app de anuncios: etiquetas en mono, tarjetas con borde fino y sin sombra, botones con brillo. */
 @layer components {
   .section-label {
-    @apply text-xs font-medium uppercase tracking-[0.15em] text-brand-violet;
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-secondary;
+  }
+
+  .section-label-noche {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-noche-suave;
   }
 
   .section-title {
-    @apply font-display text-3xl font-bold text-text-heading sm:text-4xl lg:text-5xl;
+    @apply font-display text-3xl font-semibold tracking-tight text-text-heading sm:text-4xl lg:text-5xl;
   }
 
-  .card {
-    @apply rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
+  .card,
+  .tarjeta {
+    @apply rounded-tarjeta border border-linea bg-surface-card transition-colors duration-300 hover:border-linea-fuerte;
+  }
+
+  .tarjeta-noche {
+    @apply rounded-tarjeta border border-noche-linea bg-noche-superficie;
+  }
+
+  /* Ícono de línea en un cuadradito suave (no un bloque violeta relleno). */
+  .icono {
+    @apply flex flex-shrink-0 items-center justify-center rounded-xl border border-linea bg-surface-card-2 text-violeta-600;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg bg-brand-violet px-8 py-3 font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:bg-brand-violet-hover hover:shadow-lg;
+    @apply inline-flex items-center justify-center rounded-xl bg-brand-violet px-6 py-3.5 font-semibold text-white shadow-brillo transition-all duration-200 ease-suave hover:bg-brand-violet-hover active:scale-[0.97];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border border-brand-violet bg-transparent px-8 py-3 font-semibold text-brand-violet transition-all duration-200 hover:bg-brand-violet-light;
+    @apply inline-flex items-center justify-center rounded-xl border border-linea-fuerte bg-surface-card px-6 py-3.5 font-semibold text-text-heading transition-colors duration-200 hover:bg-surface-card-2 active:scale-[0.97];
+  }
+
+  .btn-noche {
+    @apply inline-flex items-center justify-center rounded-xl border border-noche-linea-fuerte bg-noche-superficie-2 px-5 py-3 font-semibold text-noche-texto transition-colors duration-200 hover:bg-noche-superficie-3 active:scale-[0.97];
   }
 }
 

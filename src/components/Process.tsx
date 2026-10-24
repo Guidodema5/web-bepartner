@@ -67,7 +67,7 @@ export default function Process() {
                 className="relative flex items-start gap-5 sm:gap-6"
               >
                 <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border-2 border-brand-violet bg-white sm:h-20 sm:w-20">
-                  <span className="font-display text-xl font-bold text-brand-violet sm:text-2xl">
+                  <span className="font-display text-xl font-semibold text-brand-violet sm:text-2xl">
                     {step.num}
                   </span>
                 </div>

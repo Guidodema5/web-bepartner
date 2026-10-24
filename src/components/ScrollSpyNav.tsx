@@ -74,13 +74,13 @@ export default function ScrollSpyNav() {
             <li key={section.id} className="group relative flex items-center">
               {/* Label tooltip */}
               <span
-                className={`pointer-events-none absolute right-8 whitespace-nowrap rounded-md bg-[#1a1a2e] px-3 py-1.5 text-xs font-medium text-white shadow-lg transition-all duration-200 ${
+                className={`pointer-events-none absolute right-8 whitespace-nowrap rounded-lg border border-noche-linea-fuerte bg-noche-fondo px-3 py-1.5 text-xs font-medium text-noche-texto transition-all duration-200 ${
                   isActive
                     ? 'translate-x-0 opacity-100'
                     : 'translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'
                 }`}
               >
-                <span className="mr-2 text-[#c8a2e8]">{section.step}</span>
+                <span className="mr-2 font-mono text-violeta-300">{section.step}</span>
                 {section.label}
               </span>
 
@@ -97,7 +97,7 @@ export default function ScrollSpyNav() {
                   className={`block rounded-full transition-all duration-300 ${
                     isActive
                       ? 'h-3 w-3 bg-brand-violet shadow-[0_0_0_4px_rgba(117,61,148,0.2)]'
-                      : 'h-2 w-2 bg-gray-400/60 group-hover:bg-brand-violet'
+                      : 'h-2 w-2 bg-text-tenue/50 group-hover:bg-brand-violet'
                   }`}
                 />
               </a>

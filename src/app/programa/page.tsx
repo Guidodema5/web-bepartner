@@ -29,7 +29,7 @@ const WA_LINK = WHATSAPP_NUMBER
 
 function ProgramaNavbar() {
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#1a1a2e]/95 backdrop-blur-xl">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-noche-fondo/95 backdrop-blur-xl">
       <div className="flex items-center justify-between px-4 py-2 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center">
           <div className="relative h-10 w-[150px] overflow-hidden sm:h-14 sm:w-[220px]">
@@ -87,7 +87,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className="mb-5 font-display text-4xl font-extrabold leading-tight text-text-heading sm:text-5xl lg:text-6xl"
+          className="mb-5 font-display text-4xl font-semibold leading-tight text-text-heading sm:text-5xl lg:text-6xl"
         >
           Construí tu propia tienda online en{' '}
           <span className="text-brand-violet">6 semanas</span> y empezá a vender de forma constante
@@ -140,9 +140,9 @@ function Hero() {
           ].map((s) => (
             <div
               key={s.label}
-              className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="rounded-xl border border-linea bg-white p-5 text-center"
             >
-              <div className="font-display text-2xl font-extrabold text-brand-violet sm:text-3xl">
+              <div className="font-display text-2xl font-semibold text-brand-violet sm:text-3xl">
                 {s.value}
               </div>
               <div className="mt-1 text-xs text-text-secondary">{s.label}</div>
@@ -197,9 +197,9 @@ function Transformacion() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-xl border border-gray-200 border-t-4 border-t-red-400 bg-white p-6 shadow-lg sm:p-8"
+            className="rounded-xl border border-linea border-t-4 border-t-red-400 bg-white p-6 shadow-lg sm:p-8"
           >
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-red-500">HOY</h3>
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-red-500">HOY</h3>
             <div className="flex flex-col gap-3">
               {beforeItems.map((item) => (
                 <div key={item} className="flex items-start gap-3">
@@ -215,9 +215,9 @@ function Transformacion() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-xl border border-gray-200 border-t-4 border-t-emerald-500 bg-white p-6 shadow-lg sm:p-8"
+            className="rounded-xl border border-linea border-t-4 border-t-emerald-500 bg-white p-6 shadow-lg sm:p-8"
           >
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-emerald-600">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-emerald-600">
               En 6 semanas
             </h3>
             <div className="flex flex-col gap-3">
@@ -275,9 +275,9 @@ function ParaQuien() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-xl border border-gray-200 border-t-4 border-t-emerald-500 bg-white p-6 shadow-lg"
+            className="rounded-xl border border-linea border-t-4 border-t-emerald-500 bg-white p-6 shadow-lg"
           >
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-emerald-600">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-emerald-600">
               Sí entra
             </h3>
             <div className="flex flex-col gap-4">
@@ -295,9 +295,9 @@ function ParaQuien() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-xl border border-gray-200 border-t-4 border-t-red-400 bg-white p-6 shadow-lg"
+            className="rounded-xl border border-linea border-t-4 border-t-red-400 bg-white p-6 shadow-lg"
           >
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-red-500">
+            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-red-500">
               No entra
             </h3>
             <div className="flex flex-col gap-4">
@@ -420,10 +420,10 @@ function Recorrido() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="flex flex-col rounded-xl border border-linea bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <span className="section-label">Semana {week.num}</span>
-              <h3 className="mt-2 font-display text-xl font-bold text-text-heading">
+              <h3 className="mt-2 font-display text-xl font-semibold text-text-heading">
                 {week.title}
               </h3>
               <p className="mt-2 text-sm font-semibold text-brand-violet">
@@ -433,7 +433,7 @@ function Recorrido() {
               <ul className="mt-4 flex flex-col gap-2">
                 {week.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2 text-sm text-text-primary">
-                    <span className="mt-0.5 font-bold text-brand-violet">→</span>
+                    <span className="mt-0.5 font-semibold text-brand-violet">→</span>
                     <span>{b}</span>
                   </li>
                 ))}
@@ -493,13 +493,13 @@ function Precio() {
           className="relative mx-auto max-w-md"
         >
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-            <span className="rounded-full bg-red-500 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-lg">
+            <span className="rounded-full bg-red-500 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-lg">
               🔥 Precio promocional
             </span>
           </div>
 
           <div className="rounded-3xl border-2 border-brand-violet bg-white p-8 pt-10 shadow-2xl">
-            <h3 className="text-center font-display text-2xl font-bold text-text-heading">
+            <h3 className="text-center font-display text-2xl font-semibold text-text-heading">
               Estructurá tu tienda online
             </h3>
             <p className="mt-2 text-center text-sm text-text-secondary">
@@ -516,7 +516,7 @@ function Precio() {
               {/* Precio promocional */}
               <div className="flex items-start justify-center gap-1">
                 <span className="mt-2 text-xl font-semibold text-brand-violet">USD</span>
-                <span className="font-display text-7xl font-extrabold text-brand-violet">48</span>
+                <span className="font-display text-7xl font-semibold text-brand-violet">48</span>
               </div>
               <p className="mt-1 text-sm font-semibold text-text-heading">pago único</p>
               <p className="mt-1 text-xs text-text-secondary">
@@ -575,7 +575,7 @@ function Garantia() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mx-auto max-w-lg rounded-2xl border border-gray-200 bg-white p-10 text-center shadow-lg"
+        className="mx-auto max-w-lg rounded-2xl border border-linea bg-white p-10 text-center shadow-lg"
       >
         <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-brand-violet-light">
           <Shield size={40} className="text-brand-violet" />
@@ -642,9 +642,9 @@ function FAQSection() {
           <h2 className="section-title mt-3">Lo que seguramente te estás preguntando</h2>
         </motion.div>
 
-        <div className="rounded-xl border border-gray-200 bg-white px-6 shadow-lg">
+        <div className="rounded-xl border border-linea bg-white px-6 shadow-lg">
           {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-gray-100 last:border-b-0">
+            <div key={i} className="border-b border-linea last:border-b-0">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="flex w-full items-center justify-between py-5 text-left"
@@ -704,10 +704,10 @@ function CTAFinal() {
         transition={{ duration: 0.5 }}
         className="relative mx-auto max-w-3xl text-center"
       >
-        <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#c8a2e8]">
+        <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#d6a8f0]">
           ¿Arrancamos?
         </span>
-        <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mt-3 font-display text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">
           Construí tu propia tienda online en 6 semanas.
         </h2>
         <p className="mt-4 text-lg text-white/70">

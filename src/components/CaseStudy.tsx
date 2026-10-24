@@ -111,7 +111,7 @@ export default function CaseStudy() {
   }, [sectionInView])
 
   return (
-    <section ref={sectionRef} id="caso-exito" className="bg-gradient-to-br from-surface-dark to-[#0f0f1e] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section ref={sectionRef} id="caso-exito" className="border-t border-noche-linea bg-noche-fondo px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -120,13 +120,13 @@ export default function CaseStudy() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-10 text-center"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#c8a2e8]">
+          <span className="section-label-noche">
             Resultados comprobados
           </span>
-          <h2 className="mb-3 mt-3 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-3 mt-3 font-display text-3xl font-semibold tracking-tight text-noche-texto sm:text-4xl lg:text-5xl">
             Resultados reales de tiendas reales
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-lg text-white/60">
+          <p className="mx-auto mt-3 max-w-2xl text-lg text-noche-suave">
             No son casos de hace 5 años ni clientes que no conocemos.
             Son tiendas online que escalaron con nosotros — con números documentados mes a mes.
           </p>
@@ -139,25 +139,25 @@ export default function CaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mx-auto mb-10 grid max-w-4xl grid-cols-3 gap-3 rounded-2xl border border-white/15 bg-white/10 p-6 shadow-lg backdrop-blur-sm"
+          className="tarjeta-noche mx-auto mb-10 grid max-w-4xl grid-cols-3 gap-3 p-6"
         >
           <div className="text-center">
-            <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
+            <div className="font-display text-2xl font-semibold tabular-nums tracking-tight text-noche-texto sm:text-4xl">
               <CountUp target={100} prefix="+$" suffix="K" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/70">USD en pauta gestionada</div>
+            <div className="mt-1 text-xs text-noche-suave">USD en pauta gestionada</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
+            <div className="font-display text-2xl font-semibold tabular-nums tracking-tight text-noche-texto sm:text-4xl">
               <CountUp target={48} prefix="+" suffix="" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/70">Tiendas online escaladas</div>
+            <div className="mt-1 text-xs text-noche-suave">Tiendas online escaladas</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-2xl font-extrabold text-white sm:text-4xl">
+            <div className="font-display text-2xl font-semibold tabular-nums tracking-tight text-noche-texto sm:text-4xl">
               <CountUp target={92} prefix="" suffix="M" inView={bandInView} />
             </div>
-            <div className="mt-1 text-xs text-white/70">ARS facturados para clientes</div>
+            <div className="mt-1 text-xs text-noche-suave">ARS facturados para clientes</div>
           </div>
         </motion.div>
 
@@ -170,10 +170,10 @@ export default function CaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="grid overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] shadow-xl md:grid-cols-[280px_1fr]"
+              className="tarjeta-noche grid overflow-hidden md:grid-cols-[280px_1fr]"
             >
               {/* Costado: video o logo, siempre del mismo tamaño */}
-              <div className="flex items-center justify-center bg-[#14142a] p-6">
+              <div className="flex items-center justify-center border-b border-noche-linea bg-noche-superficie-2 p-6 md:border-b-0 md:border-r">
                 {c.video ? (
                   <div className="w-full max-w-[220px] overflow-hidden rounded-xl bg-black shadow-2xl">
                     <video src={c.video} poster={c.poster} controls playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
@@ -183,7 +183,7 @@ export default function CaseStudy() {
                     <Image src={c.logo} alt={c.marca} fill sizes="208px" className="object-contain" />
                   </div>
                 ) : (
-                  <span className="text-center font-display text-2xl font-bold text-white">{c.marca}</span>
+                  <span className="text-center font-display text-2xl font-semibold text-noche-texto">{c.marca}</span>
                 )}
               </div>
 
@@ -194,11 +194,11 @@ export default function CaseStudy() {
                     <Image src={c.logo} alt={c.marca} fill sizes="112px" className="object-contain object-left" />
                   </div>
                 )}
-                <h3 className="text-2xl font-bold leading-snug text-white sm:text-3xl">{c.titulo}</h3>
-                {c.historia && <p className="mt-3 leading-relaxed text-white/70">{c.historia}</p>}
-                <div className="mt-6 flex flex-wrap items-center gap-x-2 border-t border-white/10 pt-5 text-sm">
-                  <span className="font-semibold text-white">{c.marca}</span>
-                  <span className="text-white/50">· {c.rubro}</span>
+                <h3 className="text-2xl font-semibold leading-snug tracking-tight text-noche-texto sm:text-3xl">{c.titulo}</h3>
+                {c.historia && <p className="mt-3 leading-relaxed text-noche-suave">{c.historia}</p>}
+                <div className="mt-6 flex flex-wrap items-center gap-x-2 border-t border-noche-linea pt-5 text-sm">
+                  <span className="font-semibold text-noche-texto">{c.marca}</span>
+                  <span className="text-noche-tenue">· {c.rubro}</span>
                 </div>
               </div>
             </motion.article>
@@ -209,15 +209,15 @@ export default function CaseStudy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="flex flex-col items-center gap-5 rounded-2xl border border-dashed border-[#c8a2e8]/30 bg-white/5 p-6 text-center sm:flex-row sm:justify-between sm:p-8 sm:text-left"
+            className="flex flex-col items-center gap-5 rounded-tarjeta border border-dashed border-noche-linea-fuerte p-6 text-center sm:flex-row sm:justify-between sm:p-8 sm:text-left"
           >
             <div>
-              <p className="font-display text-2xl font-bold text-white">Y hay muchos más</p>
-              <p className="mt-1 text-white/60">Tiendas online escalando con el sistema ahora mismo.</p>
+              <p className="font-display text-2xl font-semibold tracking-tight text-noche-texto">Y hay muchos más</p>
+              <p className="mt-1 text-noche-suave">Tiendas online escalando con el sistema ahora mismo.</p>
             </div>
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-brand-violet shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white/90"
+              className="btn-primary gap-2 whitespace-nowrap text-sm"
             >
               Quiero resultados así <ArrowRight size={16} />
             </a>

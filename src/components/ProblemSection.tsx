@@ -42,9 +42,9 @@ export default function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
-              className="flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-5 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="tarjeta flex items-start gap-3 p-5"
             >
-              <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-50">
+              <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-status-negative/10">
                 <X size={14} className="text-status-negative" />
               </div>
               <p className="text-text-primary">{point}</p>

@@ -56,11 +56,11 @@ export default function CTAForm() {
   }
 
   const inputClass =
-    'w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-text-primary outline-none transition-all focus:border-brand-violet focus:ring-2 focus:ring-brand-violet-light'
+    'w-full rounded-xl border border-linea-fuerte bg-surface-card-2 px-4 py-3 text-text-primary outline-none transition-colors placeholder:text-text-tenue focus:border-violeta-500 focus:bg-surface-card'
   const error = (msg?: string) => msg && <span className="mt-1 block text-xs text-status-negative">{msg}</span>
 
   return (
-    <section id="contacto" className="bg-gradient-to-br from-brand-violet-dark to-surface-dark px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section id="contacto" className="relative overflow-hidden bg-noche-fondo px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,14 +69,14 @@ export default function CTAForm() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-10 text-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-1.5 text-xs font-medium text-white/80">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#c8a2e8]" />
+          <span className="section-label-noche inline-flex items-center gap-2 rounded-full border border-noche-linea-fuerte px-3.5 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-violeta-300" />
             Diagnóstico gratuito · Cupos limitados por mes
           </span>
-          <h2 className="mt-5 font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-noche-texto sm:text-4xl lg:text-5xl">
             Reservá tu llamada de diagnóstico
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-noche-suave">
             Revisamos tu tienda con vos y te mostramos qué la está frenando y qué haríamos para que venda más.
           </p>
         </motion.div>
@@ -86,18 +86,18 @@ export default function CTAForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className={`mx-auto overflow-hidden rounded-2xl bg-white shadow-2xl ${step === 2 && qualified ? 'max-w-3xl' : 'max-w-xl'}`}
+          className={`mx-auto overflow-hidden rounded-tarjeta bg-surface-card shadow-[0_30px_80px_-30px_rgba(164,107,198,0.45)] ${step === 2 && qualified ? 'max-w-3xl' : 'max-w-xl'}`}
         >
           {/* Pasos */}
-          <div className="flex items-center justify-center gap-6 border-b border-gray-100 px-6 py-4 text-sm">
+          <div className="flex items-center justify-center gap-6 border-b border-linea px-6 py-4 text-sm">
             {['Completá tus datos', 'Reservá tu llamada'].map((label, i) => {
               const activo = step === i + 1
               const hecho = step > i + 1
               return (
                 <span key={label} className={`flex items-center gap-2 ${activo ? 'font-semibold text-text-heading' : 'text-text-secondary'}`}>
                   <span
-                    className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${
-                      activo || hecho ? 'bg-brand-violet text-white' : 'bg-gray-200 text-gray-500'
+                    className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-semibold ${
+                      activo || hecho ? 'bg-brand-violet text-white' : 'bg-surface-card-2 text-text-tenue'
                     }`}
                   >
                     {hecho ? <Check size={12} /> : i + 1}
@@ -118,7 +118,7 @@ export default function CTAForm() {
                 transition={{ duration: 0.3 }}
                 className="p-6 sm:p-8"
               >
-                <h3 className="text-xl font-bold text-text-heading">Diagnóstico de tu tienda</h3>
+                <h3 className="text-xl font-semibold text-text-heading">Diagnóstico de tu tienda</h3>
                 <p className="mt-2 text-sm text-text-secondary">
                   En esta llamada de 30 minutos analizamos tu tienda para mostrarte en qué está fallando y cuál es el plan para resolverlo.
                 </p>
@@ -140,7 +140,7 @@ export default function CTAForm() {
                   </div>
                   <div>
                     <div className="flex">
-                      <span className="flex items-center rounded-l-lg border border-r-0 border-gray-200 bg-gray-50 px-3 text-sm text-text-secondary">
+                      <span className="flex items-center rounded-l-xl border border-r-0 border-linea-fuerte bg-surface-card-2 px-3 text-sm text-text-secondary">
                         +54
                       </span>
                       <input
@@ -206,7 +206,7 @@ export default function CTAForm() {
                 <p className="mb-4 text-center text-sm text-text-secondary">
                   Listo, {datos?.nombre}. Elegí el día y el horario que te quede mejor.
                 </p>
-                <div className="overflow-hidden rounded-lg border border-gray-100">
+                <div className="overflow-hidden rounded-xl border border-linea">
                   <iframe
                     src={`${CALENDLY_URL}?name=${encodeURIComponent(datos?.nombre || '')}&email=${encodeURIComponent(datos?.email || '')}`}
                     width="100%"
