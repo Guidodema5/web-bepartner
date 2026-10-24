@@ -111,7 +111,7 @@ export default function CaseStudy() {
   }, [sectionInView])
 
   return (
-    <section ref={sectionRef} id="caso-exito" className="border-t border-noche-linea bg-noche-fondo px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section ref={sectionRef} id="caso-exito" className="bg-noche-fondo px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

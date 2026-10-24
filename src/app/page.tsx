@@ -25,8 +25,8 @@ export default function Home() {
         <ProblemSection />
         <WheelsSection />
         <ForWhomSection />
-        <PortalSection />
         <CaseStudy />
+        <PortalSection />
         <AboutSection />
         <CTAForm />
         <FAQ />

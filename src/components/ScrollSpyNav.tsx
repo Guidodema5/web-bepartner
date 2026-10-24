@@ -14,8 +14,8 @@ const sections: Section[] = [
   { id: 'problema', label: 'El problema', step: '01' },
   { id: 'metodo', label: 'El método', step: '02' },
   { id: 'para-quien', label: 'Para quién', step: '03' },
-  { id: 'app', label: 'La app', step: '04' },
-  { id: 'caso-exito', label: 'Casos de éxito', step: '05' },
+  { id: 'caso-exito', label: 'Casos de éxito', step: '04' },
+  { id: 'app', label: 'La app', step: '05' },
   { id: 'nosotros', label: 'Nosotros', step: '06' },
   { id: 'contacto', label: 'Contacto', step: '07' },
 ]

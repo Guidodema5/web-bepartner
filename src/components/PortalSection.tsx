@@ -27,7 +27,7 @@ const features = [
 
 export default function PortalSection() {
   return (
-    <section id="app" className="bg-noche-fondo px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section id="app" className="border-t border-noche-linea bg-noche-fondo px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <div>
