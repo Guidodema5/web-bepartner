@@ -28,8 +28,8 @@ export default function Home() {
         <CaseStudy />
         <PortalSection />
         <AboutSection />
-        <CTAForm />
         <FAQ />
+        <CTAForm />
       </main>
       <Footer />
       <WhatsAppButton />

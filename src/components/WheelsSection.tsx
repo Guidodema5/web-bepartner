@@ -69,9 +69,9 @@ export default function WheelsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-3 rounded-tarjeta bg-noche-fondo px-6 py-4 text-center text-noche-texto"
+          className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-3 rounded-tarjeta border border-violeta-500/25 bg-brand-violet-light px-6 py-4 text-center text-text-heading"
         >
-          <TrendingUp size={20} strokeWidth={1.75} className="flex-shrink-0 text-violeta-300" />
+          <TrendingUp size={20} strokeWidth={1.75} className="flex-shrink-0 text-violeta-600" />
           <p className="font-medium">
             Con las cuatro ruedas alineadas, escalamos la inversión en Meta, TikTok y Google.
           </p>
