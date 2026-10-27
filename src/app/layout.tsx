@@ -152,6 +152,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
         />
+        {/* Meta Pixel Code (píxel 2325479608251375, Guido 27/10/2026: reemplaza al anterior) */}
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -162,7 +163,7 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1482008153447212');
+            fbq('init', '2325479608251375');
             fbq('track', 'PageView');
           `}
         </Script>
@@ -171,10 +172,11 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=1482008153447212&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=2325479608251375&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>
+        {/* End Meta Pixel Code */}
       </head>
       <body className="font-sans">{children}</body>
     </html>
