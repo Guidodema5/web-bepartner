@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Llamado from './Llamado'
 import { Package, Gift, Megaphone, MonitorSmartphone, TrendingUp } from 'lucide-react'
 
 const pilares = [
@@ -76,6 +77,7 @@ export default function WheelsSection() {
             Con las cuatro ruedas alineadas, escalamos la inversión en Meta, TikTok y Google.
           </p>
         </motion.div>
+        <Llamado texto="En la auditoría revisamos las cuatro ruedas de tu tienda y te decimos cuál ajustar primero." />
       </div>
     </section>
   )

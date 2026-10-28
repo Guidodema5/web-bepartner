@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Llamado from './Llamado'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { faqs } from '@/data/faqs'
@@ -16,7 +17,7 @@ function AccordionItem({
   onClick: () => void
 }) {
   return (
-    <div className="border-b border-linea">
+    <div className="border-b border-linea last:border-b-0">
       <button
         onClick={onClick}
         className="flex w-full items-center justify-between py-5 text-left"
@@ -53,7 +54,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="px-4 pb-20 pt-4 sm:px-6 lg:px-8 lg:pb-24 lg:pt-6">
+    <section id="faq" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,6 +85,7 @@ export default function FAQ() {
             />
           ))}
         </motion.div>
+        <Llamado texto="¿Te quedó alguna duda? Escribinos y te respondemos." boton="Reservar mi auditoría" whatsapp />
       </div>
     </section>
   )

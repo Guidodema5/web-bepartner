@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Llamado from './Llamado'
 import { Store, Factory, XCircle } from 'lucide-react'
 
 const doors = [
@@ -76,6 +77,7 @@ export default function ForWhomSection() {
             ))}
           </div>
         </motion.div>
+        <Llamado texto="Si te viste en alguna de las dos, hablemos." whatsapp />
       </div>
     </section>
   )

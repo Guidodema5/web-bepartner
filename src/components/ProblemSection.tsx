@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Llamado from './Llamado'
 import { X } from 'lucide-react'
 
 const painPoints = [
@@ -51,6 +52,7 @@ export default function ProblemSection() {
             </motion.div>
           ))}
         </div>
+        <Llamado texto="¿Te identificaste con alguna? En la auditoría vemos qué está frenando tu tienda." />
       </div>
     </section>
   )

@@ -56,6 +56,14 @@ const casos: Caso[] = [
     historia: 'Le manejamos toda la publicidad digital.',
     logo: '/images/logo-derentas.svg',
   },
+  // Ya no trabaja con nosotros (Guido, 28/10/2026): el caso se cuenta en pasado.
+  {
+    marca: 'Para Casa',
+    rubro: 'Artículos para el hogar',
+    titulo: 'Cadena de tiendas para el hogar con 5 sucursales',
+    historia: 'Estuvimos a cargo de su publicidad digital.',
+    logo: '/images/logo-paracasa.png',
+  },
   {
     marca: 'Le Mardē',
     rubro: 'Carteras artesanales',

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Llamado from './Llamado'
 import Image from 'next/image'
 import { Cpu, Sparkles, BarChart3, Calculator } from 'lucide-react'
 
@@ -107,6 +108,7 @@ export default function PortalSection() {
             />
           </motion.div>
         </div>
+        <Llamado texto="La app viene incluida cuando trabajás con nosotros." noche />
       </div>
     </section>
   )
