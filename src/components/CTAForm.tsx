@@ -35,17 +35,21 @@ export default function CTAForm() {
     const envio = { ...data, telefono }
 
     // Guarda el contacto en el Google Sheet (ver app/api/contacto).
+    let guardado = false
     try {
-      await fetch('/api/contacto', {
+      const r = await fetch('/api/contacto', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(envio),
       })
+      guardado = r.ok
     } catch (e) {
       console.error('No se pudo guardar el contacto:', e)
     }
 
-    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    // El evento de cliente potencial (Lead) del píxel se dispara solo si el formulario se guardó de verdad
+    // (Guido, 28/10/2026): si falla, Meta no cuenta un contacto que no llegó.
+    if (guardado && typeof window !== 'undefined' && typeof window.fbq === 'function') {
       window.fbq('track', 'Lead', { content_name: 'Formulario CTA' })
     }
 
