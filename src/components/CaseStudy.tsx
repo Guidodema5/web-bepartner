@@ -61,7 +61,7 @@ const casos: Caso[] = [
     marca: 'Para Casa',
     rubro: 'Artículos para el hogar',
     titulo: 'Cadena de tiendas para el hogar con 5 sucursales',
-    historia: 'Estuvimos a cargo de su publicidad digital.',
+    historia: 'Llevamos adelante toda su estrategia orgánica y paga para que alcanzara sus objetivos.',
     logo: '/images/logo-paracasa.png',
   },
   {
