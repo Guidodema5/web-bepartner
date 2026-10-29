@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, X, ArrowRight, Loader2 } from 'lucide-react'
+import { Check, ArrowRight, Loader2 } from 'lucide-react'
 import { IconoWhatsApp, WHATSAPP_URL } from './Llamado'
 
 type FormData = {
@@ -101,21 +101,8 @@ export default function CTAForm() {
                 className="p-6 sm:p-8"
               >
                 <h3 className="text-xl font-semibold text-text-heading">Diagnóstico de tu tienda</h3>
-                <p className="mt-2 text-sm text-text-secondary">
-                  En esta llamada de 30 minutos analizamos tu tienda para mostrarte en qué está fallando y cuál es el plan para resolverlo.
-                </p>
-                <ul className="mt-4 space-y-2 text-sm">
-                  <li className="flex items-start gap-2 text-text-primary">
-                    <Check size={16} className="mt-0.5 flex-shrink-0 text-status-positive" />
-                    Si podemos ayudarte, te mostramos el paso a paso para llegar a tu objetivo de facturación.
-                  </li>
-                  <li className="flex items-start gap-2 text-text-primary">
-                    <X size={16} className="mt-0.5 flex-shrink-0 text-status-negative" />
-                    Si no, te damos la claridad para que sigas por el mejor camino.
-                  </li>
-                </ul>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="mt-6 flex flex-col gap-3">
+                <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col gap-3">
                   <div>
                     <input {...register('nombre', { required: 'Tu nombre es obligatorio' })} placeholder="Nombre" className={inputClass} />
                     {error(errors.nombre?.message)}
