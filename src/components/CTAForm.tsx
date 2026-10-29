@@ -48,6 +48,8 @@ export default function CTAForm() {
     // (Guido, 28/10/2026): si falla, Meta no cuenta un contacto que no llegó.
     if (guardado && typeof window !== 'undefined' && typeof window.fbq === 'function') {
       window.fbq('track', 'Lead', { content_name: 'Formulario CTA' })
+      // Completar registro (Guido, 29/10/2026), también solo con el formulario guardado.
+      window.fbq('track', 'CompleteRegistration', { content_name: 'Formulario CTA' })
     }
 
     setDatos(envio)
