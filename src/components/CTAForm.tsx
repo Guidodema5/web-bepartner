@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, X, ArrowRight, Loader2 } from 'lucide-react'
+import { IconoWhatsApp, WHATSAPP_URL } from './Llamado'
 
 type FormData = {
   nombre: string
@@ -13,15 +14,11 @@ type FormData = {
   facturacion: string
 }
 
-const CALENDLY_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/agencia-bepartner/30min'
-
-// Armado como el de Peak: una sola tarjeta en dos pasos. Primero los datos
-// (se guardan en el Google Sheet) y después el calendario para reservar.
+// Un solo paso (Guido, 29/10/2026): la persona deja sus datos (se guardan en el Google Sheet) y Bepartner le escribe
+// para coordinar la llamada. Sin calendario: la barrera de entrada tiene que ser baja para conseguir el contacto.
 export default function CTAForm() {
-  const [step, setStep] = useState<1 | 2>(1)
+  const [estado, setEstado] = useState<'form' | 'listo' | 'error'>('form')
   const [submitting, setSubmitting] = useState(false)
-  const [qualified, setQualified] = useState(true)
   const [datos, setDatos] = useState<FormData | null>(null)
   const {
     register,
@@ -54,8 +51,7 @@ export default function CTAForm() {
     }
 
     setDatos(envio)
-    setQualified(data.facturacion !== 'no_vendo' && data.url_tienda.trim().length > 0)
-    setStep(2)
+    setEstado(guardado ? 'listo' : 'error')
     setSubmitting(false)
   }
 
@@ -78,10 +74,10 @@ export default function CTAForm() {
             Diagnóstico gratuito · Cupos limitados por mes
           </span>
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-noche-texto sm:text-4xl lg:text-5xl">
-            Reservá tu llamada de diagnóstico
+            Pedí tu diagnóstico gratuito
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-noche-suave">
-            Revisamos tu tienda con vos y te mostramos qué la está frenando y qué haríamos para que venda más.
+            Dejanos tus datos y te escribimos para coordinar la llamada. Revisamos tu tienda con vos y te mostramos qué la está frenando y qué haríamos para que venda más.
           </p>
         </motion.div>
 
@@ -90,30 +86,10 @@ export default function CTAForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-          className={`mx-auto overflow-hidden rounded-tarjeta bg-surface-card shadow-[0_30px_80px_-30px_rgba(164,107,198,0.45)] ${step === 2 && qualified ? 'max-w-3xl' : 'max-w-xl'}`}
+          className="mx-auto max-w-xl overflow-hidden rounded-tarjeta bg-surface-card shadow-[0_30px_80px_-30px_rgba(164,107,198,0.45)]"
         >
-          {/* Pasos */}
-          <div className="flex items-center justify-center gap-6 border-b border-linea px-6 py-4 text-sm">
-            {['Completá tus datos', 'Reservá tu llamada'].map((label, i) => {
-              const activo = step === i + 1
-              const hecho = step > i + 1
-              return (
-                <span key={label} className={`flex items-center gap-2 ${activo ? 'font-semibold text-text-heading' : 'text-text-secondary'}`}>
-                  <span
-                    className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-semibold ${
-                      activo || hecho ? 'bg-brand-violet text-white' : 'bg-surface-card-2 text-text-tenue'
-                    }`}
-                  >
-                    {hecho ? <Check size={12} /> : i + 1}
-                  </span>
-                  {label}
-                </span>
-              )
-            })}
-          </div>
-
           <AnimatePresence mode="wait">
-            {step === 1 && (
+            {estado === 'form' && (
               <motion.div
                 key="paso1"
                 initial={{ opacity: 0, x: 20 }}
@@ -189,42 +165,19 @@ export default function CTAForm() {
                   </div>
 
                   <p className="text-xs text-text-secondary">
-                    Usamos tus datos solo para contactarte por esta llamada.
+                    Usamos tus datos solo para contactarte.
                   </p>
 
                   <button type="submit" disabled={submitting} className="btn-primary w-full gap-2">
-                    {submitting ? <Loader2 size={18} className="animate-spin" /> : <>Continuar <ArrowRight size={18} /></>}
+                    {submitting ? <Loader2 size={18} className="animate-spin" /> : <>Quiero mi diagnóstico gratuito <ArrowRight size={18} /></>}
                   </button>
                 </form>
               </motion.div>
             )}
 
-            {step === 2 && qualified && (
+            {estado !== 'form' && (
               <motion.div
-                key="paso2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-                className="p-4 sm:p-6"
-              >
-                <p className="mb-4 text-center text-sm text-text-secondary">
-                  Listo, {datos?.nombre}. Elegí el día y el horario que te quede mejor.
-                </p>
-                <div className="overflow-hidden rounded-xl border border-linea">
-                  <iframe
-                    src={`${CALENDLY_URL}?name=${encodeURIComponent(datos?.nombre || '')}&email=${encodeURIComponent(datos?.email || '')}`}
-                    width="100%"
-                    height="680"
-                    frameBorder="0"
-                    title="Reservar llamada"
-                  />
-                </div>
-              </motion.div>
-            )}
-
-            {step === 2 && !qualified && (
-              <motion.div
-                key="paso2b"
+                key="listo"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
@@ -233,10 +186,20 @@ export default function CTAForm() {
                 <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-violet/10">
                   <Check size={28} className="text-brand-violet" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-text-heading">¡Gracias por tu interés!</h3>
-                <p className="text-text-secondary">
-                  Recibimos tus datos. En breve te escribimos para contarte las opciones que tenemos para vos.
-                </p>
+                {estado === 'listo' ? (
+                  <>
+                    <h3 className="mb-2 text-xl font-semibold text-text-heading">¡Listo, {datos?.nombre}!</h3>
+                    <p className="text-text-secondary">Recibimos tus datos. Te vamos a escribir por WhatsApp para coordinar la llamada.</p>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="mb-2 text-xl font-semibold text-text-heading">No pudimos guardar tus datos</h3>
+                    <p className="text-text-secondary">Escribinos directo por WhatsApp y coordinamos la llamada.</p>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary mt-5 gap-2">
+                      <IconoWhatsApp className="h-[18px] w-[18px]" /> Escribir por WhatsApp
+                    </a>
+                  </>
+                )}
               </motion.div>
             )}
           </AnimatePresence>

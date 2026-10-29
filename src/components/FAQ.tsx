@@ -85,7 +85,7 @@ export default function FAQ() {
             />
           ))}
         </motion.div>
-        <Llamado texto="¿Te quedó alguna duda? Escribinos y te respondemos." boton="Reservar mi auditoría" whatsapp />
+        <Llamado texto="¿Te quedó alguna duda? Escribinos y te respondemos." boton="Quiero mi auditoría gratuita" whatsapp />
       </div>
     </section>
   )
