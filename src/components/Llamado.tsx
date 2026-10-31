@@ -7,6 +7,14 @@ import { ArrowRight } from 'lucide-react'
 const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491144709617'
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
 
+/**
+ * Manda un evento al píxel de Meta (Guido, 30/10/2026: medir los botones de la portada). `estandar` para los eventos
+ * propios de Meta (Contact, Lead…); si no, va como evento personalizado.
+ */
+export function medir(evento: string, datos: Record<string, string>, estandar = false) {
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') window.fbq(estandar ? 'track' : 'trackCustom', evento, datos)
+}
+
 export function IconoWhatsApp({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">

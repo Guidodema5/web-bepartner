@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Script from 'next/script'
-import { IconoWhatsApp, WHATSAPP_URL } from './Llamado'
+import { IconoWhatsApp, medir, WHATSAPP_URL } from './Llamado'
 
 const YOUTUBE_VIDEO_ID = 'cPdVI5AvztA'
 // Oculto a pedido de Guido (19/10/2026). Para volver a mostrarlo, poner true.
@@ -108,10 +108,10 @@ export default function Hero() {
 
         <motion.div {...aparecer(0.3)} className="flex flex-col items-center gap-3">
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <a href="#contacto" className="btn-primary gap-2 text-base">
+            <a href="#contacto" onClick={() => medir('ClicAuditoria', { ubicacion: 'Portada' })} className="btn-primary gap-2 text-base">
               Quiero mi auditoría gratuita <ArrowRight size={18} />
             </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary gap-2 text-base">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => medir('Contact', { content_name: 'WhatsApp', ubicacion: 'Portada' }, true)} className="btn-secondary gap-2 text-base">
               <IconoWhatsApp className="h-[18px] w-[18px] text-[#25d366]" /> Hablemos por WhatsApp
             </a>
           </div>
