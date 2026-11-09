@@ -12,6 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...rubros.map((r) => ({ url: `${SITIO}/leads-para/${r.slug}`, lastModified: ACTUALIZADO, changeFrequency: 'monthly' as const, priority: 0.9 })),
     { url: `${SITIO}/blog`, lastModified: ACTUALIZADO, changeFrequency: 'weekly', priority: 0.8 },
     ...notas.map((n) => ({ url: `${SITIO}/blog/${n.slug}`, lastModified: n.actualizada ?? n.fecha, changeFrequency: 'monthly' as const, priority: 0.7 })),
-    { url: `${SITIO}/autor/guido-de-maria`, lastModified: ACTUALIZADO, changeFrequency: 'yearly', priority: 0.4 },
+    { url: `${SITIO}/autor/guido-demaria`, lastModified: ACTUALIZADO, changeFrequency: 'yearly', priority: 0.4 },
   ]
 }

@@ -3,7 +3,7 @@
 
 export const SITIO = 'https://www.bepartner.lat'
 export const ID_ORGANIZACION = `${SITIO}/#organizacion`
-export const ID_AUTOR = `${SITIO}/autor/guido-de-maria#persona`
+export const ID_AUTOR = `${SITIO}/autor/guido-demaria#persona`
 
 export const DESCRIPCION_EMPRESA =
   'Agencia especializada en leads: conseguimos clientes calificados todos los meses con anuncios en Meta y Google para negocios de servicios, mayoristas e inmobiliarias.'
@@ -35,8 +35,8 @@ export const organizacion = {
 export const autor = {
   '@type': 'Person',
   '@id': ID_AUTOR,
-  name: 'Guido De Maria',
-  url: `${SITIO}/autor/guido-de-maria`,
+  name: 'Guido Demaria',
+  url: `${SITIO}/autor/guido-demaria`,
   jobTitle: 'Fundador de Bepartner',
   worksFor: { '@id': ID_ORGANIZACION },
   knowsAbout: ['Generación de leads', 'Meta Ads', 'Google Ads', 'Marketing para negocios de servicios'],

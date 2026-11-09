@@ -6,14 +6,14 @@ import { autor, organizacion, migas, grafo } from '@/lib/seo'
 
 // Página del autor (Guido, 09/11/2026): Google valora saber quién escribe las notas y qué experiencia tiene.
 export const metadata: Metadata = {
-  title: 'Guido De Maria, fundador de Bepartner',
-  description: 'Guido De Maria es el fundador de Bepartner, agencia especializada en leads calificados para negocios de servicios, mayoristas e inmobiliarias.',
-  alternates: { canonical: '/autor/guido-de-maria' },
+  title: 'Guido Demaria, fundador de Bepartner',
+  description: 'Guido Demaria es el fundador de Bepartner, agencia especializada en leads calificados para negocios de servicios, mayoristas e inmobiliarias.',
+  alternates: { canonical: '/autor/guido-demaria' },
 }
 
 const ruta = [
   { nombre: 'Inicio', url: '/' },
-  { nombre: 'Guido De Maria', url: '/autor/guido-de-maria' },
+  { nombre: 'Guido Demaria', url: '/autor/guido-demaria' },
 ]
 
 export default function Autor() {
@@ -23,11 +23,11 @@ export default function Autor() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: datos }} />
       <div className="mx-auto max-w-3xl">
         <span className="section-label">Autor</span>
-        <h1 className="section-title mt-3">Guido De Maria</h1>
+        <h1 className="section-title mt-3">Guido Demaria</h1>
         <p className="mt-2 text-lg text-text-secondary">Fundador de Bepartner</p>
         <div className="mt-8 space-y-4 text-[17px] leading-relaxed">
           <p>
-            Guido De Maria fundó Bepartner, una agencia especializada en leads: ayuda a negocios que ya venden bien a conseguir
+            Guido Demaria fundó Bepartner, una agencia especializada en leads: ayuda a negocios que ya venden bien a conseguir
             clientes calificados todos los meses con anuncios en Meta y Google.
           </p>
           <p>

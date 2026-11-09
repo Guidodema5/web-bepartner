@@ -19,7 +19,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: nota.tituloSeo,
     description: nota.descripcion,
     alternates: { canonical: url },
-    authors: [{ name: 'Guido De Maria', url: '/autor/guido-de-maria' }],
+    authors: [{ name: 'Guido Demaria', url: '/autor/guido-demaria' }],
     openGraph: {
       type: 'article',
       url,
@@ -27,7 +27,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       description: nota.descripcion,
       publishedTime: nota.fecha,
       modifiedTime: nota.actualizada ?? nota.fecha,
-      authors: [`${SITIO}/autor/guido-de-maria`],
+      authors: [`${SITIO}/autor/guido-demaria`],
       images: ['/og-image.jpg'],
       locale: 'es_AR',
       siteName: 'Bepartner',
@@ -82,7 +82,7 @@ export default function NotaBlog({ params }: { params: { slug: string } }) {
             {nota.titulo}
           </h1>
           <p className="mt-5 text-sm text-text-secondary">
-            Por <Link href="/autor/guido-de-maria" className="font-medium text-text-heading hover:text-violeta-700">Guido De Maria</Link>, fundador de Bepartner ·{' '}
+            Por <Link href="/autor/guido-demaria" className="font-medium text-text-heading hover:text-violeta-700">Guido Demaria</Link>, fundador de Bepartner ·{' '}
             <time dateTime={nota.fecha}>{fechaLarga(nota.fecha)}</time> · {nota.minutos} min de lectura
           </p>
         </header>
