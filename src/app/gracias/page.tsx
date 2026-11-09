@@ -24,7 +24,7 @@ export default function GraciasPage() {
           </h1>
 
           <p className="mb-8 text-lg text-text-secondary">
-            Recibimos tu consulta. En las próximas 48 horas nos ponemos en contacto con vos con el diagnóstico de tu tienda.
+            Recibimos tu consulta. En las próximas 48 horas nos ponemos en contacto con vos para coordinar la auditoría de tu negocio.
           </p>
 
           <a

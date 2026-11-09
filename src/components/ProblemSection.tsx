@@ -5,10 +5,10 @@ import Llamado from './Llamado'
 import { X } from 'lucide-react'
 
 const painPoints = [
-  'Le pagás todos los meses a alguien y seguís facturando lo mismo.',
-  'Tu Instagram es lindo, pero no vende.',
-  'No sabés si ganás o perdés plata con la publicidad.',
-  'Para tu agencia sos uno más.',
+  'Vendés bien por boca en boca o con tus vendedores, pero los anuncios no te rinden.',
+  'Pusiste plata en publicidad y no sabés qué te devolvió.',
+  'Te llegan consultas que no sirven: preguntan precio y desaparecen.',
+  'Dependés de que te recomienden para conseguir clientes nuevos.',
 ]
 
 export default function ProblemSection() {
@@ -52,7 +52,7 @@ export default function ProblemSection() {
             </motion.div>
           ))}
         </div>
-        <Llamado texto="¿Te identificaste con alguna? En la auditoría vemos qué está frenando tu tienda." />
+        <Llamado texto="¿Te identificaste con alguna? En la auditoría vemos por qué tus anuncios no te traen clientes." />
       </div>
     </section>
   )

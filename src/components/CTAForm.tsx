@@ -6,12 +6,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ArrowRight, Loader2 } from 'lucide-react'
 import { IconoWhatsApp, WHATSAPP_URL } from './Llamado'
 
+// Las claves son las columnas de la planilla de contactos (docs/apps-script-contactos.gs): "desafio" guarda el rubro y
+// "invierte_ads" cuánto invierte hoy en anuncios (Guido, 04/11/2026: formulario para negocios de servicios).
 type FormData = {
   nombre: string
   telefono: string
   email: string
-  url_tienda: string
-  facturacion: string
+  desafio: string
+  invierte_ads: string
 }
 
 // Un solo paso (Guido, 29/10/2026): la persona deja sus datos (se guardan en el Google Sheet) y Bepartner le escribe
@@ -73,13 +75,13 @@ export default function CTAForm() {
         >
           <span className="section-label-noche inline-flex items-center gap-2 rounded-full border border-noche-linea-fuerte px-3.5 py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-violeta-300" />
-            Diagnóstico gratuito · Cupos limitados por mes
+            Auditoría gratuita · Cupos limitados por mes
           </span>
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-noche-texto sm:text-4xl lg:text-5xl">
-            Pedí tu diagnóstico gratuito
+            Pedí tu auditoría gratuita
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-noche-suave">
-            Dejanos tus datos y te escribimos para coordinar la llamada. Revisamos tu tienda con vos y te mostramos qué la está frenando y qué haríamos para que venda más.
+            Dejanos tus datos y te escribimos para coordinar la llamada. Revisamos tu negocio con vos y te decimos qué ajustar primero.
           </p>
         </motion.div>
 
@@ -100,7 +102,7 @@ export default function CTAForm() {
                 transition={{ duration: 0.3 }}
                 className="p-6 sm:p-8"
               >
-                <h3 className="text-xl font-semibold text-text-heading">Diagnóstico de tu tienda</h3>
+                <h3 className="text-xl font-semibold text-text-heading">Auditoría de tu negocio</h3>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col gap-3">
                   <div>
@@ -135,22 +137,21 @@ export default function CTAForm() {
                   </div>
                   <div>
                     <input
-                      {...register('url_tienda', { required: 'El link de tu tienda es obligatorio' })}
-                      placeholder="Link de tu tienda online"
+                      {...register('desafio', { required: 'Contanos a qué se dedica tu negocio' })}
+                      placeholder="¿A qué se dedica tu negocio?"
                       className={inputClass}
                     />
-                    {error(errors.url_tienda?.message)}
+                    {error(errors.desafio?.message)}
                   </div>
                   <div>
-                    <select {...register('facturacion', { required: 'Elegí una opción' })} defaultValue="" className={inputClass}>
-                      <option value="" disabled>Facturación mensual aproximada</option>
-                      <option value="no_vendo">Todavía no vendo online</option>
-                      <option value="menos_1m">Menos de $1M por mes</option>
-                      <option value="1m_5m">$1M a $5M por mes</option>
-                      <option value="5m_10m">$5M a $10M por mes</option>
-                      <option value="mas_10m">Más de $10M por mes</option>
+                    <select {...register('invierte_ads', { required: 'Elegí una opción' })} defaultValue="" className={inputClass}>
+                      <option value="" disabled>¿Cuánto invertís hoy en anuncios por mes?</option>
+                      <option value="todavia_no">Todavía no invierto</option>
+                      <option value="menos_500k">Menos de $500.000</option>
+                      <option value="500k_2m">$500.000 a $2.000.000</option>
+                      <option value="mas_2m">Más de $2.000.000</option>
                     </select>
-                    {error(errors.facturacion?.message)}
+                    {error(errors.invierte_ads?.message)}
                   </div>
 
                   <p className="text-xs text-text-secondary">
@@ -158,7 +159,7 @@ export default function CTAForm() {
                   </p>
 
                   <button type="submit" disabled={submitting} className="btn-primary w-full gap-2">
-                    {submitting ? <Loader2 size={18} className="animate-spin" /> : <>Quiero mi diagnóstico gratuito <ArrowRight size={18} /></>}
+                    {submitting ? <Loader2 size={18} className="animate-spin" /> : <>Quiero mi auditoría gratuita <ArrowRight size={18} /></>}
                   </button>
                 </form>
               </motion.div>

@@ -1,14 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Llamado from './Llamado'
-import { Package, Gift, Megaphone, MonitorSmartphone, TrendingUp } from 'lucide-react'
+import { Users, Gift, Megaphone, MonitorSmartphone, Fuel } from 'lucide-react'
 
+// Por qué pasa y el método (Guido, 05/11/2026): lo que ordenamos antes de invertir en pauta.
 const pilares = [
-  { icon: Package, title: 'Producto', text: 'Definimos qué productos impulsar según margen, demanda y rentabilidad.' },
-  { icon: Gift, title: 'Propuesta de valor', text: 'Construimos una oferta clara y diferencial para cada tipo de cliente.' },
-  { icon: Megaphone, title: 'Anuncios', text: 'Creatividades basadas en datos, pensadas para generar ventas y no solo alcance.' },
-  { icon: MonitorSmartphone, title: 'Sitio web', text: 'Optimizamos la experiencia de compra para que el tráfico se convierta en ventas.' },
+  { icon: Users, title: '1. Tu cliente ideal', text: 'Quién te compra de verdad y dónde está.' },
+  { icon: Gift, title: '2. Tu propuesta de valor', text: 'Por qué te tiene que elegir a vos y no a otro.' },
+  { icon: MonitorSmartphone, title: '3. Tu página web', text: 'Que la visita se convierta en un contacto para tu equipo.' },
+  { icon: Megaphone, title: '4. Tu comunicación', text: 'Anuncios que le hablan solo a ese cliente.' },
 ]
 
 export default function WheelsSection() {
@@ -22,24 +22,15 @@ export default function WheelsSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="section-label">Nuestro método</span>
+          <span className="section-label">Por qué pasa</span>
           <h2 className="section-title mt-3">
-            La publicidad sola no hace crecer una marca.
+            El problema no son los anuncios. Es lo que falta antes de pautar.
           </h2>
           <p className="mt-5 text-lg text-text-secondary">
-            Antes de invertir en pauta, alineamos los cuatro pilares que definen si una tienda online vende.
+            Antes de invertir un peso en pauta, ordenamos lo que hace que te consulte el que te puede comprar:
           </p>
         </motion.div>
 
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 text-center font-display text-xl font-semibold tracking-tight text-violeta-600"
-        >
-          Método de las 4 Ruedas
-        </motion.h3>
 
         <div className="grid gap-4 sm:grid-cols-2">
           {pilares.map((w, i) => {
@@ -72,12 +63,11 @@ export default function WheelsSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-3 rounded-tarjeta border border-violeta-500/25 bg-brand-violet-light px-6 py-4 text-center text-text-heading"
         >
-          <TrendingUp size={20} strokeWidth={1.75} className="flex-shrink-0 text-violeta-600" />
+          <Fuel size={20} strokeWidth={1.75} className="flex-shrink-0 text-violeta-600" />
           <p className="font-medium">
-            Con las cuatro ruedas alineadas, escalamos la inversión en Meta, TikTok y Google.
+            Con eso armado, la publicidad empieza a rendir.
           </p>
         </motion.div>
-        <Llamado texto="En la auditoría revisamos las cuatro ruedas de tu tienda y te decimos cuál ajustar primero." />
       </div>
     </section>
   )

@@ -3,12 +3,12 @@
 import { VideoProvider } from '@/context/VideoContext'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import ProblemSection from '@/components/ProblemSection'
 import WheelsSection from '@/components/WheelsSection'
 import ForWhomSection from '@/components/ForWhomSection'
-import PortalSection from '@/components/PortalSection'
+import PorQue from '@/components/PorQue'
+import ProblemSection from '@/components/ProblemSection'
+import Resultado from '@/components/Resultado'
 import CaseStudy from '@/components/CaseStudy'
-import AboutSection from '@/components/AboutSection'
 import CTAForm from '@/components/CTAForm'
 import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
@@ -26,8 +26,8 @@ export default function Home() {
         <WheelsSection />
         <ForWhomSection />
         <CaseStudy />
-        <PortalSection />
-        <AboutSection />
+        <Resultado />
+        <PorQue />
         <CTAForm />
         <FAQ />
       </main>

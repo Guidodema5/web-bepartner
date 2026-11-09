@@ -27,7 +27,7 @@ export function IconoWhatsApp({ className }: { className?: string }) {
  * Llamada a la acción al final de una sección (Guido, 28/10/2026): una línea que conecta con lo que se acaba de leer y
  * el botón para pedir la auditoría. `noche` para las secciones oscuras; `whatsapp` suma el botón de WhatsApp.
  */
-export default function Llamado({ texto, boton = 'Quiero mi auditoría gratuita', noche = false, whatsapp = false }: { texto: string; boton?: string; noche?: boolean; whatsapp?: boolean }) {
+export default function Llamado({ texto, boton = 'Quiero mi auditoría gratuita', noche = false, whatsapp = false }: { texto?: string; boton?: string; noche?: boolean; whatsapp?: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -36,7 +36,7 @@ export default function Llamado({ texto, boton = 'Quiero mi auditoría gratuita'
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-4 text-center"
     >
-      <p className={noche ? 'text-[15px] text-noche-suave' : 'text-[15px] text-text-secondary'}>{texto}</p>
+      {texto && <p className={noche ? 'text-[15px] text-noche-suave' : 'text-[15px] text-text-secondary'}>{texto}</p>}
       <div className="flex flex-wrap items-center justify-center gap-3">
         <a href="#contacto" className="btn-primary gap-2 text-[15px]">
           {boton} <ArrowRight size={17} />

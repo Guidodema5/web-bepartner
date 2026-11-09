@@ -2,26 +2,26 @@
 
 import { motion } from 'framer-motion'
 import Llamado from './Llamado'
-import { Store, Factory, XCircle } from 'lucide-react'
+import { Briefcase, Building2, XCircle } from 'lucide-react'
 
 const doors = [
   {
-    icon: Store,
-    title: 'Si tenés una tienda online:',
-    text: 'Ya vendés por internet, tenés web y una marca cuidada, pero hace meses que no pasás del mismo número. Ya probaste agencias o freelancers y no viste el cambio.',
+    icon: Briefcase,
+    title: 'Si tenés un negocio de servicios:',
+    text: 'Vendés bien por recomendación, pero querés clientes nuevos todos los meses sin depender del boca en boca.',
   },
   {
-    icon: Factory,
-    title: 'Si tenés un showroom o una fábrica:',
-    text: 'Vendés bien en persona, pero online no despega. Querés que internet venda tu producto tan bien como lo vendés vos.',
+    icon: Building2,
+    title: 'Si sos mayorista o una empresa:',
+    text: 'Tenés vendedores y clientes fieles, y querés que la publicidad te traiga contactos que tu equipo pueda cerrar.',
   },
 ]
 
 const noItems = [
-  'Todavía no tenés producto validado.',
+  'Todavía no vendés o no sabés a quién le vendés.',
   'Buscás resultados mágicos sin proceso.',
   'No estás dispuesto a invertir en publicidad.',
-  'Querés a alguien que solo "suba posteos".',
+  'No tenés quién atienda las consultas que lleguen.',
 ]
 
 export default function ForWhomSection() {

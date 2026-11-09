@@ -5,8 +5,9 @@ import { BepartnerLogo } from './Navbar'
 
 const navLinks = [
   { label: 'Inicio', href: '/#inicio' },
-  { label: 'Casos de Éxito', href: '/#caso-exito' },
-  { label: 'Nosotros', href: '/#nosotros' },
+  { label: 'Caso de éxito', href: '/#caso-exito' },
+  { label: 'El resultado', href: '/#resultado' },
+  { label: 'Por qué nosotros', href: '/#por-que' },
   { label: 'Contacto', href: '/#contacto' },
 ]
 
@@ -18,7 +19,7 @@ export default function Footer() {
           <div>
             <BepartnerLogo />
             <p className="mt-3 text-sm text-noche-suave">
-              Socios de crecimiento para tiendas online
+              Contactos calificados para negocios que ya venden bien
             </p>
           </div>
 
@@ -92,7 +93,7 @@ export default function Footer() {
             </p>
             <p>
               Los resultados que mostramos son de clientes reales y no están garantizados: cada negocio depende
-              de su producto, su mercado y su inversión.
+              de su servicio, su mercado y su inversión.
             </p>
           </div>
         </div>

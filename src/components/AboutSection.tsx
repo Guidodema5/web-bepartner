@@ -58,7 +58,7 @@ export default function AboutSection() {
                 Guido Demaria — Fundador
               </h3>
               <p className="text-center text-text-secondary sm:text-left">
-                Creé Bepartner porque me cansé de ver cómo les cobran a los dueños de tiendas por hacer anuncios, sin importarles si crecen. Por eso no vendemos entregables: nos metemos de lleno en tu negocio y vamos a resultados. Si vos crecés, nosotros crecemos.
+                Creé Bepartner porque me cansé de ver cómo les cobran a los dueños de negocios por hacer anuncios, sin importarles si les traen clientes. Por eso no vendemos packs: nos metemos de lleno en tu negocio y medimos lo que importa, los contactos calificados. Si vos crecés, nosotros crecemos.
               </p>
             </div>
           </div>

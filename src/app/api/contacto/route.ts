@@ -33,7 +33,8 @@ export async function POST(req: Request) {
   if (!fila.email && !fila.telefono) {
     return NextResponse.json({ ok: false }, { status: 400 })
   }
-  fila.calificado = fila.facturacion !== 'no_vendo' && fila.url_tienda.trim().length > 0 ? 'si' : 'no'
+  // Oferta para negocios de servicios (04/11/2026): calificado = ya invierte en anuncios.
+  fila.calificado = fila.invierte_ads && fila.invierte_ads !== 'todavia_no' ? 'si' : 'no'
 
   try {
     const res = await fetch(url, {
