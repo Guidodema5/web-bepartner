@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Llamado from './Llamado'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { faqs } from '@/data/faqs'
 
@@ -33,19 +33,16 @@ function AccordionItem({
           <ChevronDown size={20} className="text-text-secondary" />
         </motion.div>
       </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="overflow-hidden"
-          >
-            <p className="pb-5 text-text-secondary">{faq.answer}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* La respuesta está siempre en la página (Google la lee aunque esté cerrada); solo se oculta a la vista. */}
+      <motion.div
+        initial={false}
+        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className="overflow-hidden"
+        aria-hidden={!isOpen}
+      >
+        <p className="pb-5 text-text-secondary">{faq.answer}</p>
+      </motion.div>
     </div>
   )
 }
@@ -85,7 +82,7 @@ export default function FAQ() {
             />
           ))}
         </motion.div>
-        <Llamado texto="¿Te quedó alguna duda? Escribinos y te respondemos." boton="Quiero mi auditoría gratuita" whatsapp />
+        <Llamado texto="¿Te quedó alguna duda? Escribinos y te respondemos." whatsapp />
       </div>
     </section>
   )

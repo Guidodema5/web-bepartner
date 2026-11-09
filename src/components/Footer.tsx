@@ -2,6 +2,7 @@
 
 import { Instagram, Mail, ExternalLink } from 'lucide-react'
 import { BepartnerLogo } from './Navbar'
+import { rubros } from '@/data/rubros'
 
 const navLinks = [
   { label: 'Inicio', href: '/#inicio' },
@@ -15,11 +16,11 @@ export default function Footer() {
   return (
     <footer className="border-t border-noche-linea bg-noche-fondo px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div>
             <BepartnerLogo />
             <p className="mt-3 text-sm text-noche-suave">
-              Contactos calificados para negocios que ya venden bien
+              Agencia especializada en leads calificados
             </p>
           </div>
 
@@ -38,6 +39,24 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="section-label-noche mb-4">Leads para tu negocio</h4>
+            <ul className="flex flex-col gap-2">
+              {rubros.map((r) => (
+                <li key={r.slug}>
+                  <a href={`/leads-para/${r.slug}`} className="text-sm text-noche-suave transition-colors hover:text-noche-texto">
+                    {r.nombre}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a href="/blog" className="text-sm text-noche-suave transition-colors hover:text-noche-texto">
+                  Blog
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -159,7 +159,7 @@ export default function CTAForm() {
                   </p>
 
                   <button type="submit" disabled={submitting} className="btn-primary w-full gap-2">
-                    {submitting ? <Loader2 size={18} className="animate-spin" /> : <>Quiero mi auditoría gratuita <ArrowRight size={18} /></>}
+                    {submitting ? <Loader2 size={18} className="animate-spin" /> : <>Enviar <ArrowRight size={18} /></>}
                   </button>
                 </form>
               </motion.div>

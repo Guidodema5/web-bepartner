@@ -1,5 +1,19 @@
+# Buscadores y asistentes de IA son bienvenidos.
 User-agent: *
 Allow: /
+Disallow: /api/
 
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://www.bepartner.lat/sitemap.xml

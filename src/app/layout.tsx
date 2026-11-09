@@ -3,7 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import Script from 'next/script'
-import { faqs } from '@/data/faqs'
+import { SITIO, ID_ORGANIZACION, organizacion, grafo } from '@/lib/seo'
 
 // Misma tipografía que la app de anuncios: Geist para todo y Geist Mono para etiquetas y números.
 
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   // La dirección oficial es con www: bepartner.lat redirige ahí (Vercel).
   metadataBase: new URL('https://www.bepartner.lat'),
   title: {
-    default: 'Bepartner | Contactos calificados para negocios de servicios',
+    default: 'Agencia especializada en leads calificados | Bepartner',
     template: '%s | Bepartner',
   },
   description:
-    'Agencia especializada en adquisición de clientes calificados con anuncios. Conseguí clientes calificados en 60 días, sin pagar por consultas que no compran.',
+    'Agencia especializada en leads: conseguí clientes calificados todos los meses con anuncios en Meta y Google. Para negocios de servicios, mayoristas e inmobiliarias.',
   keywords: [
     'agencia de marketing para negocios de servicios',
     'conseguir clientes con anuncios',
@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     'agencia de publicidad digital argentina',
     'publicidad para mayoristas',
     'generación de leads',
+    'agencia de leads',
+    'leads para inmobiliarias',
+    'clientes mayoristas',
   ],
   authors: [{ name: 'Bepartner', url: 'https://www.bepartner.lat' }],
   creator: 'Bepartner',
@@ -47,27 +50,27 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://www.bepartner.lat',
     siteName: 'Bepartner',
-    title: 'Bepartner | Contactos calificados para negocios de servicios',
+    title: 'Agencia especializada en leads calificados | Bepartner',
     description:
-      'Agencia especializada en adquisición de clientes calificados con anuncios. Conseguí clientes calificados en 60 días, sin pagar por consultas que no compran.',
+      'Agencia especializada en leads: conseguí clientes calificados todos los meses con anuncios en Meta y Google. Para negocios de servicios, mayoristas e inmobiliarias.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 1200,
-        alt: 'Bepartner — Contactos calificados para negocios de servicios',
+        alt: 'Bepartner — Agencia especializada en leads calificados',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bepartner | Contactos calificados para negocios de servicios',
+    title: 'Agencia especializada en leads calificados | Bepartner',
     description:
-      'Agencia especializada en adquisición de clientes calificados con anuncios. Conseguí clientes calificados en 60 días, sin pagar por consultas que no compran.',
+      'Agencia especializada en leads: conseguí clientes calificados todos los meses con anuncios en Meta y Google. Para negocios de servicios, mayoristas e inmobiliarias.',
     images: ['/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://www.bepartner.lat',
+    canonical: '/',
   },
   icons: {
     icon: [
@@ -77,48 +80,15 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLdBusiness = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Bepartner',
-  description:
-    'Agencia especializada en adquisición de clientes calificados con anuncios. Conseguí clientes calificados en 60 días, sin pagar por consultas que no compran.',
-  url: 'https://www.bepartner.lat',
-  logo: 'https://www.bepartner.lat/logo-violet.png',
-  image: 'https://www.bepartner.lat/og-image.jpg',
-  email: 'agencia.bepartner@gmail.com',
-  areaServed: { '@type': 'Country', name: 'Argentina' },
-  serviceType: [
-    'Generación de contactos calificados para negocios de servicios',
-    'Publicidad en Meta, Google y TikTok',
-    'Propuesta de valor y estrategia de comunicación',
-    'Landing pages que convierten',
-  ],
-  founder: { '@type': 'Person', name: 'Guido Demaria', jobTitle: 'Fundador' },
-  priceRange: 'Fee mensual fijo',
-  knowsAbout: ['Meta Ads', 'Google Ads', 'TikTok Ads', 'Generación de leads', 'Landing pages', 'Propuesta de valor'],
-  sameAs: ['https://www.instagram.com/bepartner.lat/'],
-}
-
-const jsonLdWebsite = {
-  '@context': 'https://schema.org',
+// Organización y sitio en un solo grafo (src/lib/seo.ts). Las preguntas frecuentes van en la portada, que es donde se ven.
+const datosSitio = grafo(organizacion, {
   '@type': 'WebSite',
+  '@id': `${SITIO}/#sitio`,
   name: 'Bepartner',
-  url: 'https://www.bepartner.lat',
+  url: SITIO,
   inLanguage: 'es-AR',
-}
-
-// Mismas preguntas y respuestas que la sección FAQ de la página (Google pide
-// que el dato estructurado coincida con lo que ve el usuario).
-const jsonLdFAQ = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.question,
-    acceptedAnswer: { '@type': 'Answer', text: f.answer },
-  })),
-}
+  publisher: { '@id': ID_ORGANIZACION },
+})
 
 export default function RootLayout({
   children,
@@ -128,18 +98,7 @@ export default function RootLayout({
   return (
     <html lang="es-AR" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBusiness) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: datosSitio }} />
         {/* Meta Pixel Code (píxel 1482008153447212, Guido 30/10/2026: reemplaza al 2325479608251375) */}
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`

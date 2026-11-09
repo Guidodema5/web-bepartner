@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Caso de éxito', href: '/#caso-exito' },
   { label: 'El resultado', href: '/#resultado' },
   { label: 'Por qué nosotros', href: '/#por-que' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contacto', href: '/#contacto' },
 ]
 
@@ -53,7 +54,7 @@ export default function Navbar() {
             <BepartnerLogo />
           </a>
 
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-7 whitespace-nowrap lg:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -83,7 +84,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(true)}
-            className="text-white md:hidden"
+            className="text-white lg:hidden"
             aria-label="Abrir menú"
           >
             <Menu size={28} />

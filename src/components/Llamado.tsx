@@ -27,7 +27,7 @@ export function IconoWhatsApp({ className }: { className?: string }) {
  * Llamada a la acción al final de una sección (Guido, 28/10/2026): una línea que conecta con lo que se acaba de leer y
  * el botón para pedir la auditoría. `noche` para las secciones oscuras; `whatsapp` suma el botón de WhatsApp.
  */
-export default function Llamado({ texto, boton = 'Quiero mi auditoría gratuita', noche = false, whatsapp = false }: { texto?: string; boton?: string; noche?: boolean; whatsapp?: boolean }) {
+export default function Llamado({ texto, boton = 'Contactanos', noche = false, whatsapp = false }: { texto?: string; boton?: string; noche?: boolean; whatsapp?: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}

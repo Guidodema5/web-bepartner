@@ -49,7 +49,7 @@ const aparecer = (delay: number) => ({
 })
 
 /**
- * Portada (Guido, 05/11/2026): en dos. A la izquierda el título, la promesa, el botón y "Marcas como deRentas confiaron en
+ * Portada (Guido, 05/11/2026; título y etiqueta del 09/11/2026): en dos. A la izquierda el título, la promesa, el botón y "Marcas como deRentas confiaron en
  * nosotros"; a la derecha el camino: los 4 pasos del método sobre la curva de leads calificados, de hoy al día 60.
  */
 export default function Hero() {
@@ -75,24 +75,24 @@ export default function Hero() {
             className="section-label-noche mb-7 inline-flex items-center gap-2 rounded-full border border-noche-linea-fuerte bg-white/[0.03] px-4 py-1.5"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-violeta-300" />
-            Para negocios de servicios y mayoristas
+            Agencia especializada en leads
           </motion.div>
 
           <motion.h1
             {...aparecer(0.08)}
             className="font-display text-[40px] font-semibold leading-[1.05] tracking-[-0.03em] text-noche-texto sm:text-[56px] lg:text-[60px]"
           >
-            Agencia especializada en adquisición de{' '}
-            <span className="bg-gradient-to-r from-violeta-200 via-violeta-300 to-violeta-400 bg-clip-text text-transparent">clientes calificados</span> con anuncios.
+            Conseguí{' '}
+            <span className="bg-gradient-to-r from-violeta-200 via-violeta-300 to-violeta-400 bg-clip-text text-transparent">clientes calificados</span> todos los meses.
           </motion.h1>
 
           <motion.p {...aparecer(0.16)} className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-noche-suave sm:text-xl lg:mx-0">
-            Conseguí clientes calificados en 60 días, sin pagar por consultas que no compran.
+            Generamos leads calificados con anuncios para negocios de servicios, mayoristas e inmobiliarias, sin que pagues por consultas que no compran.
           </motion.p>
 
           <motion.div {...aparecer(0.24)} className="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
             <a href="#contacto" onClick={() => medir('ClicAuditoria', { ubicacion: 'Portada' })} className="btn-primary gap-2 px-7 py-4 text-base">
-              Quiero mi auditoría gratuita <ArrowRight size={18} />
+              Contactanos <ArrowRight size={18} />
             </a>
           </motion.div>
 
