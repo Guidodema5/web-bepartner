@@ -10,6 +10,7 @@ import ProblemSection from '@/components/ProblemSection'
 import LeadsBasura from '@/components/LeadsBasura'
 import Resultado from '@/components/Resultado'
 import CaseStudy from '@/components/CaseStudy'
+import PortalSection from '@/components/PortalSection'
 import CTAForm from '@/components/CTAForm'
 import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
@@ -38,6 +39,7 @@ export default function Home() {
         <WheelsSection />
         <ForWhomSection />
         <CaseStudy />
+        <PortalSection />
         <Resultado />
         <PorQue />
         <CTAForm />
