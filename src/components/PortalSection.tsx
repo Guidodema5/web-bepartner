@@ -9,19 +9,15 @@ import { Cpu, Sparkles, BarChart3, Target } from 'lucide-react'
 const features = [
   {
     icon: Sparkles,
-    title: 'Tu contenido de la semana, listo para grabar.',
-    description:
-      'Ideas pensadas para tu cliente ideal, con la guía de cada video: cómo arranca, qué mostrar y ejemplos reales. Detrás está el método con el que trabajamos tus campañas.',
+    title: 'Qué grabar cada semana, con la guía de cada video.',
   },
   {
     icon: BarChart3,
     title: 'Tus leads y tu costo por lead, al día.',
-    description: 'Semana a semana y mes a mes, sin esperar reportes. Ves cuántos leads te entraron y cuánto te costó cada uno.',
   },
   {
     icon: Target,
     title: 'Qué campaña te trae los mejores leads.',
-    description: 'La más eficiente, la que más volumen trae y cómo viene tu costo por lead contra el período anterior.',
   },
 ]
 
@@ -41,15 +37,12 @@ export default function PortalSection() {
                 <Cpu size={13} className="text-violeta-300" />
                 <span className="section-label-noche">Nuestra app</span>
               </div>
-              <h2 className="section-title mt-2 text-noche-texto">
-                Cada semana sabés qué grabar y cuántos leads te trae cada campaña.
+              <h2 className="section-title mb-8 mt-2 text-noche-texto">
+                Tu contenido y tus leads, en una sola app.
               </h2>
-              <p className="mb-8 mt-4 text-lg text-noche-suave">
-                La app que acompaña nuestro servicio: tu contenido armado con la estrategia de Bepartner y tus números claros, todo en un mismo lugar.
-              </p>
             </motion.div>
 
-            <div className="mb-8 space-y-5">
+            <div className="space-y-4">
               {features.map((f, i) => {
                 const Icon = f.icon
                 return (
@@ -64,30 +57,12 @@ export default function PortalSection() {
                     <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-noche-linea bg-noche-superficie-2 text-violeta-300">
                       <Icon size={17} strokeWidth={1.75} />
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-noche-texto">{f.title}</h4>
-                      <p className="mt-1 text-sm leading-relaxed text-noche-suave">{f.description}</p>
-                    </div>
+                    <p className="self-center font-medium text-noche-texto">{f.title}</p>
                   </motion.div>
                 )
               })}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
-              <a
-                href="https://bepartnerclientes.com.ar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-sm"
-              >
-                Acceso clientes
-              </a>
-            </motion.div>
           </div>
 
           {/* La app con datos de ejemplo de un cliente de leads (09/11/2026); dice "Datos de ejemplo" en la imagen */}
