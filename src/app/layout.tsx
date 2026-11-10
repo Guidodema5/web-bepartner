@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   // La dirección oficial es con www: bepartner.lat redirige ahí (Vercel).
   metadataBase: new URL('https://www.bepartner.lat'),
   title: {
-    default: 'Agencia especializada en leads calificados | Bepartner',
+    default: 'Bepartner | Agencia de leads calificados',
     template: '%s | Bepartner',
   },
   description:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://www.bepartner.lat',
     siteName: 'Bepartner',
-    title: 'Agencia especializada en leads calificados | Bepartner',
+    title: 'Bepartner | Agencia de leads calificados',
     description:
       'Agencia especializada en leads: conseguí clientes calificados todos los meses con anuncios en Meta y Google. Para negocios de servicios, mayoristas e inmobiliarias.',
     images: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Agencia especializada en leads calificados | Bepartner',
+    title: 'Bepartner | Agencia de leads calificados',
     description:
       'Agencia especializada en leads: conseguí clientes calificados todos los meses con anuncios en Meta y Google. Para negocios de servicios, mayoristas e inmobiliarias.',
     images: ['/og-image.jpg'],
