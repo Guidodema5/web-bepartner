@@ -16,7 +16,6 @@ import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import ScrollSpyNav from '@/components/ScrollSpyNav'
-import BlogPortada from '@/components/BlogPortada'
 import { faqs } from '@/data/faqs'
 
 // Preguntas frecuentes para Google: las mismas que se ven en la sección FAQ de la portada.
@@ -44,7 +43,6 @@ export default function Home() {
         <PorQue />
         <CTAForm />
         <FAQ />
-        <BlogPortada />
       </main>
       <Footer />
       <WhatsAppButton />

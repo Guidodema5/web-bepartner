@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Instagram, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 
-// Solo lo más importante en el menú (Guido, 09/11/2026). El logo lleva al inicio; el resto de las secciones está en el pie.
+// Solo lo más importante en el menú (Guido, 09/11/2026). El logo lleva al inicio; el resto de las secciones y el blog
+// están en el pie: el blog es para Google, no para mostrarlo arriba.
 const navLinks = [
   { label: 'Caso de éxito', href: '/#caso-exito' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Contacto', href: '/#contacto' },
 ]
 
