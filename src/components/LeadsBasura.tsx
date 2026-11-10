@@ -2,17 +2,13 @@
 
 import { motion } from 'framer-motion'
 
-const ecuacion = [
-  { texto: 'Muchos leads', tipo: 'dato' },
-  { texto: 'y', tipo: 'signo' },
-  { texto: 'Poca conversión', tipo: 'dato' },
-  { texto: '=', tipo: 'signo' },
-  { texto: 'Leads basura', tipo: 'resultado' },
-] as const
+// 24 consultas: solo una termina comprando. Es un dibujo para explicar la idea, no un dato.
+const CONSULTAS = 24
+const COMPRA = 17
 
 /**
- * El problema en una línea (Guido, 09/11/2026), arriba de "Si sentís que...". Guido pidió "el 90%": queda "la mayoría"
- * hasta tener un dato que respalde el porcentaje.
+ * El problema en una línea (Guido, 09/11/2026), arriba de "Si sentís que...": "Muchos leads y poca conversión", con un
+ * dibujo de muchas consultas y una sola que compra. Guido pidió "el 90%": queda "la mayoría" hasta tener un dato.
  */
 export default function LeadsBasura() {
   return (
@@ -22,31 +18,29 @@ export default function LeadsBasura() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="mx-auto max-w-5xl text-center"
+        className="tarjeta mx-auto max-w-5xl overflow-hidden p-8 text-center sm:p-12"
       >
-        <h2 className="section-title mx-auto max-w-3xl">
-          La mayoría de los negocios que hacen publicidad tienen el mismo problema
+        <p className="section-label">La mayoría de los negocios que hacen publicidad tienen el mismo problema</p>
+        <h2 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.1] tracking-tight text-text-heading sm:text-5xl lg:text-6xl">
+          Muchos leads <span className="text-text-secondary">y</span>{' '}
+          <span className="text-status-negative">poca conversión.</span>
         </h2>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          {ecuacion.map((x) =>
-            x.tipo === 'signo' ? (
-              <span key={x.texto} className="font-display text-3xl font-semibold text-text-secondary sm:text-4xl">
-                {x.texto}
-              </span>
-            ) : (
-              <span
-                key={x.texto}
-                className={`rounded-2xl border px-5 py-3 font-display text-xl font-semibold tracking-tight sm:px-6 sm:py-4 sm:text-2xl ${
-                  x.tipo === 'resultado'
-                    ? 'border-status-negative/30 bg-status-negative/10 text-status-negative'
-                    : 'border-linea bg-surface-card text-text-heading'
-                }`}
-              >
-                {x.texto}
-              </span>
-            ),
-          )}
+
+        <div className="mx-auto mt-10 grid max-w-sm grid-cols-8 gap-2.5 sm:gap-3" aria-hidden="true">
+          {Array.from({ length: CONSULTAS }, (_, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, scale: 0.4 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.3, delay: 0.2 + i * 0.03 }}
+              className={`aspect-square rounded-full ${i === COMPRA ? 'bg-brand-violet shadow-brillo' : 'bg-linea-fuerte'}`}
+            />
+          ))}
         </div>
+        <p className="mt-6 text-[15px] text-text-secondary">
+          Te llegan consultas todos los días, pero casi <span className="font-medium text-violeta-600">ninguna compra</span>.
+        </p>
       </motion.div>
     </section>
   )
