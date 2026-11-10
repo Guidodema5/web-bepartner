@@ -8,7 +8,7 @@ const pilares = [
   { icon: Users, title: '1. Tu cliente ideal', text: 'Quién te compra de verdad y dónde está.' },
   { icon: Gift, title: '2. Tu propuesta de valor', text: 'Por qué te tiene que elegir a vos y no a otro.' },
   { icon: MonitorSmartphone, title: '3. Tu página web', text: 'Que la visita se convierta en un contacto para tu equipo.' },
-  { icon: Megaphone, title: '4. Tu comunicación', text: 'Anuncios que le hablan solo a ese cliente.' },
+  { icon: Megaphone, title: '4. Tu comunicación', text: 'Contenido que le hable solo a ese cliente y que venda.' },
 ]
 
 export default function WheelsSection() {
