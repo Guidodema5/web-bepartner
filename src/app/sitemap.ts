@@ -4,7 +4,9 @@ import { rubros } from '@/data/rubros'
 import { SITIO } from '@/lib/seo'
 
 // Todas las páginas que queremos en Google (Guido, 09/11/2026). /gracias y /programa quedan afuera a propósito.
-const ACTUALIZADO = '2026-11-09'
+// La portada, las guías y el blog llevan la fecha de cada publicación: cada cambio que subimos le avisa a Google que
+// vuelva a pasar. Las notas llevan su propia fecha (o la de "actualizada" cuando se corrigen).
+const ACTUALIZADO = new Date().toISOString()
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

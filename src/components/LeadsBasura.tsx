@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const ecuacion = [
   { texto: 'Muchos leads', tipo: 'dato' },
-  { texto: '+', tipo: 'signo' },
+  { texto: 'y', tipo: 'signo' },
   { texto: 'Poca conversión', tipo: 'dato' },
   { texto: '=', tipo: 'signo' },
   { texto: 'Leads basura', tipo: 'resultado' },
