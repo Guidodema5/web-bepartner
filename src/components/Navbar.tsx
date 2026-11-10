@@ -5,11 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Instagram, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 
+// Solo lo más importante en el menú (Guido, 09/11/2026). El logo lleva al inicio; el resto de las secciones está en el pie.
 const navLinks = [
-  { label: 'Inicio', href: '/#inicio' },
   { label: 'Caso de éxito', href: '/#caso-exito' },
-  { label: 'El resultado', href: '/#resultado' },
-  { label: 'Por qué nosotros', href: '/#por-que' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contacto', href: '/#contacto' },
 ]
