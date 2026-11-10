@@ -38,8 +38,8 @@ export default function Home() {
         <WheelsSection />
         <ForWhomSection />
         <CaseStudy />
-        <PortalSection />
         <Resultado />
+        <PortalSection />
         <PorQue />
         <CTAForm />
         <FAQ />

@@ -12,15 +12,16 @@ const antesDespues = [
   { cuando: 'Hoy', numero: 'Unos 13.000', detalle: 'leads calificados por mes, y en crecimiento', destacado: true },
 ]
 
-// Empresas que confiaron en Bepartner (Guido, 05/11/2026). deRentas ya está en el caso de arriba, así que no se repite
-// acá (09/11/2026); Para Casa va al centro, más grande y sin atenuar.
+// Empresas que confiaron en Bepartner (Guido, 05/11/2026). deRentas y Para Casa juntas al centro, más grandes y sin
+// atenuar (09/11/2026); las demás a los costados.
 const empresas = [
-  { nombre: 'Green Power', logo: '/images/logo-greenpower.png', alto: 'h-14', ancho: 'w-24' },
-  { nombre: 'Le Mardē', logo: '/images/logo-lemarde.png', alto: 'h-6', ancho: 'w-24' },
+  { nombre: 'Green Power', logo: '/images/logo-greenpower.png', alto: 'h-14', ancho: 'w-20' },
+  { nombre: 'Le Mardē', logo: '/images/logo-lemarde.png', alto: 'h-6', ancho: 'w-20' },
+  { nombre: 'deRentas', logo: '/images/logo-derentas.svg', alto: 'h-12', ancho: 'w-44', destacada: true },
   { nombre: 'Para Casa', logo: '/images/logo-paracasa.png', alto: 'h-14', ancho: 'w-48', destacada: true },
-  { nombre: 'Pullbag', logo: '/images/logo-pullbag.svg', alto: 'h-6', ancho: 'w-24' },
-  { nombre: 'Destore', logo: '/images/logo-destore.png', alto: 'h-4', ancho: 'w-24' },
-  { nombre: 'Victor Gemas', logo: '/images/logo-victorgemas.png', alto: 'h-8', ancho: 'w-24' },
+  { nombre: 'Pullbag', logo: '/images/logo-pullbag.svg', alto: 'h-6', ancho: 'w-20' },
+  { nombre: 'Destore', logo: '/images/logo-destore.png', alto: 'h-4', ancho: 'w-20' },
+  { nombre: 'Victor Gemas', logo: '/images/logo-victorgemas.png', alto: 'h-8', ancho: 'w-20' },
 ]
 
 export default function CaseStudy() {
@@ -90,7 +91,7 @@ export default function CaseStudy() {
           className="mt-14"
         >
           <p className="section-label-noche mb-8 text-center">Empresas que confiaron en nosotros</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8">
             {empresas.map((e) => (
               <div key={e.nombre} className={`relative ${e.ancho} ${e.alto}`}>
                 <Image
