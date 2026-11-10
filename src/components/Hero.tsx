@@ -87,7 +87,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p {...aparecer(0.16)} className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-noche-suave sm:text-xl lg:mx-0">
-            Te instalamos un sistema con nuestra propia metodología para que consigas leads de calidad con anuncios.
+            Te instalamos un sistema con nuestra propia metodología para que consigas leads de calidad con anuncios, sin que pagues por consultas que no compran.
           </motion.p>
 
           <motion.div {...aparecer(0.24)} className="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
