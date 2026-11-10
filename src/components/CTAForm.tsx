@@ -75,10 +75,10 @@ export default function CTAForm() {
         >
           <span className="section-label-noche inline-flex items-center gap-2 rounded-full border border-noche-linea-fuerte px-3.5 py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-violeta-300" />
-            Auditoría gratuita · Cupos limitados por mes
+            Contacto
           </span>
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-noche-texto sm:text-4xl lg:text-5xl">
-            Pedí tu auditoría gratuita
+            Contactanos
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-noche-suave">
             Dejanos tus datos y te escribimos para coordinar la llamada. Revisamos tu negocio con vos y te decimos qué ajustar primero.

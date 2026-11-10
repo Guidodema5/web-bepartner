@@ -12,15 +12,18 @@ const antesDespues = [
   { cuando: 'Hoy', numero: 'Unos 13.000', detalle: 'leads calificados por mes, y en crecimiento', destacado: true },
 ]
 
-// Empresas que confiaron en Bepartner (Guido, 05/11/2026): todas, en una grilla debajo del caso de bandera.
+// Empresas que confiaron en Bepartner (Guido, 05/11/2026). deRentas y Para Casa al centro y más grandes (09/11/2026):
+// son los casos de servicios; las demás van debajo, más chicas.
+const destacadas = [
+  { nombre: 'deRentas', logo: '/images/logo-derentas.svg' },
+  { nombre: 'Para Casa', logo: '/images/logo-paracasa.png' },
+]
 const empresas = [
-  { nombre: 'deRentas', logo: '/images/logo-derentas.svg', alto: 'h-8' },
-  { nombre: 'Para Casa', logo: '/images/logo-paracasa.png', alto: 'h-9' },
-  { nombre: 'Green Power', logo: '/images/logo-greenpower.png', alto: 'h-12' },
-  { nombre: 'Le Mardē', logo: '/images/logo-lemarde.png', alto: 'h-7' },
-  { nombre: 'Pullbag', logo: '/images/logo-pullbag.svg', alto: 'h-7' },
-  { nombre: 'Destore', logo: '/images/logo-destore.png', alto: 'h-5' },
-  { nombre: 'Victor Gemas', logo: '/images/logo-victorgemas.png', alto: 'h-9' },
+  { nombre: 'Green Power', logo: '/images/logo-greenpower.png', alto: 'h-14' },
+  { nombre: 'Le Mardē', logo: '/images/logo-lemarde.png', alto: 'h-6' },
+  { nombre: 'Pullbag', logo: '/images/logo-pullbag.svg', alto: 'h-6' },
+  { nombre: 'Destore', logo: '/images/logo-destore.png', alto: 'h-4' },
+  { nombre: 'Victor Gemas', logo: '/images/logo-victorgemas.png', alto: 'h-8' },
 ]
 
 export default function CaseStudy() {
@@ -90,10 +93,17 @@ export default function CaseStudy() {
           className="mt-14"
         >
           <p className="section-label-noche mb-8 text-center">Empresas que confiaron en nosotros</p>
-          <div className="grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-4 lg:grid-cols-7">
+          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
+            {destacadas.map((e) => (
+              <div key={e.nombre} className="relative h-14 w-52 sm:h-16 sm:w-60">
+                <Image src={e.logo} alt={e.nombre} fill sizes="240px" className="object-contain" />
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-10 gap-y-6 border-t border-noche-linea pt-10">
             {empresas.map((e) => (
-              <div key={e.nombre} className={`relative mx-auto w-full max-w-[120px] ${e.alto}`}>
-                <Image src={e.logo} alt={e.nombre} fill sizes="120px" className="object-contain opacity-80 transition-opacity hover:opacity-100" />
+              <div key={e.nombre} className={`relative w-24 ${e.alto}`}>
+                <Image src={e.logo} alt={e.nombre} fill sizes="96px" className="object-contain opacity-60 transition-opacity hover:opacity-100" />
               </div>
             ))}
           </div>

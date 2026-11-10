@@ -2,18 +2,32 @@
 
 import { motion } from 'framer-motion'
 import Llamado from './Llamado'
-import { Briefcase, Building2, XCircle } from 'lucide-react'
+import { ArrowRight, Briefcase, Building2, Handshake, Home, XCircle } from 'lucide-react'
 
+// Para quién es (Guido, 09/11/2026): inmobiliarias, servicios, mayoristas y B2B. Cada una enlaza a su guía.
 const doors = [
   {
+    icon: Home,
+    title: 'Inmobiliarias y agentes inmobiliarios',
+    text: 'Querés captar propietarios y conseguir compradores con presupuesto real, sin depender solo de los portales.',
+    guia: '/leads-para/inmobiliarias',
+  },
+  {
     icon: Briefcase,
-    title: 'Si tenés un negocio de servicios:',
+    title: 'Negocios de servicios',
     text: 'Vendés bien por recomendación, pero querés clientes nuevos todos los meses sin depender del boca en boca.',
+    guia: '/leads-para/empresas-de-servicios',
   },
   {
     icon: Building2,
-    title: 'Si sos mayorista o una empresa:',
-    text: 'Tenés vendedores y clientes fieles, y querés que la publicidad te traiga contactos que tu equipo pueda cerrar.',
+    title: 'Mayoristas y fábricas',
+    text: 'Querés sumar comercios y revendedores que compren por mayor, no consultas de una sola unidad.',
+    guia: '/leads-para/mayoristas',
+  },
+  {
+    icon: Handshake,
+    title: 'Empresas B2B',
+    text: 'Tenés vendedores y querés que la publicidad les traiga reuniones con empresas que pueden comprarte.',
   },
 ]
 
@@ -36,6 +50,9 @@ export default function ForWhomSection() {
           className="mb-10 text-center"
         >
           <h2 className="section-title">¿Esto es para vos?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
+            Trabajamos con negocios que ya venden y quieren clientes calificados todos los meses.
+          </p>
         </motion.div>
 
         <div className="mb-8 grid gap-6 md:grid-cols-2">
@@ -48,13 +65,18 @@ export default function ForWhomSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
-                className="tarjeta p-6"
+                className="tarjeta flex flex-col p-6"
               >
                 <div className="icono mb-4 h-11 w-11">
                   <Icon size={20} strokeWidth={1.75} />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-text-heading">{d.title}</h3>
                 <p className="text-text-primary">{d.text}</p>
+                {d.guia && (
+                  <a href={d.guia} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-violeta-600 hover:text-violeta-700">
+                    Cómo lo hacemos <ArrowRight size={15} />
+                  </a>
+                )}
               </motion.div>
             )
           })}
@@ -77,7 +99,7 @@ export default function ForWhomSection() {
             ))}
           </div>
         </motion.div>
-        <Llamado texto="Si te viste en alguna de las dos, hablemos." whatsapp />
+        <Llamado texto="Si te viste en alguna, hablemos." whatsapp />
       </div>
     </section>
   )
