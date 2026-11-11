@@ -22,7 +22,7 @@ export default function ForWhomSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-10 text-center"
         >
-          <h2 className="section-title">¿Esto es para vos?</h2>
+          <h2 className="section-title">Esto no es para vos si…</h2>
         </motion.div>
 
         {/* Lo que no tomamos como trabajo (Guido, 09/11/2026): es lo central de la sección */}
@@ -32,7 +32,6 @@ export default function ForWhomSection() {
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <p className="mb-6 text-center text-xl font-semibold text-text-heading sm:text-2xl">No es para vos si:</p>
           <div className="grid gap-4 sm:grid-cols-2">
             {noItems.map((item) => (
               <div key={item} className="tarjeta flex items-center gap-4 p-6">

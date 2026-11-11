@@ -15,13 +15,13 @@ const antesDespues = [
 // Empresas que confiaron en Bepartner (Guido, 05/11/2026). deRentas y Para Casa juntas al centro, más grandes y sin
 // atenuar (09/11/2026); las demás a los costados.
 const empresas = [
-  { nombre: 'Green Power', logo: '/images/logo-greenpower.png', alto: 'h-14', ancho: 'w-20' },
-  { nombre: 'Le Mardē', logo: '/images/logo-lemarde.png', alto: 'h-6', ancho: 'w-20' },
+  { nombre: 'Green Power', logo: '/images/logo-greenpower.png', alto: 'h-14', ancho: 'w-16' },
+  { nombre: 'Le Mardē', logo: '/images/logo-lemarde.png', alto: 'h-6', ancho: 'w-16' },
   { nombre: 'deRentas', logo: '/images/logo-derentas.svg', alto: 'h-12', ancho: 'w-44', destacada: true },
   { nombre: 'Para Casa', logo: '/images/logo-paracasa.png', alto: 'h-14', ancho: 'w-48', destacada: true },
-  { nombre: 'Pullbag', logo: '/images/logo-pullbag.svg', alto: 'h-6', ancho: 'w-20' },
-  { nombre: 'Destore', logo: '/images/logo-destore.png', alto: 'h-4', ancho: 'w-20' },
-  { nombre: 'Victor Gemas', logo: '/images/logo-victorgemas.png', alto: 'h-8', ancho: 'w-20' },
+  { nombre: 'Pullbag', logo: '/images/logo-pullbag.svg', alto: 'h-6', ancho: 'w-16' },
+  { nombre: 'Destore', logo: '/images/logo-destore.png', alto: 'h-4', ancho: 'w-16' },
+  { nombre: 'Victor Gemas', logo: '/images/logo-victorgemas.png', alto: 'h-8', ancho: 'w-16' },
 ]
 
 export default function CaseStudy() {
@@ -91,18 +91,23 @@ export default function CaseStudy() {
           className="mt-14"
         >
           <p className="section-label-noche mb-8 text-center">Empresas que confiaron en nosotros</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8">
-            {empresas.map((e) => (
-              <div key={e.nombre} className={`relative ${e.ancho} ${e.alto}`}>
-                <Image
-                  src={e.logo}
-                  alt={e.nombre}
-                  fill
-                  sizes="192px"
-                  className={`object-contain ${e.destacada ? '' : 'opacity-60 transition-opacity hover:opacity-100'}`}
-                />
-              </div>
-            ))}
+          {/* Las dos resaltadas quedan en el centro exacto; las demás, repartidas a los costados (en el celular, debajo). */}
+          <div className="grid items-center gap-y-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-x-10">
+            <div className="flex items-center justify-center gap-x-10 lg:order-2">
+              {empresas.filter((e) => e.destacada).map((e) => (
+                <Logo key={e.nombre} e={e} />
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-6 lg:order-1 lg:justify-end">
+              {empresas.filter((e) => !e.destacada).slice(0, 3).map((e) => (
+                <Logo key={e.nombre} e={e} />
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-6 lg:order-3 lg:justify-start">
+              {empresas.filter((e) => !e.destacada).slice(3).map((e) => (
+                <Logo key={e.nombre} e={e} />
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -119,5 +124,14 @@ export default function CaseStudy() {
         </motion.div>
       </div>
     </section>
+  )
+}
+
+function Logo({ e }: { e: (typeof empresas)[number] }) {
+  const destacada = 'destacada' in e && e.destacada
+  return (
+    <div className={`relative ${e.ancho} ${e.alto}`}>
+      <Image src={e.logo} alt={e.nombre} fill sizes="192px" className={`object-contain ${destacada ? '' : 'opacity-60 transition-opacity hover:opacity-100'}`} />
+    </div>
   )
 }

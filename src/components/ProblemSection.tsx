@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Llamado from './Llamado'
 import { X } from 'lucide-react'
 
 const painPoints = [
@@ -22,7 +21,7 @@ export default function ProblemSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="mb-4"
         >
-          <span className="section-label">¿Te identificás?</span>
+          <span className="section-label">Lo que más escuchamos</span>
         </motion.div>
 
         <motion.h2
@@ -32,7 +31,7 @@ export default function ProblemSection() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="section-title mb-10"
         >
-          Si sentís que...
+          ¿Te pasa algo de esto?
         </motion.h2>
 
         <div className="grid gap-4 sm:grid-cols-2">
@@ -52,7 +51,6 @@ export default function ProblemSection() {
             </motion.div>
           ))}
         </div>
-        <Llamado texto="¿Te identificaste con alguna? En la auditoría vemos por qué tus anuncios no te traen clientes." />
       </div>
     </section>
   )
