@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { animate, motion, useInView } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { medir, IconoWhatsApp, WHATSAPP_URL } from './Llamado'
@@ -10,6 +11,26 @@ const aparecer = (delay: number) => ({
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const, delay },
 })
+
+// Los números de Bepartner (los mismos que tenía la portada anterior; Guido, 11/11/2026: que vuelvan abajo de deRentas).
+const numeros = [
+  { valor: 100, antes: '+', despues: 'K', texto: 'USD en pauta gestionada' },
+  { valor: 48, antes: '+', despues: '', texto: 'casos de éxito' },
+  { valor: 6, antes: '+', despues: ' años', texto: 'de experiencia' },
+]
+
+/** Cuenta de 0 al número cuando aparece en pantalla. */
+function Contador({ hasta }: { hasta: number }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const visible = useInView(ref, { once: true, amount: 0.5 })
+  const [valor, setValor] = useState(0)
+  useEffect(() => {
+    if (!visible) return
+    const c = animate(0, hasta, { duration: 1.8, ease: 'easeOut', onUpdate: (v) => setValor(Math.round(v)) })
+    return c.stop
+  }, [visible, hasta])
+  return <span ref={ref}>{valor}</span>
+}
 
 /**
  * Portada (Guido, 09/11/2026): una sola columna, oscura y centrada, sin gráfico. Etiqueta, título grande, la frase de
@@ -72,6 +93,23 @@ export default function Hero() {
           <span className="relative h-10 w-40">
             <Image src="/images/logo-derentas.svg" alt="deRentas" fill sizes="160px" className="object-contain" priority />
           </span>
+        </motion.div>
+
+        {/* Los números de Bepartner, abajo de deRentas */}
+        <motion.div
+          {...aparecer(0.44)}
+          className="mx-auto mt-12 grid max-w-3xl grid-cols-3 divide-x divide-noche-linea rounded-2xl border border-noche-linea bg-white/[0.03] py-6 backdrop-blur"
+        >
+          {numeros.map((n) => (
+            <div key={n.texto} className="px-3 text-center">
+              <p className="whitespace-nowrap font-display text-[28px] font-semibold tracking-tight text-noche-texto tabular-nums sm:text-[40px]">
+                {n.antes}
+                <Contador hasta={n.valor} />
+                {n.despues}
+              </p>
+              <p className="mt-1 text-[12.5px] text-noche-suave sm:text-[14px]">{n.texto}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
