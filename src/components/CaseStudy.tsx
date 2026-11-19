@@ -130,6 +130,9 @@ export default function CaseStudy() {
               />
             </div>
             <figcaption className="flex flex-col justify-center p-6 sm:p-10">
+              <div className="relative mb-6 h-7 w-52 sm:h-8 sm:w-60">
+                <Image src="/images/logo-coldwell-banker.svg" alt="Coldwell Banker" fill sizes="240px" className="object-contain object-left" />
+              </div>
               <p className="font-display text-2xl font-semibold leading-snug tracking-tight text-noche-texto sm:text-3xl">
                 Expusimos nuestro sistema de adquisición de clientes ante el equipo de Coldwell Banker Wings.
               </p>
