@@ -111,6 +111,36 @@ export default function CaseStudy() {
           </div>
         </motion.div>
 
+        {/* Prueba de autoridad: Guido exponiendo el método en una inmobiliaria */}
+        <motion.figure
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="tarjeta-noche mt-14 overflow-hidden"
+        >
+          <div className="grid md:grid-cols-[1.1fr_1fr]">
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[340px]">
+              <Image
+                src="/images/guido-coldwell-banker.webp"
+                alt="Guido Demaria exponiendo el sistema de adquisición de clientes de Bepartner en Coldwell Banker Wings"
+                fill
+                sizes="(min-width: 768px) 560px, 100vw"
+                className="object-cover object-[75%_35%]"
+              />
+            </div>
+            <figcaption className="flex flex-col justify-center p-6 sm:p-10">
+              <p className="section-label-noche">Nos llaman para enseñarlo</p>
+              <p className="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight text-noche-texto sm:text-3xl">
+                Expusimos nuestro sistema de adquisición de clientes ante el equipo de Coldwell Banker Wings.
+              </p>
+              <p className="mt-4 text-[15px] leading-relaxed text-noche-suave">
+                Guido Demaria, fundador de Bepartner, mostrando cómo pasar de depender de referidos y portales a conseguir clientes calificados con anuncios.
+              </p>
+            </figcaption>
+          </div>
+        </motion.figure>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
