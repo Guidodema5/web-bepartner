@@ -130,8 +130,7 @@ export default function CaseStudy() {
               />
             </div>
             <figcaption className="flex flex-col justify-center p-6 sm:p-10">
-              <p className="section-label-noche">Nos llaman para enseñarlo</p>
-              <p className="mt-3 font-display text-2xl font-semibold leading-snug tracking-tight text-noche-texto sm:text-3xl">
+              <p className="font-display text-2xl font-semibold leading-snug tracking-tight text-noche-texto sm:text-3xl">
                 Expusimos nuestro sistema de adquisición de clientes ante el equipo de Coldwell Banker Wings.
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-noche-suave">
