@@ -5,10 +5,10 @@ import { Users, Gift, Megaphone, MonitorSmartphone, Fuel } from 'lucide-react'
 
 // Por qué pasa y el método (Guido, 05/11/2026): lo que ordenamos antes de invertir en pauta.
 const pilares = [
-  { icon: Users, title: '1. Tu cliente ideal', text: 'Quién te compra de verdad y dónde está.' },
-  { icon: Gift, title: '2. Tu propuesta de valor', text: 'Por qué te tiene que elegir a vos y no a otro.' },
-  { icon: MonitorSmartphone, title: '3. Tu página web', text: 'Que la visita se convierta en un contacto para tu equipo.' },
-  { icon: Megaphone, title: '4. Tu comunicación', text: 'Contenido que le hable solo a ese cliente y que venda.' },
+  { icon: Users, title: '1. A quién le vendés', text: 'Quién te compra de verdad y dónde está.' },
+  { icon: Gift, title: '2. Por qué te eligen', text: 'Por qué te tiene que elegir a vos y no a otro.' },
+  { icon: Megaphone, title: '3. Qué le decís y dónde', text: 'Contenido que le hable solo a ese cliente y que venda.' },
+  { icon: MonitorSmartphone, title: '4. Una página que filtra', text: 'Que la visita se convierta en un contacto para tu equipo.' },
 ]
 
 export default function WheelsSection() {
@@ -24,13 +24,16 @@ export default function WheelsSection() {
         >
           <span className="section-label">Por qué pasa</span>
           <h2 className="section-title mt-3">
-            El problema no son los anuncios. Es lo que falta antes de pautar.
+            El problema no son los anuncios. Es lo que falta antes de prender la publicidad.
           </h2>
           <p className="mt-5 text-lg text-text-secondary">
             Antes de invertir un peso en pauta, ordenamos lo que hace que te consulte el que te puede comprar:
           </p>
         </motion.div>
 
+        <h3 className="mb-6 text-center font-display text-2xl font-semibold tracking-tight text-text-heading">
+          Nuestro sistema de 4 pilares
+        </h3>
 
         <div className="grid gap-4 sm:grid-cols-2">
           {pilares.map((w, i) => {
@@ -65,7 +68,7 @@ export default function WheelsSection() {
         >
           <Fuel size={20} strokeWidth={1.75} className="flex-shrink-0 text-violeta-600" />
           <p className="font-medium">
-            Con eso armado, la publicidad empieza a rendir.
+            La publicidad es la nafta: la prendemos cuando el sistema está armado, para que lo multiplique.
           </p>
         </motion.div>
       </div>
