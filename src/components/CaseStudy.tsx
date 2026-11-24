@@ -9,7 +9,7 @@ import { ArrowRight } from 'lucide-react'
 // blueprint. Los casos de tiendas online salieron de la página principal.
 const antesDespues = [
   { cuando: 'Antes', numero: 'Unas 1.000', detalle: 'consultas por mes, poco calificadas', destacado: false },
-  { cuando: 'Hoy', numero: 'Unos 13.000', detalle: 'leads calificados por mes, y en crecimiento', destacado: true },
+  { cuando: 'Hoy', numero: 'Unos 13.000', detalle: 'clientes calificados por mes, y en crecimiento', destacado: true },
 ]
 
 // Empresas que confiaron en Bepartner (Guido, 05/11/2026). deRentas y Para Casa juntas al centro, más grandes y sin
@@ -46,7 +46,7 @@ export default function CaseStudy() {
         >
           <span className="section-label-noche">Caso de éxito</span>
           <h2 className="mb-3 mt-3 font-display text-3xl font-semibold tracking-tight text-noche-texto sm:text-4xl lg:text-5xl">
-            deRentas: de consultas que no servían a leads calificados todos los meses
+            deRentas: de consultas que no servían a clientes calificados todos los meses
           </h2>
         </motion.div>
 
@@ -66,7 +66,7 @@ export default function CaseStudy() {
             <div className="p-6 sm:p-8">
               <p className="text-sm text-noche-suave">deRentas · La empresa N°1 de alquiler de autos para Uber</p>
               <p className="mt-3 text-lg leading-relaxed text-noche-texto">
-                Ya vendían bien, pero sus anuncios les traían gente que no servía. Les manejamos toda la publicidad digital con nuestra metodología.
+                Antes de trabajar con nosotros eran una pyme sin una estrategia para conseguir clientes de forma constante: dependían de los métodos tradicionales. Hoy son la empresa N°1 de su industria, las redes sociales son su principal canal para conseguir clientes y su sistema es el que imita toda la competencia.
               </p>
             </div>
           </div>
