@@ -66,7 +66,7 @@ export default function CaseStudy() {
             <div className="p-6 sm:p-8">
               <p className="text-sm text-noche-suave">deRentas · De PYME a la empresa N°1 de alquiler de autos para Uber</p>
               <p className="mt-3 text-lg leading-relaxed text-noche-texto">
-                Antes de trabajar con nosotros no tenían una estrategia para conseguir clientes calificados: dependían de los métodos tradicionales, con el WhatsApp explotado de consultas. Hoy son la empresa N°1 de su industria, las redes sociales son su principal canal para conseguir clientes y su sistema es el que imita toda la competencia.
+                Antes de trabajar con nosotros no tenían una estrategia para conseguir clientes calificados: dependían de los métodos tradicionales, con el WhatsApp explotado de consultas. Hoy son la empresa N°1 de su industria y las redes sociales son su principal canal para conseguir clientes.
               </p>
             </div>
           </div>
