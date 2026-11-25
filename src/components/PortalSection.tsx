@@ -3,21 +3,21 @@
 import { motion } from 'framer-motion'
 import Llamado from './Llamado'
 import Image from 'next/image'
-import { Cpu, Sparkles, BarChart3, Target } from 'lucide-react'
+import { Cpu, Sparkles, BarChart3, UserCheck } from 'lucide-react'
 
 // La app para clientes, con lo que ve un cliente de leads (Guido, 09/11/2026: vuelve a la portada después del caso).
 const features = [
   {
+    icon: UserCheck,
+    title: 'Análisis post-lead: el seguimiento de cada contacto hasta que compra.',
+  },
+  {
     icon: Sparkles,
-    title: 'Qué grabar cada semana, con la guía de cada video.',
+    title: 'Sistemas con IA a medida de tu negocio.',
   },
   {
     icon: BarChart3,
-    title: 'Tus leads y tu costo por lead, al día.',
-  },
-  {
-    icon: Target,
-    title: 'Qué campaña te trae los mejores leads.',
+    title: 'Tu tablero semanal: leads, costo por lead y qué campaña trae los mejores.',
   },
 ]
 
@@ -38,7 +38,7 @@ export default function PortalSection() {
                 <span className="section-label-noche">Nuestra app</span>
               </div>
               <h2 className="section-title mb-8 mt-2 text-noche-texto">
-                Tu contenido y tus leads, en una sola app.
+                Cada contacto, de la consulta a la venta, en una sola app.
               </h2>
             </motion.div>
 

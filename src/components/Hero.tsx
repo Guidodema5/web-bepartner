@@ -74,7 +74,7 @@ export default function Hero() {
 
         <motion.div {...aparecer(0.24)} className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a href="#contacto" onClick={() => medir('ClicAuditoria', { ubicacion: 'Portada' })} className="btn-primary gap-2 px-8 py-4 text-base">
-            Contactanos <ArrowRight size={18} />
+            Quiero mi diagnóstico <ArrowRight size={18} />
           </a>
           <a
             href={WHATSAPP_URL}

@@ -6,6 +6,7 @@ import { Check, X } from 'lucide-react'
 
 // Agencias tradicionales vs. Bepartner, con la frase del fundador (Guido, 05/11/2026).
 const agencias = [
+  'Te llenan el WhatsApp de consultas y no te aumentan las ventas.',
   'Prenden campañas sin conocer tu negocio.',
   'Te muestran clics y alcance, no clientes.',
   'Te pasan el lead y se olvidan.',
@@ -31,6 +32,9 @@ export default function PorQue() {
         >
           <span className="section-label">Por qué Bepartner</span>
           <h2 className="section-title mt-3">No somos una agencia más</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
+            6 años. Hoy nos dedicamos a una sola cosa: conseguirte clientes calificados.
+          </p>
         </motion.div>
 
         <div className="grid gap-4 md:grid-cols-2">

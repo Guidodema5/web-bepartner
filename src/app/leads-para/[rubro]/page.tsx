@@ -60,7 +60,7 @@ export default function GuiaRubro({ params }: { params: { rubro: string } }) {
         <span className="section-label">Agencia especializada en leads · {r.nombre}</span>
         <h1 className="mt-3 font-display text-4xl font-semibold leading-tight tracking-tight text-text-heading sm:text-5xl">{r.h1}</h1>
         <p className="mt-5 text-xl leading-relaxed text-text-secondary">{r.bajada}</p>
-        <a href="/#contacto" className="btn-primary mt-8 text-[15px]">Contactanos</a>
+        <a href="/#contacto" className="btn-primary mt-8 text-[15px]">Quiero mi diagnóstico</a>
 
         <section className="mt-16">
           <h2 className="font-display text-2xl font-semibold tracking-tight text-text-heading sm:text-3xl">Si te pasa esto, es para vos</h2>

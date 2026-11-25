@@ -28,7 +28,7 @@ export const faqs = [
     answer: 'Es un fee mensual fijo. Lo definimos en la llamada según tu negocio.',
   },
   {
-    question: '¿La auditoría tiene letra chica?',
-    answer: 'No. Es gratis y sin compromiso.',
+    question: '¿El diagnóstico tiene letra chica?',
+    answer: 'No. Es gratis y sin compromiso. Si vemos que no te podemos ayudar, te lo decimos.',
   },
 ]

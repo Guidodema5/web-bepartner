@@ -9,7 +9,7 @@ export default function LlamadoInterno({ titulo = '¿Querés leads calificados p
         Contanos de tu negocio y vemos juntos cómo conseguir clientes calificados todos los meses.
       </p>
       <a href="/#contacto" className="btn-primary mt-7 gap-2 text-[15px]">
-        Contactanos <ArrowRight size={17} />
+        Quiero mi diagnóstico <ArrowRight size={17} />
       </a>
     </aside>
   )

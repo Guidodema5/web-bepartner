@@ -16,6 +16,16 @@ type FormData = {
   invierte_ads: string
 }
 
+// Tipo de negocio (Guido, 24/11/2026): filtra y muestra de qué ángulo viene cada contacto. Se guarda en "desafio".
+const tiposDeNegocio = [
+  'Inmobiliaria',
+  'Mayorista o distribuidora',
+  'Servicios (estudio, consultora, salud, oficios)',
+  'Empresa B2B',
+  'Tienda online',
+  'Otro',
+]
+
 // Un solo paso (Guido, 29/10/2026): la persona deja sus datos (se guardan en el Google Sheet) y Bepartner le escribe
 // para coordinar la llamada. Sin calendario: la barrera de entrada tiene que ser baja para conseguir el contacto.
 export default function CTAForm() {
@@ -81,7 +91,7 @@ export default function CTAForm() {
             Contactanos
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-noche-suave">
-            Dejanos tus datos y te escribimos para coordinar la llamada. Revisamos tu negocio con vos y te decimos qué ajustar primero.
+            Dejanos tus datos y coordinamos un diagnóstico para ver si nuestro sistema aplica a tu negocio. Si vemos que no te podemos ayudar, te lo decimos.
           </p>
         </motion.div>
 
@@ -102,7 +112,7 @@ export default function CTAForm() {
                 transition={{ duration: 0.3 }}
                 className="p-6 sm:p-8"
               >
-                <h3 className="text-xl font-semibold text-text-heading">Auditoría de tu negocio</h3>
+                <h3 className="text-xl font-semibold text-text-heading">Diagnóstico de tu negocio</h3>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-5 flex flex-col gap-3">
                   <div>
@@ -136,11 +146,12 @@ export default function CTAForm() {
                     {error(errors.email?.message)}
                   </div>
                   <div>
-                    <input
-                      {...register('desafio', { required: 'Contanos a qué se dedica tu negocio' })}
-                      placeholder="¿A qué se dedica tu negocio?"
-                      className={inputClass}
-                    />
+                    <select {...register('desafio', { required: 'Elegí qué tipo de negocio tenés' })} defaultValue="" className={inputClass}>
+                      <option value="" disabled>¿Qué tipo de negocio tenés?</option>
+                      {tiposDeNegocio.map((t) => (
+                        <option key={t} value={t}>{t}</option>
+                      ))}
+                    </select>
                     {error(errors.desafio?.message)}
                   </div>
                   <div>
