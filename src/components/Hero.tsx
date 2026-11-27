@@ -89,7 +89,7 @@ export default function Hero() {
 
         {/* Prueba social: deRentas (Guido, 09/11/2026: solo deRentas en la portada) */}
         <motion.div {...aparecer(0.36)} className="mt-16 flex flex-col items-center gap-5">
-          <p className="section-label-noche">Confiaron en nosotros</p>
+          <p className="section-label-noche">Trabajamos con</p>
           <span className="relative h-10 w-40">
             <Image src="/images/logo-derentas.svg" alt="deRentas" fill sizes="160px" className="object-contain" priority />
           </span>
